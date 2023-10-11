@@ -1,0 +1,4 @@
+[console_scripts]
+cam_pub = camera.cam_pub:main
+cam_sub = camera.cam_sub:main
+
