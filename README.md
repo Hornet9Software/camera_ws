@@ -66,7 +66,7 @@ Take note of the device number of the left and right camera respectively.
   source install/local_setup.bash
 ```
 You now have a "left camera" terminal and a "right camera" terminal.
-For the following two steps, use the left and right device numbers you got in step 3.
+For the following two steps, use the left and right device numbers you got in step 3.\
 5) In "left camera", run :
 ```
   ros2 run v4l2_camera v4l2_camera_node --ros-args -r __ns:=/left -p video_device:=/dev/video{LEFT_DEVICE_NUMBER} -p camera_info_path:=left.ini
