@@ -1,23 +1,23 @@
 # camera_ws
 Trial and Error repo for reading stereo image from camera & publishing. Now able to calibrate cameras.
 # Packages used
-[v4l2camera](https://github.com/tier4/ros2_v4l2_camera/tree/galactic)
-[image_pipeline](https://github.com/ros-perception/image_pipeline.git)
+[v4l2camera](https://github.com/tier4/ros2_v4l2_camera/tree/galactic)\
+[image_pipeline](https://github.com/ros-perception/image_pipeline.git)\
 
-[This article](https://medium.com/swlh/raspberry-pi-ros-2-camera-eef8f8b94304) details how to build and run the camera driver. It focuses on Raspberry Pi OS with the Raspberry Pi Camera Module V2 but should generalise for most systems.
-[I used this](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329) for reference in calibrating the cameras. Only modification would be to use v4l2_camera instead of opencv_cam. 
+[This article](https://medium.com/swlh/raspberry-pi-ros-2-camera-eef8f8b94304) details how to build and run the camera driver. It focuses on Raspberry Pi OS with the Raspberry Pi Camera Module V2 but should generalise for most systems.\
+[I used this](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329) for reference in calibrating the cameras. Only modification would be to use v4l2_camera instead of opencv_cam. \
 
-Articles are just for reference, all relevant commands have been compiled below.
+Articles are just for reference, all relevant commands have been compiled below.\
 
 # How to install
 
-First make sure you've installed the following utilities:
+First make sure you've installed the following utilities:\
 ```
     sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview rqt
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
 ```
-Then git clone this repo into your root directory(or whatever project directory you use) and go into the camera_ws workspace.
-Go into the /src folder of the worksapce and run the following script:
+Then git clone this repo into your root directory(or whatever project directory you use) and go into the camera_ws workspace.\
+Go into the /src folder of the worksapce and run the following script:\
 
     git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
     git clone --branch humble https://github.com/ros-perception/vision_opencv.git
@@ -31,26 +31,26 @@ Go into the /src folder of the worksapce and run the following script:
     source install/local_setup.bash
 
 ## For WSL users:
-You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)
-It took me quite a while to get it working so jiayou :) 
+You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)\
+It took me quite a while to get it working so jiayou :) \
 
 ## Common bugs
-If you encounter an error with the Cmake directory being different from your own directory, delete the build folder and colcon build again.
+If you encounter an error with the Cmake directory being different from your own directory, delete the build folder and colcon build again.\
 
-Personally, I'm unable to get this driver working with my own webcam(possibly incompatiblity or WSL issue), but it's able to work with the usb cameras at the lab. 
-So try it out with the cameras first if you can't get your own webcam running.
+Personally, I'm unable to get this driver working with my own webcam(possibly incompatiblity or WSL issue), but it's able to work with the usb cameras at the lab. \
+So try it out with the cameras first if you can't get your own webcam running.\
 
 # Usage
 
 ## Specifically for WSL:
-Open a terminal and run wsl if you don't have one already running.
-Open another powershell in administrator mode and go into it.
-Run ``` usbipd wsl list ```
-Find the busid of the USB camera.
-Run ``` usbipd wsl attach --busid {BUSID} ``` with your specific busid.
-Do this for both cameras.
-Run ```usbipd wsl list ``` again and verify both usb cameras have the status "Attached".
-Continue with main procedure.
+Open a terminal and run wsl if you don't have one already running.\
+Open another powershell in administrator mode and go into it.\
+Run ``` usbipd wsl list ```\
+Find the busid of the USB camera.\
+Run ``` usbipd wsl attach --busid {BUSID} ``` with your specific busid.\
+Do this for both cameras.\
+Run ```usbipd wsl list ``` again and verify both usb cameras have the status "Attached".\
+Continue with main procedure.\
 
 ## Main procedure
 1) In the WSL or linux terminal, verify you have the usb device connected with ```lsusb```
