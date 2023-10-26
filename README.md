@@ -2,12 +2,12 @@
 Trial and Error repo for reading stereo image from camera & publishing. Now able to calibrate cameras.
 # Packages used
 [v4l2camera](https://github.com/tier4/ros2_v4l2_camera/tree/galactic)\
-[image_pipeline](https://github.com/ros-perception/image_pipeline.git)\
+[image_pipeline](https://github.com/ros-perception/image_pipeline.git)
 
 [This article](https://medium.com/swlh/raspberry-pi-ros-2-camera-eef8f8b94304) details how to build and run the camera driver. It focuses on Raspberry Pi OS with the Raspberry Pi Camera Module V2 but should generalise for most systems.\
-[I used this](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329) for reference in calibrating the cameras. Only modification would be to use v4l2_camera instead of opencv_cam. \
+[I used this](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329) for reference in calibrating the cameras. Only modification would be to use v4l2_camera instead of opencv_cam. 
 
-Articles are just for reference, all relevant commands have been compiled below.\
+Articles are just for reference, all relevant commands have been compiled below.
 
 # How to install
 
