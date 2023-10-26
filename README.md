@@ -11,13 +11,13 @@ Articles are just for reference, all relevant commands have been compiled below.
 
 # How to install
 
-First make sure you've installed the following utilities:\
+First make sure you've installed the following utilities:
 ```
     sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview rqt
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
 ```
 Then git clone this repo into your root directory(or whatever project directory you use) and go into the camera_ws workspace.\
-Go into the /src folder of the worksapce and run the following script:\
+Go into the /src folder of the worksapce and run the following script:
 
     git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
     git clone --branch humble https://github.com/ros-perception/vision_opencv.git
@@ -32,13 +32,13 @@ Go into the /src folder of the worksapce and run the following script:\
 
 ## For WSL users:
 You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)\
-It took me quite a while to get it working so jiayou :) \
+It took me quite a while to get it working so jiayou :) 
 
 ## Common bugs
-If you encounter an error with the Cmake directory being different from your own directory, delete the build folder and colcon build again.\
+If you encounter an error with the Cmake directory being different from your own directory, delete the build folder and colcon build again.
 
 Personally, I'm unable to get this driver working with my own webcam(possibly incompatiblity or WSL issue), but it's able to work with the usb cameras at the lab. \
-So try it out with the cameras first if you can't get your own webcam running.\
+So try it out with the cameras first if you can't get your own webcam running.
 
 # Usage
 
@@ -50,10 +50,10 @@ Find the busid of the USB camera.\
 Run ``` usbipd wsl attach --busid {BUSID} ``` with your specific busid.\
 Do this for both cameras.\
 Run ```usbipd wsl list ``` again and verify both usb cameras have the status "Attached".\
-Continue with main procedure.\
+Continue with main procedure.
 
 ## Main procedure
-1) In the WSL or linux terminal, verify you have the usb device connected with ```lsusb```
+1) In the WSL or linux terminal, verify you have the usb device connected with ```lsusb```\
 You should see the camera in your connected USB devices.
 2) Then run ```ls /dev/video*```. You should see at least 2 video devices, though its normal to see multiple folders for the same camera.
 If you have multiple folders per camera, note that only 1 of the folders is the "real" folder containing the camera. 
