@@ -13,7 +13,7 @@ Articles are just for reference, all relevant commands have been compiled below.
 
 First make sure you've installed the following utilities:
 ```
-    sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview rqt
+    sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
 ```
 Then git clone this repo into your root directory(or whatever project directory you use) and go into the camera_ws workspace.\
