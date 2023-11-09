@@ -16,16 +16,16 @@ class Detector(Node):
 
     def __init__(self):
         super().__init__("gate_detector")
-        self.pub_hsv_img = self.create_publisher(CompressedImage, "/detect/red/compressed", 10)
-        # self.hsv_pub = self.create_publisher(Image, "hsv_frame", 10)
+        self.pub_hsv_img = self.create_publisher(CompressedImage, "hsv/compressed", 10)
+        self.contour_pub = self.create_publisher(CompressedImage, "contour/compressed", 10)
         # self.blur_pub = self.create_publisher(Image, "blur", 10)
-        # self.rawmask_pub = self.create_publisher(Image, "rawmask", 10)
-        # self.mask_pub = self.create_publisher(Image, "mask", 10)
+        self.rawmask_pub = self.create_publisher(CompressedImage, "rawmask/compressed", 10)
+        self.mask_pub = self.create_publisher(CompressedImage, "mask/compressed", 10)
         # self.threshold_red_pub = self.create_publisher(Image, "threshold_red", 10)
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
-            "/Hornet/Cam/left/image_rect_color/compressed",
+            "/Hornet/Cam/Floor/image_rect_color/compressed",
             self.image_feed_callback,
             10)
         self.bridge = CvBridge()
@@ -36,38 +36,50 @@ class Detector(Node):
         cv_img = self.bridge.compressed_imgmsg_to_cv2(msg)
 
         s = ColorDetector()
-        final_img, contours = s.detectColor(cv_img)
+        final_img, contours, mask, hsv, mask_result = s.detectColor(cv_img)
 
-        classified_img = contour_loop(contours, final_img)
-
+        # classified_img = contour_loop(contours, final_img)
+        
+        mask_img = self.bridge.cv2_to_compressed_imgmsg(mask)
+        hsv_img = self.bridge.cv2_to_compressed_imgmsg(hsv)
+        mask_result_img = self.bridge.cv2_to_compressed_imgmsg(mask_result)
+        final_msg = self.bridge.cv2_to_compressed_imgmsg(final_img) 
         # Convert final image (cv_img) and publish
-        final_msg = self.bridge.cv2_to_compressed_imgmsg(classified_img) 
-        self.pub_hsv_img.publish(final_msg)
+        self.mask_pub.publish(mask_img)
+        self.contour_pub.publish(final_msg)
+        self.rawmask_pub.publish(mask_result_img)
+        self.pub_hsv_img.publish(hsv_img)        
+
 
 class ColorDetector: 
     def __init__(self): 
         pass
     def detectColor(self, img): 
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        lower_red = np.array([20, 20, 170])
-        upper_red = np.array([15, 255, 255])
+        lower_red = np.array([0, 50, 0])
+        upper_red = np.array([60, 255, 170])
         
         mask = cv2.inRange(hsv_img, lower_red, upper_red)
         result = cv2.bitwise_and(img, img, mask = mask)
         kernel = np.ones((10,10), np.uint8)
-        erosion = cv2.erode(result, kernel, iterations = 1)
-        dilation = cv2.dilate(erosion, kernel, iterations = 1)
+        erosion = cv2.erode(result, kernel, iterations = 7)
+        dilation = cv2.dilate(erosion, kernel, iterations = 5)
         
+
+
         img_gray = cv2.cvtColor(dilation, cv2.COLOR_BGR2GRAY) #convert the image to grayscale, this is a requirement bfr thresholding
         _, thresh = cv2.threshold(img_gray, 70, 255, cv2.THRESH_BINARY)
-        contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-        
-        img_contours = cv2.drawContours(img, contours, -1 , (0, 255, 0), 3) #green contours
+        contours, hierarchy = cv2.findContours(img_gray, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        mask
+        cv2.drawContours(img, contours, -1 , (0, 255, 0), 3) #green contours
         for c in contours: 
-            rect = cv2.boundingRect(c)
-            x, y, w, h = rect 
-            cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 3)
-        return img, contours
+            contour_area = cv2.contourArea(c)
+            if (contour_area > 4000):
+                rect = cv2.boundingRect(c)
+                x, y, w, h = rect 
+                cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 3)
+                cv2.putText(img, str(contour_area), (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+        return img, contours, mask, hsv_img, result
 
 class ShapeDetector: 
     def __init__(self):
