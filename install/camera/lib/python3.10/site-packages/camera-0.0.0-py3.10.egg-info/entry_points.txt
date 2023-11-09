@@ -1,5 +1,4 @@
 [console_scripts]
-cam_oflow = camera.cam_oflow:main
-cam_pub = camera.cam_pub:main
-cam_sub = camera.cam_sub:main
+detect_gate = camera.detect_gate:main
+detect_red = camera.detect_red:main
 

@@ -1,1 +1,1 @@
-rclpy:ros2launch:std_msgs:v4l2_camera_node
+cv_bridge:image_transport:opencv2:rclpy:ros2launch:sensors_msgs:std_msgs:v4l2_camera_node
