@@ -1,1 +1,0 @@
-Invoking command in '/home/shengbin/camera_ws/build/image_transport': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/image_transport -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/image_transport

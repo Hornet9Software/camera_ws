@@ -1,1 +1,0 @@
-Invoking command in '/home/shengbin/camera_ws/build/camera_calibration_parsers': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/camera_calibration_parsers -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/camera_calibration_parsers
