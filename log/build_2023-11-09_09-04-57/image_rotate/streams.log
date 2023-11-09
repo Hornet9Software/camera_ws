@@ -1,0 +1,36 @@
+[0.486s] Invoking command in '/home/shengbin/camera_ws/build/image_rotate': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_rotate -- -j16 -l16
+[0.772s] [ 50%] Built target image_rotate
+[0.772s] [100%] Built target image_rotate_bin
+[0.790s] Invoked command in '/home/shengbin/camera_ws/build/image_rotate' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_rotate -- -j16 -l16
+[0.861s] Invoking command in '/home/shengbin/camera_ws/build/image_rotate': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_rotate
+[0.874s] -- Install configuration: ""
+[0.874s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/include
+[0.874s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/include/image_rotate
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/include/image_rotate/visibility.h
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/include/image_rotate/image_rotate_node.hpp
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/library_path.sh
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/library_path.dsv
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/lib/libimage_rotate.so
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/lib/image_rotate/image_rotate
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/launch
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/launch/image_rotate.launch.py
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/ament_index/resource_index/package_run_dependencies/image_rotate
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/ament_index/resource_index/parent_prefix_path/image_rotate
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/ament_prefix_path.sh
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/ament_prefix_path.dsv
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/path.sh
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/environment/path.dsv
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/local_setup.bash
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/local_setup.sh
+[0.875s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/local_setup.zsh
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/local_setup.dsv
+[0.876s] -- Installing: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/package.dsv
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/ament_index/resource_index/packages/image_rotate
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/ament_index/resource_index/rclcpp_components/image_rotate
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/cmake/ament_cmake_export_libraries-extras.cmake
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/cmake/image_rotateConfig.cmake
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/cmake/image_rotateConfig-version.cmake
+[0.876s] -- Up-to-date: /home/shengbin/camera_ws/install/image_rotate/share/image_rotate/package.xml
+[1.124s] Invoked command in '/home/shengbin/camera_ws/build/image_rotate' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_rotate

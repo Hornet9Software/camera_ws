@@ -1,0 +1,43 @@
+[0.088s] Invoking command in '/home/shengbin/camera_ws/build/image_common': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/image_common -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/image_common
+[0.126s] -- The C compiler identification is GNU 11.4.0
+[0.187s] -- The CXX compiler identification is GNU 11.4.0
+[0.196s] -- Detecting C compiler ABI info
+[0.270s] -- Detecting C compiler ABI info - done
+[0.283s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.283s] -- Detecting C compile features
+[0.283s] -- Detecting C compile features - done
+[0.288s] -- Detecting CXX compiler ABI info
+[0.376s] -- Detecting CXX compiler ABI info - done
+[0.389s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.389s] -- Detecting CXX compile features
+[0.390s] -- Detecting CXX compile features - done
+[0.394s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.618s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.748s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.849s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.850s] -- Added test 'lint_cmake' to check CMake code style
+[0.851s] -- Added test 'xmllint' to check XML markup files
+[0.852s] -- Configuring done
+[0.854s] -- Generating done
+[0.854s] -- Build files have been written to: /home/shengbin/camera_ws/build/image_common
+[0.859s] Invoked command in '/home/shengbin/camera_ws/build/image_common' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/image_common -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/image_common
+[0.861s] Invoking command in '/home/shengbin/camera_ws/build/image_common': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_common -- -j16 -l16
+[0.910s] Invoked command in '/home/shengbin/camera_ws/build/image_common' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_common -- -j16 -l16
+[0.938s] Invoking command in '/home/shengbin/camera_ws/build/image_common': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_common
+[0.944s] -- Install configuration: ""
+[0.944s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/ament_index/resource_index/package_run_dependencies/image_common
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/ament_index/resource_index/parent_prefix_path/image_common
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/environment/ament_prefix_path.sh
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/environment/ament_prefix_path.dsv
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/environment/path.sh
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/environment/path.dsv
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/local_setup.bash
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/local_setup.sh
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/local_setup.zsh
+[0.945s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/local_setup.dsv
+[0.946s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/package.dsv
+[0.946s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/ament_index/resource_index/packages/image_common
+[0.946s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/cmake/image_commonConfig.cmake
+[0.946s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/cmake/image_commonConfig-version.cmake
+[0.946s] -- Installing: /home/shengbin/camera_ws/install/image_common/share/image_common/package.xml
+[0.948s] Invoked command in '/home/shengbin/camera_ws/build/image_common' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_common

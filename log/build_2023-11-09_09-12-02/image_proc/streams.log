@@ -1,0 +1,53 @@
+[0.724s] Invoking command in '/home/shengbin/camera_ws/build/image_proc': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_proc -- -j16 -l16
+[0.769s] [ 13%] Built target image_proc
+[0.788s] [ 26%] Built target rectify
+[0.815s] [ 46%] Built target debayer
+[0.839s] [ 60%] Built target resize
+[0.861s] [ 73%] Built target crop_decimate
+[0.886s] [ 86%] Built target crop_non_zero
+[0.915s] [100%] Built target image_proc_exe
+[1.163s] Invoked command in '/home/shengbin/camera_ws/build/image_proc' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_proc -- -j16 -l16
+[1.450s] Invoking command in '/home/shengbin/camera_ws/build/image_proc': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_proc
+[1.456s] -- Install configuration: ""
+[1.456s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/bin/image_proc
+[1.456s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include
+[1.456s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/crop_non_zero.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/resize.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/processor.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/debayer.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/rectify.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/edge_aware.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/crop_decimate.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/include/image_proc/utils.hpp
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/library_path.sh
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/library_path.dsv
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/libimage_proc.so
+[1.457s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/librectify.so
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/libdebayer.so
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/libresize.so
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/libcrop_decimate.so
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/libcrop_non_zero.so
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/lib/image_proc/image_proc
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/launch
+[1.458s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/launch/image_proc.launch.py
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/ament_index/resource_index/package_run_dependencies/image_proc
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/ament_index/resource_index/parent_prefix_path/image_proc
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/ament_prefix_path.sh
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/ament_prefix_path.dsv
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/path.sh
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/environment/path.dsv
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/local_setup.bash
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/local_setup.sh
+[1.459s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/local_setup.zsh
+[1.460s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/local_setup.dsv
+[1.460s] -- Installing: /home/shengbin/camera_ws/install/image_proc/share/image_proc/package.dsv
+[1.460s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/ament_index/resource_index/packages/image_proc
+[1.460s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/ament_index/resource_index/rclcpp_components/image_proc
+[1.460s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.460s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.461s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/cmake/ament_cmake_export_libraries-extras.cmake
+[1.461s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/cmake/image_procConfig.cmake
+[1.461s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/cmake/image_procConfig-version.cmake
+[1.461s] -- Up-to-date: /home/shengbin/camera_ws/install/image_proc/share/image_proc/package.xml
+[1.791s] Invoked command in '/home/shengbin/camera_ws/build/image_proc' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_proc

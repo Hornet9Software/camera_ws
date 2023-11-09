@@ -1,0 +1,97 @@
+[0.182s] Invoking command in '/home/shengbin/camera_ws/build/camera_calibration_parsers': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/camera_calibration_parsers -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/camera_calibration_parsers
+[0.438s] -- The C compiler identification is GNU 11.4.0
+[0.439s] -- The CXX compiler identification is GNU 11.4.0
+[0.439s] -- Detecting C compiler ABI info
+[0.439s] -- Detecting C compiler ABI info - done
+[0.439s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.439s] -- Detecting C compile features
+[0.439s] -- Detecting C compile features - done
+[0.439s] -- Detecting CXX compiler ABI info
+[0.483s] -- Detecting CXX compiler ABI info - done
+[0.489s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.489s] -- Detecting CXX compile features
+[0.490s] -- Detecting CXX compile features - done
+[0.492s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.683s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.782s] -- Found rclcpp: 16.0.6 (/opt/ros/humble/share/rclcpp/cmake)
+[0.832s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.837s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.851s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.873s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.897s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.023s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.038s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.098s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.109s] -- Looking for pthread.h
+[1.172s] -- Looking for pthread.h - found
+[1.172s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.307s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.308s] -- Found Threads: TRUE  
+[1.479s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.685s] -- Found yaml_cpp_vendor: 8.0.2 (/opt/ros/humble/share/yaml_cpp_vendor/cmake)
+[1.692s] -- Found ament_cmake_cppcheck: 0.12.8 (/opt/ros/humble/share/ament_cmake_cppcheck/cmake)
+[1.694s] -- Found ament_cmake_cpplint: 0.12.8 (/opt/ros/humble/share/ament_cmake_cpplint/cmake)
+[1.696s] -- Found ament_cmake_lint_cmake: 0.12.8 (/opt/ros/humble/share/ament_cmake_lint_cmake/cmake)
+[1.699s] -- Found ament_cmake_uncrustify: 0.12.8 (/opt/ros/humble/share/ament_cmake_uncrustify/cmake)
+[1.703s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[1.816s] -- Configuring done
+[1.848s] -- Generating done
+[1.851s] -- Build files have been written to: /home/shengbin/camera_ws/build/camera_calibration_parsers
+[1.908s] Invoked command in '/home/shengbin/camera_ws/build/camera_calibration_parsers' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/shengbin/camera_ws/src/image_common/camera_calibration_parsers -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/camera_calibration_parsers
+[1.910s] Invoking command in '/home/shengbin/camera_ws/build/camera_calibration_parsers': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/camera_calibration_parsers -- -j16 -l16
+[1.986s] [  7%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[2.007s] [ 14%] [32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse.cpp.o[0m
+[2.016s] [ 21%] [32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse_ini.cpp.o[0m
+[2.018s] [ 28%] [32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse_yml.cpp.o[0m
+[2.033s] [ 35%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[2.960s] [ 42%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[3.087s] [ 42%] Built target gtest_main
+[5.481s] [ 50%] [32m[1mLinking CXX static library libgtest.a[0m
+[5.607s] [ 50%] Built target gtest
+[5.804s] [ 57%] [32m[1mLinking CXX shared library libcamera_calibration_parsers.so[0m
+[5.957s] [ 57%] Built target camera_calibration_parsers
+[5.975s] [ 64%] [32mBuilding CXX object CMakeFiles/camera_calibration_parsers-parse_yml.dir/test/test_parse_yml.cpp.o[0m
+[5.983s] [ 78%] [32mBuilding CXX object CMakeFiles/camera_calibration_parsers-parse_ini.dir/test/test_parse_ini.cpp.o[0m
+[5.986s] [ 78%] [32mBuilding CXX object CMakeFiles/convert.dir/src/convert.cpp.o[0m
+[6.802s] [ 85%] [32m[1mLinking CXX executable camera_calibration_parsers-parse_yml[0m
+[6.949s] [ 85%] Built target camera_calibration_parsers-parse_yml
+[6.994s] [ 92%] [32m[1mLinking CXX executable camera_calibration_parsers-parse_ini[0m
+[7.137s] [ 92%] Built target camera_calibration_parsers-parse_ini
+[7.179s] [100%] [32m[1mLinking CXX executable convert[0m
+[7.338s] [100%] Built target convert
+[7.352s] Invoked command in '/home/shengbin/camera_ws/build/camera_calibration_parsers' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/camera_calibration_parsers -- -j16 -l16
+[7.397s] Invoking command in '/home/shengbin/camera_ws/build/camera_calibration_parsers': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/camera_calibration_parsers
+[7.406s] -- Install configuration: ""
+[7.406s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/lib/libcamera_calibration_parsers.so
+[7.408s] -- Set runtime path of "/home/shengbin/camera_ws/install/camera_calibration_parsers/lib/libcamera_calibration_parsers.so" to ""
+[7.408s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/lib/camera_calibration_parsers/convert
+[7.408s] -- Set runtime path of "/home/shengbin/camera_ws/install/camera_calibration_parsers/lib/camera_calibration_parsers/convert" to ""
+[7.408s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers
+[7.408s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse_yml.hpp
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse_ini.h
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/visibility_control.hpp
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse.hpp
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse_yml.h
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse.h
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/include/camera_calibration_parsers/camera_calibration_parsers/parse_ini.hpp
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/ament_index/resource_index/package_run_dependencies/camera_calibration_parsers
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/ament_index/resource_index/parent_prefix_path/camera_calibration_parsers
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/ament_prefix_path.sh
+[7.409s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/ament_prefix_path.dsv
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/path.sh
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/path.dsv
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.bash
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.sh
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.zsh
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.dsv
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/package.dsv
+[7.410s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/ament_index/resource_index/packages/camera_calibration_parsers
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/export_camera_calibration_parsersExport.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/export_camera_calibration_parsersExport-noconfig.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/ament_cmake_export_targets-extras.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/camera_calibration_parsersConfig.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/camera_calibration_parsersConfig-version.cmake
+[7.411s] -- Installing: /home/shengbin/camera_ws/install/camera_calibration_parsers/share/camera_calibration_parsers/package.xml
+[7.414s] Invoked command in '/home/shengbin/camera_ws/build/camera_calibration_parsers' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/camera_calibration_parsers

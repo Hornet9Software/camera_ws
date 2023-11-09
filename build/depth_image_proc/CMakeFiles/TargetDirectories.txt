@@ -1,0 +1,10 @@
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/uninstall.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/depth_image_proc_uninstall.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/depth_image_proc.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/test.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/edit_cache.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/rebuild_cache.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/list_install_components.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/install.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/install/local.dir
+/home/shengbin/camera_ws/build/depth_image_proc/CMakeFiles/install/strip.dir
