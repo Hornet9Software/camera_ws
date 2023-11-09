@@ -1,0 +1,15 @@
+/home/shengbin/camera_ws/install/vision_opencv/share/ament_index/resource_index/package_run_dependencies/vision_opencv
+/home/shengbin/camera_ws/install/vision_opencv/share/ament_index/resource_index/parent_prefix_path/vision_opencv
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/environment/ament_prefix_path.sh
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/environment/ament_prefix_path.dsv
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/environment/path.sh
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/environment/path.dsv
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/local_setup.bash
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/local_setup.sh
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/local_setup.zsh
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/local_setup.dsv
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/package.dsv
+/home/shengbin/camera_ws/install/vision_opencv/share/ament_index/resource_index/packages/vision_opencv
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/cmake/vision_opencvConfig.cmake
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/cmake/vision_opencvConfig-version.cmake
+/home/shengbin/camera_ws/install/vision_opencv/share/vision_opencv/package.xml

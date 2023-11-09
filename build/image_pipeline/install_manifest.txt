@@ -1,0 +1,15 @@
+/home/shengbin/camera_ws/install/image_pipeline/share/ament_index/resource_index/package_run_dependencies/image_pipeline
+/home/shengbin/camera_ws/install/image_pipeline/share/ament_index/resource_index/parent_prefix_path/image_pipeline
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/environment/ament_prefix_path.sh
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/environment/ament_prefix_path.dsv
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/environment/path.sh
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/environment/path.dsv
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/local_setup.bash
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/local_setup.sh
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/local_setup.zsh
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/local_setup.dsv
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/package.dsv
+/home/shengbin/camera_ws/install/image_pipeline/share/ament_index/resource_index/packages/image_pipeline
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/cmake/image_pipelineConfig.cmake
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/cmake/image_pipelineConfig-version.cmake
+/home/shengbin/camera_ws/install/image_pipeline/share/image_pipeline/package.xml

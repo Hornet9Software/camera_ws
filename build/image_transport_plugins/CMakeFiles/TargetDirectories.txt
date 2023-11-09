@@ -1,0 +1,9 @@
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/uninstall.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/image_transport_plugins_uninstall.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/test.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/edit_cache.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/rebuild_cache.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/list_install_components.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/install.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/install/local.dir
+/home/shengbin/camera_ws/build/image_transport_plugins/CMakeFiles/install/strip.dir

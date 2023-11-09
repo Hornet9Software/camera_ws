@@ -28,6 +28,7 @@ setup(
         'console_scripts': [
             'detect_gate = camera.detect_gate:main',
             'detect_red = camera.detect_red:main',
+            'optical_flow = camera.optical_flow:main',
         ],
     },
 )
