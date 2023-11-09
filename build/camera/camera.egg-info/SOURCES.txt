@@ -9,10 +9,7 @@ setup.py
 ../../build/camera/camera.egg-info/top_level.txt
 ../../build/camera/camera.egg-info/zip-safe
 camera/__init__.py
-camera/cam_oflow.py
-camera/cam_pub.py
-camera/cam_sub.py
-launch/launch_cam.launch.py
+launch/cam.launch.py
 resource/camera
 test/test_copyright.py
 test/test_flake8.py

@@ -4,7 +4,7 @@
   <name>camera</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="shengbin@todo.todo">shengbin</maintainer>
+  <maintainer email="shengbin.chan@gmail.com">shengbin</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
@@ -17,7 +17,7 @@
 
   <exec_depend>v4l2_camera_node</exec_depend>
   <exec_depend>ros2launch</exec_depend>
-  
+
   <export>
     <build_type>ament_python</build_type>
   </export>

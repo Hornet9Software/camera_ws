@@ -1,0 +1,67 @@
+[0.102s] Invoking command in '/home/shengbin/camera_ws/build/image_geometry': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_geometry -- -j16 -l16
+[0.140s] [ 11%] [32mBuilding CXX object CMakeFiles/image_geometry.dir/src/stereo_camera_model.cpp.o[0m
+[0.157s] [ 22%] [32mBuilding CXX object CMakeFiles/image_geometry.dir/src/pinhole_camera_model.cpp.o[0m
+[0.174s] [ 33%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[0.188s] [ 44%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[0.203s] [ 44%] Built target ament_cmake_python_copy_image_geometry
+[0.886s] running egg_info
+[0.887s] creating image_geometry.egg-info
+[0.888s] writing image_geometry.egg-info/PKG-INFO
+[0.888s] writing dependency_links to image_geometry.egg-info/dependency_links.txt
+[0.888s] writing top-level names to image_geometry.egg-info/top_level.txt
+[0.889s] writing manifest file 'image_geometry.egg-info/SOURCES.txt'
+[0.893s] reading manifest file 'image_geometry.egg-info/SOURCES.txt'
+[0.894s] writing manifest file 'image_geometry.egg-info/SOURCES.txt'
+[0.964s] [ 44%] Built target ament_cmake_python_build_image_geometry_egg
+[1.456s] [ 55%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[1.755s] [ 55%] Built target gtest_main
+[2.394s] [ 66%] [32m[1mLinking CXX shared library libimage_geometry.so[0m
+[2.746s] [ 66%] Built target image_geometry
+[5.157s] [ 77%] [32m[1mLinking CXX static library libgtest.a[0m
+[5.239s] [ 77%] Built target gtest
+[5.256s] [ 88%] [32mBuilding CXX object CMakeFiles/image_geometry-utest.dir/test/utest.cpp.o[0m
+[6.338s] [100%] [32m[1mLinking CXX executable image_geometry-utest[0m
+[6.464s] [100%] Built target image_geometry-utest
+[6.483s] Invoked command in '/home/shengbin/camera_ws/build/image_geometry' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_geometry -- -j16 -l16
+[6.501s] Invoking command in '/home/shengbin/camera_ws/build/image_geometry': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_geometry
+[6.506s] -- Install configuration: ""
+[6.506s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/pythonpath.sh
+[6.506s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/pythonpath.dsv
+[6.506s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry-3.2.1-py3.10.egg-info
+[6.506s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry-3.2.1-py3.10.egg-info/dependency_links.txt
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry-3.2.1-py3.10.egg-info/SOURCES.txt
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry-3.2.1-py3.10.egg-info/PKG-INFO
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry-3.2.1-py3.10.egg-info/top_level.txt
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry/__init__.py
+[6.507s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry/cameramodels.py
+[6.530s] Listing '/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry'...
+[6.531s] Compiling '/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry/__init__.py'...
+[6.531s] Compiling '/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages/image_geometry/cameramodels.py'...
+[6.534s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/include/image_geometry
+[6.535s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/include/image_geometry/image_geometry
+[6.536s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/include/image_geometry/image_geometry/stereo_camera_model.h
+[6.537s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/include/image_geometry/image_geometry/visibility_control.hpp
+[6.538s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/include/image_geometry/image_geometry/pinhole_camera_model.h
+[6.538s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/lib/libimage_geometry.so
+[6.538s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_geometry/lib/libimage_geometry.so" to ""
+[6.539s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/ament_index/resource_index/package_run_dependencies/image_geometry
+[6.540s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/ament_index/resource_index/parent_prefix_path/image_geometry
+[6.540s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/ament_prefix_path.sh
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/ament_prefix_path.dsv
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/path.sh
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/environment/path.dsv
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/local_setup.bash
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/local_setup.sh
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/local_setup.zsh
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/local_setup.dsv
+[6.541s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/package.dsv
+[6.542s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/ament_index/resource_index/packages/image_geometry
+[6.542s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/export_image_geometryExport.cmake
+[6.542s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/export_image_geometryExport-noconfig.cmake
+[6.542s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/ament_cmake_export_targets-extras.cmake
+[6.542s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.543s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/image_geometryConfig.cmake
+[6.543s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/cmake/image_geometryConfig-version.cmake
+[6.543s] -- Installing: /home/shengbin/camera_ws/install/image_geometry/share/image_geometry/package.xml
+[6.610s] Invoked command in '/home/shengbin/camera_ws/build/image_geometry' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_geometry

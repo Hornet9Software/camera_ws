@@ -1,0 +1,45 @@
+[1.336s] Invoking command in '/home/shengbin/camera_ws/src/vision_opencv/opencv_tests': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/opencv_tests/prefix_override:/home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/opencv_tests build --build-base /home/shengbin/camera_ws/build/opencv_tests/build install --record /home/shengbin/camera_ws/build/opencv_tests/install.log --single-version-externally-managed
+[1.737s] running egg_info
+[1.738s] creating ../../../build/opencv_tests/opencv_tests.egg-info
+[1.738s] writing ../../../build/opencv_tests/opencv_tests.egg-info/PKG-INFO
+[1.738s] writing dependency_links to ../../../build/opencv_tests/opencv_tests.egg-info/dependency_links.txt
+[1.738s] writing entry points to ../../../build/opencv_tests/opencv_tests.egg-info/entry_points.txt
+[1.738s] writing requirements to ../../../build/opencv_tests/opencv_tests.egg-info/requires.txt
+[1.739s] writing top-level names to ../../../build/opencv_tests/opencv_tests.egg-info/top_level.txt
+[1.739s] writing manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[1.740s] reading manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[1.741s] writing manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[1.742s] running build
+[1.743s] running build_py
+[1.743s] creating /home/shengbin/camera_ws/build/opencv_tests/build
+[1.743s] creating /home/shengbin/camera_ws/build/opencv_tests/build/lib
+[1.743s] creating /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[1.744s] copying opencv_tests/rosfacedetect.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[1.744s] copying opencv_tests/__init__.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[1.744s] copying opencv_tests/source.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[1.744s] copying opencv_tests/broadcast.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[1.745s] running install
+[1.745s] running install_lib
+[1.745s] creating /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[1.745s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/rosfacedetect.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[1.745s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/__init__.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[1.745s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/source.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[1.746s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/broadcast.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[1.746s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/rosfacedetect.py to rosfacedetect.cpython-310.pyc
+[1.746s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/__init__.py to __init__.cpython-310.pyc
+[1.747s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/source.py to source.cpython-310.pyc
+[1.748s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/broadcast.py to broadcast.cpython-310.pyc
+[1.749s] running install_data
+[1.750s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index
+[1.750s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index
+[1.750s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index/packages
+[1.750s] copying resource/opencv_tests -> /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index/packages
+[1.750s] copying package.xml -> /home/shengbin/camera_ws/install/opencv_tests/share/opencv_tests
+[1.750s] running install_egg_info
+[1.751s] Copying ../../../build/opencv_tests/opencv_tests.egg-info to /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests-3.2.1-py3.10.egg-info
+[1.752s] running install_scripts
+[1.772s] Installing broadcast script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[1.772s] Installing rosfacedetect script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[1.772s] Installing source script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[1.773s] writing list of installed files to '/home/shengbin/camera_ws/build/opencv_tests/install.log'
+[1.818s] Invoked command in '/home/shengbin/camera_ws/src/vision_opencv/opencv_tests' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/opencv_tests/prefix_override:/home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/opencv_tests build --build-base /home/shengbin/camera_ws/build/opencv_tests/build install --record /home/shengbin/camera_ws/build/opencv_tests/install.log --single-version-externally-managed

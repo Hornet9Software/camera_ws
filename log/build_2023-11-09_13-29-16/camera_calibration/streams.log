@@ -1,0 +1,55 @@
+[1.268s] Invoking command in '/home/shengbin/camera_ws/src/image_pipeline/camera_calibration': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/camera_calibration/prefix_override:/home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/camera_calibration build --build-base /home/shengbin/camera_ws/build/camera_calibration/build install --record /home/shengbin/camera_ws/build/camera_calibration/install.log --single-version-externally-managed
+[1.592s] running egg_info
+[1.593s] creating ../../../build/camera_calibration/camera_calibration.egg-info
+[1.593s] writing ../../../build/camera_calibration/camera_calibration.egg-info/PKG-INFO
+[1.593s] writing dependency_links to ../../../build/camera_calibration/camera_calibration.egg-info/dependency_links.txt
+[1.593s] writing entry points to ../../../build/camera_calibration/camera_calibration.egg-info/entry_points.txt
+[1.593s] writing requirements to ../../../build/camera_calibration/camera_calibration.egg-info/requires.txt
+[1.594s] writing top-level names to ../../../build/camera_calibration/camera_calibration.egg-info/top_level.txt
+[1.594s] writing manifest file '../../../build/camera_calibration/camera_calibration.egg-info/SOURCES.txt'
+[1.597s] reading manifest file '../../../build/camera_calibration/camera_calibration.egg-info/SOURCES.txt'
+[1.598s] writing manifest file '../../../build/camera_calibration/camera_calibration.egg-info/SOURCES.txt'
+[1.598s] running build
+[1.598s] running build_py
+[1.599s] creating /home/shengbin/camera_ws/build/camera_calibration/build
+[1.599s] creating /home/shengbin/camera_ws/build/camera_calibration/build/lib
+[1.599s] creating /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration
+[1.599s] copying src/camera_calibration/calibrator.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration
+[1.599s] copying src/camera_calibration/camera_checker.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration
+[1.599s] copying src/camera_calibration/__init__.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration
+[1.599s] copying src/camera_calibration/camera_calibrator.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration
+[1.599s] creating /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes
+[1.599s] copying src/camera_calibration/nodes/cameracheck.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes
+[1.600s] copying src/camera_calibration/nodes/__init__.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes
+[1.600s] copying src/camera_calibration/nodes/cameracalibrator.py -> /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes
+[1.600s] running install
+[1.600s] running install_lib
+[1.602s] creating /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration
+[1.602s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/calibrator.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration
+[1.602s] creating /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes
+[1.602s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes/cameracheck.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes
+[1.602s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes/__init__.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes
+[1.602s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/nodes/cameracalibrator.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes
+[1.603s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/camera_checker.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration
+[1.603s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/__init__.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration
+[1.603s] copying /home/shengbin/camera_ws/build/camera_calibration/build/lib/camera_calibration/camera_calibrator.py -> /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration
+[1.603s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/calibrator.py to calibrator.cpython-310.pyc
+[1.617s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes/cameracheck.py to cameracheck.cpython-310.pyc
+[1.618s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes/__init__.py to __init__.cpython-310.pyc
+[1.618s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/nodes/cameracalibrator.py to cameracalibrator.cpython-310.pyc
+[1.618s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/camera_checker.py to camera_checker.cpython-310.pyc
+[1.620s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/__init__.py to __init__.cpython-310.pyc
+[1.620s] byte-compiling /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration/camera_calibrator.py to camera_calibrator.cpython-310.pyc
+[1.622s] running install_data
+[1.623s] creating /home/shengbin/camera_ws/install/camera_calibration/share/ament_index
+[1.623s] creating /home/shengbin/camera_ws/install/camera_calibration/share/ament_index/resource_index
+[1.623s] creating /home/shengbin/camera_ws/install/camera_calibration/share/ament_index/resource_index/packages
+[1.623s] copying resource/camera_calibration -> /home/shengbin/camera_ws/install/camera_calibration/share/ament_index/resource_index/packages
+[1.623s] copying package.xml -> /home/shengbin/camera_ws/install/camera_calibration/share/camera_calibration
+[1.623s] running install_egg_info
+[1.625s] Copying ../../../build/camera_calibration/camera_calibration.egg-info to /home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages/camera_calibration-3.0.0-py3.10.egg-info
+[1.628s] running install_scripts
+[1.648s] Installing cameracalibrator script to /home/shengbin/camera_ws/install/camera_calibration/lib/camera_calibration
+[1.648s] Installing cameracheck script to /home/shengbin/camera_ws/install/camera_calibration/lib/camera_calibration
+[1.648s] writing list of installed files to '/home/shengbin/camera_ws/build/camera_calibration/install.log'
+[1.679s] Invoked command in '/home/shengbin/camera_ws/src/image_pipeline/camera_calibration' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/camera_calibration/prefix_override:/home/shengbin/camera_ws/install/camera_calibration/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/camera_calibration build --build-base /home/shengbin/camera_ws/build/camera_calibration/build install --record /home/shengbin/camera_ws/build/camera_calibration/install.log --single-version-externally-managed

@@ -1,0 +1,75 @@
+[  6%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[ 12%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o[0m
+[ 18%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o[0m
+[ 18%] Built target ament_cmake_python_copy_cv_bridge
+[ 25%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+running egg_info
+creating cv_bridge.egg-info
+writing cv_bridge.egg-info/PKG-INFO
+writing dependency_links to cv_bridge.egg-info/dependency_links.txt
+writing top-level names to cv_bridge.egg-info/top_level.txt
+writing manifest file 'cv_bridge.egg-info/SOURCES.txt'
+reading manifest file 'cv_bridge.egg-info/SOURCES.txt'
+writing manifest file 'cv_bridge.egg-info/SOURCES.txt'
+[ 25%] Built target ament_cmake_python_build_cv_bridge_egg
+[ 31%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[ 31%] Built target gtest_main
+[ 37%] [32m[1mLinking CXX static library libgtest.a[0m
+[ 37%] Built target gtest
+[ 43%] [32m[1mLinking CXX shared library libcv_bridge.so[0m
+[ 43%] Built target cv_bridge
+[ 50%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o[0m
+[ 56%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module_opencv3.cpp.o[0m
+[ 62%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_endian.cpp.o[0m
+[ 68%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest.cpp.o[0m
+[ 87%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest2.cpp.o[0m
+[ 87%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_rgb_colors.cpp.o[0m
+[ 87%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_compression.cpp.o[0m
+[ 93%] [32m[1mLinking CXX executable cv_bridge-utest[0m
+[ 93%] Built target cv_bridge-utest
+[100%] [32m[1mLinking CXX shared module boost/cv_bridge_boost.so[0m
+[100%] Built target cv_bridge_boost
+-- Install configuration: ""
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.sh
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.dsv
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/PKG-INFO
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/top_level.txt
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/__init__.py
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/core.py
+Listing '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge'...
+Compiling '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/__init__.py'...
+Compiling '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/core.py'...
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so
+-- Set runtime path of "/home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so" to ""
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+-- Set runtime path of "/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/boost/cv_bridge_boost.so" to ""
+-- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge
+-- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge.h
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/rgb_colors.h
+-- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/package_run_dependencies/cv_bridge
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/parent_prefix_path/cv_bridge
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.sh
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.dsv
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/path.sh
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/path.dsv
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.bash
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.sh
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.zsh
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.dsv
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/package.dsv
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/packages/cv_bridge
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/export_cv_bridgeExport.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/export_cv_bridgeExport-noconfig.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridge-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+-- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/package.xml

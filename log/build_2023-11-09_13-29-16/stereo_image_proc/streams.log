@@ -1,0 +1,101 @@
+[0.051s] Invoking command in '/home/shengbin/camera_ws/build/stereo_image_proc': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/shengbin/camera_ws/src/image_pipeline/stereo_image_proc -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/stereo_image_proc
+[0.089s] -- The C compiler identification is GNU 11.4.0
+[0.127s] -- The CXX compiler identification is GNU 11.4.0
+[0.132s] -- Detecting C compiler ABI info
+[0.177s] -- Detecting C compiler ABI info - done
+[0.181s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.182s] -- Detecting C compile features
+[0.182s] -- Detecting C compile features - done
+[0.184s] -- Detecting CXX compiler ABI info
+[0.239s] -- Detecting CXX compiler ABI info - done
+[0.244s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.244s] -- Detecting CXX compile features
+[0.244s] -- Detecting CXX compile features - done
+[0.253s] -- Found ament_cmake_auto: 1.3.5 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.378s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.556s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.561s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.569s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.586s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.602s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.849s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.852s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.884s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.894s] -- Looking for pthread.h
+[0.943s] -- Looking for pthread.h - found
+[0.943s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.994s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.995s] -- Found Threads: TRUE  
+[1.336s] -- Found OpenCV: /usr (found version "4.5.4") 
+[1.404s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.458s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.475s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.484s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.484s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.484s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.484s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.499s] -- Found PythonExtra: .so  
+[1.516s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.518s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.518s] -- Configured cppcheck include dirs: /home/shengbin/camera_ws/src/image_pipeline/stereo_image_proc/include
+[1.518s] -- Configured cppcheck exclude dirs and/or files: 
+[1.519s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.519s] -- Configured cpplint exclude dirs and/or files: 
+[1.520s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.520s] -- Added test 'lint_cmake' to check CMake code style
+[1.521s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.522s] -- Added test 'uncrustify' to check C / C++ code style
+[1.522s] -- Configured uncrustify additional arguments: 
+[1.522s] -- Added test 'xmllint' to check XML markup files
+[1.525s] -- Configuring done
+[1.546s] -- Generating done
+[1.547s] -- Build files have been written to: /home/shengbin/camera_ws/build/stereo_image_proc
+[1.556s] Invoked command in '/home/shengbin/camera_ws/build/stereo_image_proc' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/shengbin/camera_ws/src/image_pipeline/stereo_image_proc -DCMAKE_INSTALL_PREFIX=/home/shengbin/camera_ws/install/stereo_image_proc
+[1.556s] Invoking command in '/home/shengbin/camera_ws/build/stereo_image_proc': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/stereo_image_proc -- -j16 -l16
+[1.590s] [ 37%] [32mBuilding CXX object CMakeFiles/stereo_image_proc.dir/src/stereo_image_proc/stereo_processor.cpp.o[0m
+[1.590s] [ 37%] [32mBuilding CXX object CMakeFiles/point_cloud_node.dir/rclcpp_components/node_main_point_cloud_node.cpp.o[0m
+[1.590s] [ 37%] [32mBuilding CXX object CMakeFiles/disparity_node.dir/rclcpp_components/node_main_disparity_node.cpp.o[0m
+[1.592s] [ 50%] [32mBuilding CXX object CMakeFiles/stereo_image_proc.dir/src/stereo_image_proc/point_cloud_node.cpp.o[0m
+[1.593s] [ 62%] [32mBuilding CXX object CMakeFiles/stereo_image_proc.dir/src/stereo_image_proc/disparity_node.cpp.o[0m
+[3.835s] [ 75%] [32m[1mLinking CXX executable point_cloud_node[0m
+[3.925s] [ 75%] Built target point_cloud_node
+[4.394s] [ 87%] [32m[1mLinking CXX executable disparity_node[0m
+[4.478s] [ 87%] Built target disparity_node
+[12.159s] [100%] [32m[1mLinking CXX shared library libstereo_image_proc.so[0m
+[13.249s] [100%] Built target stereo_image_proc
+[13.265s] Invoked command in '/home/shengbin/camera_ws/build/stereo_image_proc' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/stereo_image_proc -- -j16 -l16
+[13.284s] Invoking command in '/home/shengbin/camera_ws/build/stereo_image_proc': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/stereo_image_proc
+[13.289s] -- Install configuration: ""
+[13.289s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/lib/stereo_image_proc/disparity_node
+[13.289s] -- Set runtime path of "/home/shengbin/camera_ws/install/stereo_image_proc/lib/stereo_image_proc/disparity_node" to ""
+[13.289s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/lib/stereo_image_proc/point_cloud_node
+[13.289s] -- Set runtime path of "/home/shengbin/camera_ws/install/stereo_image_proc/lib/stereo_image_proc/point_cloud_node" to ""
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/include
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/include/stereo_image_proc
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/include/stereo_image_proc/stereo_processor.hpp
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/library_path.sh
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/library_path.dsv
+[13.290s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/lib/libstereo_image_proc.so
+[13.298s] -- Set runtime path of "/home/shengbin/camera_ws/install/stereo_image_proc/lib/libstereo_image_proc.so" to ""
+[13.299s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/launch
+[13.299s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/launch/stereo_image_proc.launch.py
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/ament_index/resource_index/package_run_dependencies/stereo_image_proc
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/ament_index/resource_index/parent_prefix_path/stereo_image_proc
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/ament_prefix_path.sh
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/ament_prefix_path.dsv
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/path.sh
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/environment/path.dsv
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/local_setup.bash
+[13.312s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/local_setup.sh
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/local_setup.zsh
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/local_setup.dsv
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/package.dsv
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/ament_index/resource_index/packages/stereo_image_proc
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/ament_index/resource_index/rclcpp_components/stereo_image_proc
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/cmake/ament_cmake_export_dependencies-extras.cmake
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/cmake/ament_cmake_export_include_directories-extras.cmake
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/cmake/ament_cmake_export_libraries-extras.cmake
+[13.313s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/cmake/stereo_image_procConfig.cmake
+[13.314s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/cmake/stereo_image_procConfig-version.cmake
+[13.314s] -- Installing: /home/shengbin/camera_ws/install/stereo_image_proc/share/stereo_image_proc/package.xml
+[13.315s] Invoked command in '/home/shengbin/camera_ws/build/stereo_image_proc' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/cv_bridge:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PATH=/home/shengbin/camera_ws/install/image_proc/bin:${PATH} PYTHONPATH=/home/shengbin/camera_ws/install/image_geometry/local/lib/python3.10/dist-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/stereo_image_proc
