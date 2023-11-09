@@ -30,6 +30,12 @@ Go into the /src folder of the worksapce and run the following script:
         colcon build 
         source install/local_setup.bash
 
+If you are met with 'setup.py install is deprecated' when running colcon build, 
+Install the setuptools 58.2.0 version using the following command:
+        
+        pip install setuptools==58.2.0
+
+
 ## For WSL users
 You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)\
 It took me quite a while to get it working so jiayou :) 
