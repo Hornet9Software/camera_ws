@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/status.dir/src/status.c.o -o status  -Wl,-rpath,/home/shengbin/camera_ws/build/tracetools_image_pipeline: libtracetools_image_pipeline.so -llttng-ust -llttng-ust-common -ldl -rdynamic 

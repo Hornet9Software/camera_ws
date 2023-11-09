@@ -1,0 +1,37 @@
+[35m[1mConsolidate compiler generated dependencies of target image_publisher[0m
+[ 50%] Built target image_publisher
+[35m[1mConsolidate compiler generated dependencies of target image_publisher_node[0m
+[100%] Built target image_publisher_node
+-- Install configuration: ""
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher/visibility.h
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher/image_publisher.hpp
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/library_path.sh
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/library_path.dsv
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/lib/libimage_publisher.so
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/lib/image_publisher/image_publisher_node
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_stereo.launch.py
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_file.launch.py
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/splash.png
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_mono.launch.py
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/package_run_dependencies/image_publisher
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/parent_prefix_path/image_publisher
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.sh
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/path.sh
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/path.dsv
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.bash
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.sh
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.zsh
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.dsv
+-- Installing: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/package.dsv
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/packages/image_publisher
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/rclcpp_components/image_publisher
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig.cmake
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig-version.cmake
+-- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/package.xml

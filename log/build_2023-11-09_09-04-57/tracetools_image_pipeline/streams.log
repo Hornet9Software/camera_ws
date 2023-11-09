@@ -1,0 +1,39 @@
+[0.118s] Invoking command in '/home/shengbin/camera_ws/build/tracetools_image_pipeline': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/tracetools_image_pipeline -- -j16 -l16
+[0.388s] [ 66%] Built target tracetools_image_pipeline
+[0.389s] [100%] Built target status
+[0.392s] Invoked command in '/home/shengbin/camera_ws/build/tracetools_image_pipeline' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/tracetools_image_pipeline -- -j16 -l16
+[0.405s] Invoking command in '/home/shengbin/camera_ws/build/tracetools_image_pipeline': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/tracetools_image_pipeline
+[0.416s] -- Install configuration: ""
+[0.416s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/library_path.sh
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/library_path.dsv
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/lib/tracetools_image_pipeline/status
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/tracetools.h
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/visibility_control.hpp
+[0.417s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/tp_call.h
+[0.418s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/utils.hpp
+[0.418s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/config.h
+[0.418s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/lib/libtracetools_image_pipeline.so
+[0.418s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/package_run_dependencies/tracetools_image_pipeline
+[0.420s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/parent_prefix_path/tracetools_image_pipeline
+[0.420s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/ament_prefix_path.sh
+[0.420s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/ament_prefix_path.dsv
+[0.420s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/path.sh
+[0.420s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/path.dsv
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.bash
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.sh
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.zsh
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.dsv
+[0.421s] -- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/package.dsv
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/packages/tracetools_image_pipeline
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipeline_exportExport.cmake
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipeline_exportExport-noconfig.cmake
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_targets-extras.cmake
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.421s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_libraries-extras.cmake
+[0.422s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_link_flags-extras.cmake
+[0.422s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipelineConfig.cmake
+[0.422s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipelineConfig-version.cmake
+[0.422s] -- Up-to-date: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/package.xml
+[0.423s] Invoked command in '/home/shengbin/camera_ws/build/tracetools_image_pipeline' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/tracetools_image_pipeline

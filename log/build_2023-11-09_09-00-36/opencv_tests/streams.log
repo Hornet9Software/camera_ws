@@ -1,0 +1,47 @@
+[1.653s] Invoking command in '/home/shengbin/camera_ws/src/vision_opencv/opencv_tests': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/opencv_tests/prefix_override:/home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/opencv_tests build --build-base /home/shengbin/camera_ws/build/opencv_tests/build install --record /home/shengbin/camera_ws/build/opencv_tests/install.log --single-version-externally-managed
+[2.107s] running egg_info
+[2.108s] creating ../../../build/opencv_tests/opencv_tests.egg-info
+[2.108s] writing ../../../build/opencv_tests/opencv_tests.egg-info/PKG-INFO
+[2.109s] writing dependency_links to ../../../build/opencv_tests/opencv_tests.egg-info/dependency_links.txt
+[2.109s] writing entry points to ../../../build/opencv_tests/opencv_tests.egg-info/entry_points.txt
+[2.109s] writing requirements to ../../../build/opencv_tests/opencv_tests.egg-info/requires.txt
+[2.109s] writing top-level names to ../../../build/opencv_tests/opencv_tests.egg-info/top_level.txt
+[2.110s] writing manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[2.113s] reading manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[2.114s] writing manifest file '../../../build/opencv_tests/opencv_tests.egg-info/SOURCES.txt'
+[2.115s] running build
+[2.115s] running build_py
+[2.115s] creating /home/shengbin/camera_ws/build/opencv_tests/build
+[2.115s] creating /home/shengbin/camera_ws/build/opencv_tests/build/lib
+[2.115s] creating /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[2.115s] copying opencv_tests/rosfacedetect.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[2.115s] copying opencv_tests/__init__.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[2.116s] copying opencv_tests/source.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[2.116s] copying opencv_tests/broadcast.py -> /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests
+[2.116s] running install
+[2.116s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.116s]   warnings.warn(
+[2.117s] running install_lib
+[2.118s] creating /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[2.118s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/rosfacedetect.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[2.119s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/__init__.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[2.119s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/source.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[2.119s] copying /home/shengbin/camera_ws/build/opencv_tests/build/lib/opencv_tests/broadcast.py -> /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests
+[2.120s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/rosfacedetect.py to rosfacedetect.cpython-310.pyc
+[2.122s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/__init__.py to __init__.cpython-310.pyc
+[2.122s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/source.py to source.cpython-310.pyc
+[2.122s] byte-compiling /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests/broadcast.py to broadcast.cpython-310.pyc
+[2.123s] running install_data
+[2.124s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index
+[2.125s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index
+[2.125s] creating /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index/packages
+[2.125s] copying resource/opencv_tests -> /home/shengbin/camera_ws/install/opencv_tests/share/ament_index/resource_index/packages
+[2.125s] copying package.xml -> /home/shengbin/camera_ws/install/opencv_tests/share/opencv_tests
+[2.125s] running install_egg_info
+[2.128s] Copying ../../../build/opencv_tests/opencv_tests.egg-info to /home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages/opencv_tests-3.2.1-py3.10.egg-info
+[2.129s] running install_scripts
+[2.165s] Installing broadcast script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[2.165s] Installing rosfacedetect script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[2.165s] Installing source script to /home/shengbin/camera_ws/install/opencv_tests/lib/opencv_tests
+[2.166s] writing list of installed files to '/home/shengbin/camera_ws/build/opencv_tests/install.log'
+[2.344s] Invoked command in '/home/shengbin/camera_ws/src/vision_opencv/opencv_tests' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/cv_bridge LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/cv_bridge/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/build/opencv_tests/prefix_override:/home/shengbin/camera_ws/install/opencv_tests/lib/python3.10/site-packages:/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/opencv_tests build --build-base /home/shengbin/camera_ws/build/opencv_tests/build install --record /home/shengbin/camera_ws/build/opencv_tests/install.log --single-version-externally-managed

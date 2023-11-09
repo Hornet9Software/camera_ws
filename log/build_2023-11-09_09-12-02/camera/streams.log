@@ -1,0 +1,25 @@
+[0.848s] Invoking command in '/home/shengbin/camera_ws/src/camera': PYTHONPATH=/home/shengbin/camera_ws/build/camera/prefix_override:/home/shengbin/camera_ws/install/camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/camera build --build-base /home/shengbin/camera_ws/build/camera/build install --record /home/shengbin/camera_ws/build/camera/install.log --single-version-externally-managed
+[1.019s] running egg_info
+[1.019s] writing ../../build/camera/camera.egg-info/PKG-INFO
+[1.020s] writing dependency_links to ../../build/camera/camera.egg-info/dependency_links.txt
+[1.020s] writing entry points to ../../build/camera/camera.egg-info/entry_points.txt
+[1.020s] writing requirements to ../../build/camera/camera.egg-info/requires.txt
+[1.020s] writing top-level names to ../../build/camera/camera.egg-info/top_level.txt
+[1.021s] reading manifest file '../../build/camera/camera.egg-info/SOURCES.txt'
+[1.021s] writing manifest file '../../build/camera/camera.egg-info/SOURCES.txt'
+[1.021s] running build
+[1.021s] running build_py
+[1.022s] running install
+[1.022s] running install_lib
+[1.022s] running install_data
+[1.023s] copying package.xml -> /home/shengbin/camera_ws/install/camera/share/camera
+[1.023s] creating /home/shengbin/camera_ws/install/camera/share/camera/launch
+[1.023s] running install_egg_info
+[1.023s] removing '/home/shengbin/camera_ws/install/camera/lib/python3.10/site-packages/camera-0.0.0-py3.10.egg-info' (and everything under it)
+[1.024s] Copying ../../build/camera/camera.egg-info to /home/shengbin/camera_ws/install/camera/lib/python3.10/site-packages/camera-0.0.0-py3.10.egg-info
+[1.024s] running install_scripts
+[1.036s] Installing cam_oflow script to /home/shengbin/camera_ws/install/camera/lib/camera
+[1.036s] Installing cam_pub script to /home/shengbin/camera_ws/install/camera/lib/camera
+[1.037s] Installing cam_sub script to /home/shengbin/camera_ws/install/camera/lib/camera
+[1.037s] writing list of installed files to '/home/shengbin/camera_ws/build/camera/install.log'
+[1.760s] Invoked command in '/home/shengbin/camera_ws/src/camera' returned '0': PYTHONPATH=/home/shengbin/camera_ws/build/camera/prefix_override:/home/shengbin/camera_ws/install/camera/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/camera build --build-base /home/shengbin/camera_ws/build/camera/build install --record /home/shengbin/camera_ws/build/camera/install.log --single-version-externally-managed

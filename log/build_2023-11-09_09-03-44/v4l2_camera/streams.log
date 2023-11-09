@@ -1,0 +1,45 @@
+[0.521s] Invoking command in '/home/shengbin/camera_ws/build/v4l2_camera': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/v4l2_camera -- -j16 -l16
+[0.554s] [ 50%] Built target v4l2_camera
+[0.569s] [ 75%] Built target v4l2_camera_compose_test
+[0.571s] [100%] Built target v4l2_camera_node
+[0.604s] Invoked command in '/home/shengbin/camera_ws/build/v4l2_camera' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/v4l2_camera -- -j16 -l16
+[0.622s] Invoking command in '/home/shengbin/camera_ws/build/v4l2_camera': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/v4l2_camera
+[0.630s] -- Install configuration: ""
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/parameters.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/v4l2_camera.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/fourcc.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/image_format.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/pixel_format.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/control.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/visibility_control.h
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/include/v4l2_camera/v4l2_camera_device.hpp
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/lib/libv4l2_camera.so
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/lib/v4l2_camera/v4l2_camera_node
+[0.630s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/lib/v4l2_camera/v4l2_camera_compose_test
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/library_path.sh
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/library_path.dsv
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/ament_index/resource_index/package_run_dependencies/v4l2_camera
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/ament_index/resource_index/parent_prefix_path/v4l2_camera
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/ament_prefix_path.sh
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/ament_prefix_path.dsv
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/path.sh
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/environment/path.dsv
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/local_setup.bash
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/local_setup.sh
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/local_setup.zsh
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/local_setup.dsv
+[0.631s] -- Installing: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/package.dsv
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/ament_index/resource_index/packages/v4l2_camera
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/ament_index/resource_index/rclcpp_components/v4l2_camera
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/export_v4l2_cameraExport.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/export_v4l2_cameraExport-noconfig.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/ament_cmake_export_targets-extras.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/ament_cmake_export_libraries-extras.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/v4l2_cameraConfig.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/cmake/v4l2_cameraConfig-version.cmake
+[0.631s] -- Up-to-date: /home/shengbin/camera_ws/install/v4l2_camera/share/v4l2_camera/package.xml
+[0.676s] Invoked command in '/home/shengbin/camera_ws/build/v4l2_camera' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/v4l2_camera

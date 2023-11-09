@@ -1,0 +1,73 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+-- Checking for module 'lttng-ust'
+--   Found lttng-ust, version 2.13.1
+-- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /usr/include/x86_64-linux-gnu
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/shengbin/camera_ws/build/tracetools_image_pipeline
+[ 16%] [32mBuilding C object CMakeFiles/tracetools_image_pipeline.dir/src/tracetools.c.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/tracetools_image_pipeline.dir/src/utils.cpp.o[0m
+[ 66%] [32m[1mLinking CXX shared library libtracetools_image_pipeline.so[0m
+[ 66%] Built target tracetools_image_pipeline
+[ 83%] [32mBuilding C object CMakeFiles/status.dir/src/status.c.o[0m
+[100%] [32m[1mLinking C executable status[0m
+[100%] Built target status
+-- Install configuration: ""
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/library_path.sh
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/library_path.dsv
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/lib/tracetools_image_pipeline/status
+-- Set runtime path of "/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib/tracetools_image_pipeline/status" to ""
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/tracetools.h
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/visibility_control.hpp
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/tp_call.h
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/utils.hpp
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/include/tracetools_image_pipeline/config.h
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/lib/libtracetools_image_pipeline.so
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/package_run_dependencies/tracetools_image_pipeline
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/parent_prefix_path/tracetools_image_pipeline
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/ament_prefix_path.sh
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/ament_prefix_path.dsv
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/path.sh
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/environment/path.dsv
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.bash
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.sh
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.zsh
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/local_setup.dsv
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/package.dsv
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/ament_index/resource_index/packages/tracetools_image_pipeline
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipeline_exportExport.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipeline_exportExport-noconfig.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/ament_cmake_export_link_flags-extras.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipelineConfig.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/cmake/tracetools_image_pipelineConfig-version.cmake
+-- Installing: /home/shengbin/camera_ws/install/tracetools_image_pipeline/share/tracetools_image_pipeline/package.xml

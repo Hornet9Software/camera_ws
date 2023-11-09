@@ -1,0 +1,41 @@
+[0.493s] Invoking command in '/home/shengbin/camera_ws/build/image_publisher': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_publisher -- -j16 -l16
+[0.566s] [35m[1mConsolidate compiler generated dependencies of target image_publisher[0m
+[0.566s] [ 50%] Built target image_publisher
+[0.567s] [35m[1mConsolidate compiler generated dependencies of target image_publisher_node[0m
+[0.567s] [100%] Built target image_publisher_node
+[0.830s] Invoked command in '/home/shengbin/camera_ws/build/image_publisher' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_publisher -- -j16 -l16
+[0.846s] Invoking command in '/home/shengbin/camera_ws/build/image_publisher': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_publisher
+[0.854s] -- Install configuration: ""
+[0.854s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include
+[0.854s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher
+[0.854s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher/visibility.h
+[0.856s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/include/image_publisher/image_publisher.hpp
+[0.856s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/library_path.sh
+[0.856s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/library_path.dsv
+[0.857s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/lib/libimage_publisher.so
+[0.857s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/lib/image_publisher/image_publisher_node
+[0.857s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_stereo.launch.py
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_file.launch.py
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/splash.png
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/launch/image_publisher_mono.launch.py
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/package_run_dependencies/image_publisher
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/parent_prefix_path/image_publisher
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.sh
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/ament_prefix_path.dsv
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/path.sh
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/environment/path.dsv
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.bash
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.sh
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.zsh
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/local_setup.dsv
+[0.858s] -- Installing: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/package.dsv
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/packages/image_publisher
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/ament_index/resource_index/rclcpp_components/image_publisher
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/ament_cmake_export_libraries-extras.cmake
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig.cmake
+[0.858s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/cmake/image_publisherConfig-version.cmake
+[0.859s] -- Up-to-date: /home/shengbin/camera_ws/install/image_publisher/share/image_publisher/package.xml
+[0.944s] Invoked command in '/home/shengbin/camera_ws/build/image_publisher' returned '0': AMENT_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/camera_info_manager/lib:/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_publisher

@@ -1,0 +1,6 @@
+{
+  "package_name": "theora_image_transport",
+  "non_idl_tuples": [
+    "/home/shengbin/camera_ws/src/image_transport_plugins/theora_image_transport:msg/Packet.msg"
+  ]
+}
