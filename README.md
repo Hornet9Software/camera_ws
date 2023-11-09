@@ -1,4 +1,4 @@
-# camera_ws (Week11 Update)
+# camera_ws
 Trial and Error repo for reading stereo image from camera & publishing. Now able to calibrate cameras.
 # Packages used
 [v4l2camera](https://github.com/tier4/ros2_v4l2_camera/tree/galactic)\
