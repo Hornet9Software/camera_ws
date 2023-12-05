@@ -173,10 +173,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tracetools_image_pipeline/cmake" TYPE FILE FILES "/home/shengbin/camera_ws/build/tracetools_image_pipeline/ament_cmake_export_link_flags/ament_cmake_export_link_flags-extras.cmake")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tracetools_image_pipeline/cmake" TYPE FILE FILES
     "/home/shengbin/camera_ws/build/tracetools_image_pipeline/ament_cmake_core/tracetools_image_pipelineConfig.cmake"
     "/home/shengbin/camera_ws/build/tracetools_image_pipeline/ament_cmake_core/tracetools_image_pipelineConfig-version.cmake"

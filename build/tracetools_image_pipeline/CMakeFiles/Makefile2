@@ -137,12 +137,12 @@ CMakeFiles/tracetools_image_pipeline_uninstall.dir/clean:
 CMakeFiles/tracetools_image_pipeline.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracetools_image_pipeline.dir/build.make CMakeFiles/tracetools_image_pipeline.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracetools_image_pipeline.dir/build.make CMakeFiles/tracetools_image_pipeline.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles --progress-num=3,4,5,6 "Built target tracetools_image_pipeline"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles --progress-num=3,4,5 "Built target tracetools_image_pipeline"
 .PHONY : CMakeFiles/tracetools_image_pipeline.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tracetools_image_pipeline.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tracetools_image_pipeline.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 0
 .PHONY : CMakeFiles/tracetools_image_pipeline.dir/rule
@@ -168,7 +168,7 @@ CMakeFiles/status.dir/all: CMakeFiles/tracetools_image_pipeline.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/status.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/status.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/shengbin/camera_ws/build/tracetools_image_pipeline/CMakeFiles 0
 .PHONY : CMakeFiles/status.dir/rule

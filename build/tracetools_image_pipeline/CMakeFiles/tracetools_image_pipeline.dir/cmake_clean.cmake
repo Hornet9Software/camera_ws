@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o"
-  "CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o.d"
   "CMakeFiles/tracetools_image_pipeline.dir/src/tracetools.c.o"
   "CMakeFiles/tracetools_image_pipeline.dir/src/tracetools.c.o.d"
   "CMakeFiles/tracetools_image_pipeline.dir/src/utils.cpp.o"

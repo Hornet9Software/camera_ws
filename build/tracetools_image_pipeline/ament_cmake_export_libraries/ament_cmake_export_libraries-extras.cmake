@@ -1,7 +1,7 @@
 # generated from ament_cmake_export_libraries/cmake/template/ament_cmake_export_libraries.cmake.in
 
 set(_exported_libraries "tracetools_image_pipeline")
-set(_exported_library_names "lttng-ust;lttng-ust-common;dl")
+set(_exported_library_names "")
 
 # populate tracetools_image_pipeline_LIBRARIES
 if(NOT _exported_libraries STREQUAL "")

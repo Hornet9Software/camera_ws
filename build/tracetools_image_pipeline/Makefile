@@ -247,30 +247,6 @@ src/status.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/status.dir/build.make CMakeFiles/status.dir/src/status.c.s
 .PHONY : src/status.c.s
 
-src/tp_call.o: src/tp_call.c.o
-.PHONY : src/tp_call.o
-
-# target to build an object file
-src/tp_call.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracetools_image_pipeline.dir/build.make CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o
-.PHONY : src/tp_call.c.o
-
-src/tp_call.i: src/tp_call.c.i
-.PHONY : src/tp_call.i
-
-# target to preprocess a source file
-src/tp_call.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracetools_image_pipeline.dir/build.make CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.i
-.PHONY : src/tp_call.c.i
-
-src/tp_call.s: src/tp_call.c.s
-.PHONY : src/tp_call.s
-
-# target to generate assembly for a file
-src/tp_call.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracetools_image_pipeline.dir/build.make CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.s
-.PHONY : src/tp_call.c.s
-
 src/tracetools.o: src/tracetools.c.o
 .PHONY : src/tracetools.o
 
@@ -339,9 +315,6 @@ help:
 	@echo "... src/status.o"
 	@echo "... src/status.i"
 	@echo "... src/status.s"
-	@echo "... src/tp_call.o"
-	@echo "... src/tp_call.i"
-	@echo "... src/tp_call.s"
 	@echo "... src/tracetools.o"
 	@echo "... src/tracetools.i"
 	@echo "... src/tracetools.s"

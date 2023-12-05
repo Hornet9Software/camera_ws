@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/shengbin/camera_ws/src/image_pipeline/tracetools_image_pipeline/src/tp_call.c" "CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o" "gcc" "CMakeFiles/tracetools_image_pipeline.dir/src/tp_call.c.o.d"
   "/home/shengbin/camera_ws/src/image_pipeline/tracetools_image_pipeline/src/tracetools.c" "CMakeFiles/tracetools_image_pipeline.dir/src/tracetools.c.o" "gcc" "CMakeFiles/tracetools_image_pipeline.dir/src/tracetools.c.o.d"
   "/home/shengbin/camera_ws/src/image_pipeline/tracetools_image_pipeline/src/utils.cpp" "CMakeFiles/tracetools_image_pipeline.dir/src/utils.cpp.o" "gcc" "CMakeFiles/tracetools_image_pipeline.dir/src/utils.cpp.o.d"
   )
