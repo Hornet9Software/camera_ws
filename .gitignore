@@ -1,3 +1,5 @@
 src/camera/bags/
 log/
+build/
+install/
 bags/

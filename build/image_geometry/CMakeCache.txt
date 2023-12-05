@@ -241,7 +241,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 OpenCV_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/opencv4
 
 //Name of the computer/site where compile is being run
-SITE:STRING=shengbin-Zenbook-UX3402VA-UX3402VA
+SITE:STRING=shengbin-HP-ENVY-Laptop-13-ad1xx
 
 //Path to a file.
 _gtest_header_file:FILEPATH=/opt/ros/humble/src/gtest_vendor/include/gtest/gtest.h

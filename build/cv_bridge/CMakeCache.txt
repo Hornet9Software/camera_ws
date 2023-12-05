@@ -250,7 +250,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 OpenCV_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/opencv4
 
 //Name of the computer/site where compile is being run
-SITE:STRING=shengbin-Zenbook-UX3402VA-UX3402VA
+SITE:STRING=shengbin-HP-ENVY-Laptop-13-ad1xx
 
 //Path to a file.
 _gtest_header_file:FILEPATH=/opt/ros/humble/src/gtest_vendor/include/gtest/gtest.h
@@ -615,7 +615,7 @@ COMPILER_HAS_HIDDEN_VISIBILITY:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: python310 ][v1.74.0()]
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/include/python3.10][/usr/lib/x86_64-linux-gnu/libpython3.10.so][/home/shengbin/.local/lib/python3.10/site-packages/numpy/core/include][cfound components: Development NumPy Interpreter Development.Module Development.Embed ][v3.10.12()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/include/python3.10][/usr/lib/x86_64-linux-gnu/libpython3.10.so][/usr/lib/python3/dist-packages/numpy/core/include][cfound components: Development NumPy Interpreter Development.Module Development.Embed ][v3.10.12()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GTEST_FROM_SOURCE_BASE_DIR:INTERNAL=/opt/ros/humble/src/gtest_vendor
@@ -639,7 +639,7 @@ _Python3_INTERPRETER_SIGNATURE:INTERNAL=b91b4035ecb3bb3f5760d35922531bcd
 _Python3_LIBRARY_RELEASE:INTERNAL=/usr/lib/x86_64-linux-gnu/libpython3.10.so
 _Python3_NUMPY_SIGNATURE:INTERNAL=03637bbc493fe88903739a5129f0293e
 //Path to a file.
-_Python3_NumPy_INCLUDE_DIR:INTERNAL=/home/shengbin/.local/lib/python3.10/site-packages/numpy/core/include
+_Python3_NumPy_INCLUDE_DIR:INTERNAL=/usr/lib/python3/dist-packages/numpy/core/include
 //ADVANCED property for variable: boost_headers_DIR
 boost_headers_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: boost_python_DIR

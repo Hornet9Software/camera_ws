@@ -1,7 +1,7 @@
 /home/shengbin/camera_ws/install/camera_info_manager/lib/libcamera_info_manager.so
+/home/shengbin/camera_ws/install/camera_info_manager/include/camera_info_manager/camera_info_manager/visibility_control.h
 /home/shengbin/camera_ws/install/camera_info_manager/include/camera_info_manager/camera_info_manager/camera_info_manager.hpp
 /home/shengbin/camera_ws/install/camera_info_manager/include/camera_info_manager/camera_info_manager/camera_info_manager.h
-/home/shengbin/camera_ws/install/camera_info_manager/include/camera_info_manager/camera_info_manager/visibility_control.h
 /home/shengbin/camera_ws/install/camera_info_manager/share/ament_index/resource_index/package_run_dependencies/camera_info_manager
 /home/shengbin/camera_ws/install/camera_info_manager/share/ament_index/resource_index/parent_prefix_path/camera_info_manager
 /home/shengbin/camera_ws/install/camera_info_manager/share/camera_info_manager/environment/ament_prefix_path.sh
