@@ -100,12 +100,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            name='approximate_sync', default_value='False',
+            name='approximate_sync', default_value='True',
             description='Whether to use approximate synchronization of topics. Set to true if '
                         'the left and right cameras do not produce exactly synced timestamps.'
         ),
         DeclareLaunchArgument(
-            name='avoid_point_cloud_padding', default_value='False',
+            name='avoid_point_cloud_padding', default_value='True',
             description='Avoid alignment padding in the generated point cloud.'
                         'This reduces bandwidth requirements, as the point cloud size is halved.'
                         'Using point clouds without alignment padding might degrade performance '

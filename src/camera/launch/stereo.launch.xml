@@ -9,24 +9,4 @@
         <param name="camera_info_url" value="file:///home/shengbin/camera_ws/calibration/right.yml"/>
     </node>
 
-    <!-- Launch stereo_image_proc for stereo processing -->
-    <node pkg="image_pipeline" exec="stereo_processor" name="stereo_image_proc">
-        <!-- Add parameters or remappings as needed -->
-        <param name="calibration_file_left" value="file:///home/shengbin/camera_ws/calibration/left.yml"/>
-        <param name="calibration_file_right" value="file:///home/shengbin/camera_ws/calibration/right.yml"/>
-    </node>
-
-    <!-- Launch disparity_node for generating disparity image
-    <node pkg="image_pipeline" exec="disparity_node" name="disparity_node">
-
-    <param file="file:///home/shengbin/camera_ws/calibration/disparity_params.yml" command="load"/>
-        
-    </node> -->
-
-    <!-- <node pkg="v4l2_camera" exec="v4l2_camera_node" name="bottomcam" namespace="bottomcam">
-        <param name="video_device" value="/dev/video0" />
-        <param name="camera_info_url" value="file:///home/shengbin/calibration/webcam.yml"/>
-    </node> -->
-
-
 </launch>        
