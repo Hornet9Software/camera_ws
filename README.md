@@ -55,6 +55,16 @@ Go into the /src folder of the workspace and clone the following packages:
     colcon build 
     source install/setup.bash
 
+If you are met with 'setup.py install is deprecated' when running colcon build, 
+Install the setuptools 58.2.0 version using the following command:
+        
+    pip install setuptools==58.2.0
+
+Once installed, rerun colcon build:
+        
+    colcon build 
+    source install/setup.bash
+
 Update the path to camera calibration files inside /src/camera/launch/stereo.launch.py. 
 
 Original
@@ -86,12 +96,6 @@ Change to
 
 > [!NOTE]
 > Replace {user} with your device's username.
-
-If you are met with 'setup.py install is deprecated' when running colcon build, 
-Install the setuptools 58.2.0 version using the following command:
-        
-        pip install setuptools==58.2.0
-
 
 ## For WSL users
 You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)\
