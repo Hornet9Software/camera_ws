@@ -1,8 +1,24 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+
 
 def generate_launch_description():
-    ld = LaunchDescription()
+    # Declare the paths to left and right camera calibration files
+    left_camera_calibration_arg = DeclareLaunchArgument(
+        'left_camera_calibration', 
+        default_value='file:///home/shengbin/camera_ws/calibration/left.yml',
+        description='Path to left camera calibration YAML file'
+    )
+    
+    right_camera_calibration_arg = DeclareLaunchArgument(
+        'right_camera_calibration', 
+        default_value='file:///home/shengbin/camera_ws/calibration/right.yml',
+        description='Path to right camera calibration YAML file'
+    )
+
+    # camera driver nodes
     leftcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
@@ -10,7 +26,7 @@ def generate_launch_description():
         namespace="left",
         parameters=[
             {"video_device": "/dev/video2"},
-            {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/left.yml"}
+            {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
         ]
     )
     rightcam = Node(
@@ -20,20 +36,18 @@ def generate_launch_description():
         namespace="right",
         parameters=[
             {"video_device": "/dev/video4"},
-            {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/right.yml"}
+            {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
     )
-    # bottomcam = Node(
-    #     package="v4l2_camera",
-    #     executable="v4l2_camera_node",
-    #     name="bottomcam",
-    #     namespace="bottomcam",
-    #     parameters=[
-    #         {"video_device": "/dev/video0"},
-    #         {"camera_info_url": "file:///home/shengbin/calibration/webcam.yml"}
-    #     ]
-    # )
-    ld.add_action(leftcam)
-    ld.add_action(rightcam)
-    # ld.add_action(bottomcam)
-    return ld
+
+    # Add your nodes to the launch description
+    return LaunchDescription([
+        left_camera_calibration_arg, 
+        right_camera_calibration_arg, 
+        leftcam,
+        rightcam,
+        # stereo_proc
+    ])
+
+if __name__ == '__main__':
+    generate_launch_description()

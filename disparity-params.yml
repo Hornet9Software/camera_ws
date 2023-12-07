@@ -1,0 +1,5 @@
+min_disparity: 0
+max_disparity: 64
+window_size: 5
+disparity_range: 128
+texture_threshold: 10
