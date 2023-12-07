@@ -21,7 +21,7 @@ setup(
     zip_safe=True,
     maintainer='shengbin',
     maintainer_email='shengbin.chan@gmail.com',
-    description='TODO: Package description',
+    description='Camera Package to perform Stereo Vision and Object Detection',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={

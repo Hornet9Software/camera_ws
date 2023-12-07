@@ -10,7 +10,7 @@ def generate_launch_description():
         namespace="leftcam",
         parameters=[
             {"video_device": "/dev/video2"},
-            {"camera_info_path": "left.ini"}
+            {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/left.yml"}
         ]
     )
     rightcam = Node(
@@ -20,19 +20,20 @@ def generate_launch_description():
         namespace="rightcam",
         parameters=[
             {"video_device": "/dev/video4"},
-            {"camera_info_path": "right.ini"}
+            {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/right.yml"}
         ]
     )
-    bottomcam = Node(
-        package="v4l2_camera",
-        executable="v4l2_camera_node",
-        name="bottomcam",
-        namespace="bottomcam",
-        parameters=[
-            {"video_device": "/dev/video0"}
-        ]
-    )
+    # bottomcam = Node(
+    #     package="v4l2_camera",
+    #     executable="v4l2_camera_node",
+    #     name="bottomcam",
+    #     namespace="bottomcam",
+    #     parameters=[
+    #         {"video_device": "/dev/video0"},
+    #         {"camera_info_url": "file:///home/shengbin/calibration/webcam.yml"}
+    #     ]
+    # )
     ld.add_action(leftcam)
     ld.add_action(rightcam)
-    ld.add_action(bottomcam)
+    # ld.add_action(bottomcam)
     return ld

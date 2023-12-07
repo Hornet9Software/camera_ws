@@ -21,8 +21,6 @@
   <depend>opencv2</depend>
   <depend>cv_bridge</depend>
   <depend>image_transport</depend>
-  <!-- <depend>common</depend> -->
-
 
   <exec_depend>v4l2_camera_node</exec_depend>
   <exec_depend>ros2launch</exec_depend>
