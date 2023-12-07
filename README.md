@@ -273,4 +273,7 @@ projection
 ```
 Split this into two seperate .ini files (left and right) and save them into your calibration folder (~/camera_ws/calibration).
 
-Now when running the camera, it will read these files to calibrate the camera.
+Convert these .ini files to .yml file using the following command:
+
+    ros2 run camera_calibration_parsers convert left.ini left.yml
+    ros2 run camera_calibration_parsers convert right.ini right.yml
