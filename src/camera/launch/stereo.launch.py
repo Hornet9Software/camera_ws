@@ -6,8 +6,8 @@ def generate_launch_description():
     leftcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
-        name="leftcam",
-        namespace="leftcam",
+        name="left",
+        namespace="left",
         parameters=[
             {"video_device": "/dev/video2"},
             {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/left.yml"}
@@ -16,8 +16,8 @@ def generate_launch_description():
     rightcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
-        name="rightcam",
-        namespace="rightcam",
+        name="right",
+        namespace="right",
         parameters=[
             {"video_device": "/dev/video4"},
             {"camera_info_url": "file:///home/shengbin/camera_ws/calibration/right.yml"}
