@@ -55,6 +55,16 @@ Go into the /src folder of the workspace and clone the following packages:
     colcon build 
     source install/setup.bash
 
+If you are met with 'setup.py install is deprecated' when running colcon build, 
+Install the setuptools 58.2.0 version using the following command:
+        
+    pip install setuptools==58.2.0
+
+Once installed, rerun colcon build:
+        
+    colcon build 
+    source install/setup.bash
+
 Update the path to camera calibration files inside /src/camera/launch/stereo.launch.py. 
 
 Original
