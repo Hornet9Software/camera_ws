@@ -8,13 +8,13 @@ def generate_launch_description():
     # Declare the paths to left and right camera calibration files
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
-        default_value='file:///home/shengbin/camera_ws/calibration/left.yml',
+        default_value='file:///home/shengbin/camera_ws/calibration/calibrationdata/left.yaml',
         description='Path to left camera calibration YAML file'
     )
     
     right_camera_calibration_arg = DeclareLaunchArgument(
         'right_camera_calibration', 
-        default_value='file:///home/shengbin/camera_ws/calibration/right.yml',
+        default_value='file:///home/shengbin/camera_ws/calibration/calibrationdata/right.yaml',
         description='Path to right camera calibration YAML file'
     )
 
