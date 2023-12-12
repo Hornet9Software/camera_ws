@@ -26,7 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'balance = camera.balance:main',
+            'match_gate = camera.match_gate:main',
             'detect_gate = camera.detect_gate:main',
             'detect_red = camera.detect_red:main',
             'optical_flow = camera.optical_flow:main',
