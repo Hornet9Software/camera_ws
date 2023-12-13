@@ -2,16 +2,47 @@
 ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
 # Target
-- [ ] Point Cloud using Stereo Vision
-- [ ] Object Detection
-- [ ] Velocity Estimation using Optical Flow
-- [ ] Pose Estimation from IMU and Depth Sensor
-- [ ] Localisation and Mapping
+~~- [ ] Point Cloud using Stereo Vision~~
 
-# Current Progress
+- [ ] Object Detection
+- [ ] Pose Estimation from IMU and Depth Sensor
+- [ ] Velocity Estimation using Optical Flow
+
+~~- [ ] Localisation and Mapping~~
+
+# Current Progress (object detection)
+Qualification
+- [ ] Detect Qualification Gate (yellow/orange)
+- [ ] Provide Bearing and Distance of Qualification Gate
+Task 1
+- [ ] Detect Task 1 Gate (Red and Green)
+- [ ] Provide Bearing and Distance of Task 1 Gate
+- [ ] Detect Orange Flare
+- [ ] Provide Bearing and Distance of Orange Flare
+
+Task 2 & 3
+- [ ] Detect Buckets (Red, Blue)
+- [ ] Pinpoint Center of Bucket
+
+Task 4
+- [ ] Detect Flare and classify colour (Red, Green, Blue)
+- [ ] Provide Bearing and Distance of Each Flare
+
+## Task 1 - Obstacle Flare
+![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/dc0c511f-0dc3-4bbb-ab3e-32b9a07cc8d8)
+
+## Task 2 & 3 - Buckets (Red and Blue)
+![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/219b9140-c8f1-4126-9e2f-66bacbc49b4b)
+
+## Task 4 - Flares
+![flares-2024](https://github.com/ShengBin-101/camera_ws/assets/52733750/0f2c6411-0ddf-421d-a441-532369c2fe9c)
+
+# Current Progress (mapping)
 - [x] USB Camera Driver Node
 - [x] Camera Calibration
 - [x] Produce Disparity Image
+- [ ] Finetune Disparity Image
+- [ ] Produce PointClourd
 
 # Packages used
 - v4l2camera
