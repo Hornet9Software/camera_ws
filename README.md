@@ -318,3 +318,37 @@ Convert these .ini files to .yml file using the following command:
 
     ros2 run camera_calibration_parsers convert left.ini left.yml
     ros2 run camera_calibration_parsers convert right.ini right.yml
+
+
+## For Object Detection
+
+Edit ~/camera_ws/src/camera/enhance.py to subscribe to desired topic (can be from a rosbag).
+
+Go to workspace and run:
+```
+  colcon build
+  source install/setup.bash
+```
+
+In current terminal, run:
+```
+  ros2 run camera enhance
+```
+
+In another terminal, run:
+```
+  ros2 run camera qualification_gate
+```
+> [!NOTE]
+> this repo does not contain rosbags, you will need to download it yourself from the Software Groupchat
+
+In the third terminal, run ros bag of your choice:
+```
+  Example: ros2 bag play <path to bag folder of choice>
+  Example: ros2 bag play ~/camera_ws/src/camera/bags/competition/
+```
+
+Result:
+![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502)
+
+
