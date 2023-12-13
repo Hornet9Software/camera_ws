@@ -47,6 +47,7 @@ from launch_ros.actions import PushRosNamespace
 from launch_ros.descriptions import ComposableNode
 from launch_ros.substitutions import FindPackageShare
 
+# This launch file is used to launch the stereo_image_proc node to produce disparity and point cloud data
 
 def generate_launch_description():
     composable_nodes = [
