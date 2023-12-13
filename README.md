@@ -1,16 +1,17 @@
 # camera_ws
 ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
-# Target
-~~- [ ] Point Cloud using Stereo Vision~~
+# Objectives
 
 - [ ] Object Detection
 - [ ] Pose Estimation from IMU and Depth Sensor
 - [ ] Velocity Estimation using Optical Flow
+      
+~~- [ ] Point Cloud using Stereo Vision~~
 
 ~~- [ ] Localisation and Mapping~~
 
-# Current Progress (object detection)
+# Current Progress (Object Detection)
 Qualification
 - [X] Detect Qualification Gate (yellow/orange)
 - [ ] Provide Bearing and Distance of Qualification Gate
@@ -38,7 +39,7 @@ Task 4
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/0f2c6411-0ddf-421d-a441-532369c2fe9c" width="300" />
 
 
-# Current Progress (mapping)
+# Current Progress (Mapping)
 - [x] USB Camera Driver Node
 - [x] Camera Calibration
 - [x] Produce Disparity Image
