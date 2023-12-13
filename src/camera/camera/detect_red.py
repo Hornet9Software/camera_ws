@@ -22,10 +22,11 @@ class Detector(Node):
         self.rawmask_pub = self.create_publisher(CompressedImage, "rawmask/compressed", 10)
         self.mask_pub = self.create_publisher(CompressedImage, "mask/compressed", 10)
         # self.threshold_red_pub = self.create_publisher(Image, "threshold_red", 10)
-
+        self.input_pub = self.create_publisher(CompressedImage, "input/compressed", 10)
         self.front_image_feed = self.create_subscription(
             CompressedImage,
-            "/Hornet/Cam/Floor/image_rect_color/compressed",
+            "camera_down/image_raw/compressed",
+            # "/Hornet/Cam/Floor/image_rect_color/compressed",
             self.image_feed_callback,
             10)
         self.bridge = CvBridge()
@@ -34,7 +35,8 @@ class Detector(Node):
 
         # bridge is from cv_bridge (for converting ROS image/CompressedImage to opencv images)
         cv_img = self.bridge.compressed_imgmsg_to_cv2(msg)
-
+        input_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
+        self.input_pub.publish(input_msg)
         s = ColorDetector()
         final_img, contours, mask, hsv, mask_result = s.detectColor(cv_img)
 

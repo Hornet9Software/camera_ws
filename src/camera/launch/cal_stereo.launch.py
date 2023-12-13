@@ -3,6 +3,7 @@ from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 
+# This launch file launches the camera driver nodes for calibration, hence no path to yaml file is specified
 
 def generate_launch_description():
     # Declare the paths to left and right camera calibration files
