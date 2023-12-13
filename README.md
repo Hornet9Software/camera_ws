@@ -1,17 +1,50 @@
 # camera_ws
 ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
-# Target
-- [ ] Point Cloud using Stereo Vision
-- [ ] Object Detection
-- [ ] Velocity Estimation using Optical Flow
-- [ ] Pose Estimation from IMU and Depth Sensor
-- [ ] Localisation and Mapping
+# Objectives
 
-# Current Progress
+- [ ] Object Detection
+- [ ] Pose Estimation from IMU and Depth Sensor
+- [ ] Velocity Estimation using Optical Flow
+      
+~~- [ ] Point Cloud using Stereo Vision~~
+
+~~- [ ] Localisation and Mapping~~
+
+# Current Progress (Object Detection)
+Qualification
+- [X] Detect Qualification Gate (yellow/orange)
+- [ ] Provide Bearing and Distance of Qualification Gate
+Task 1
+- [ ] Detect Task 1 Gate (Red and Green)
+- [ ] Provide Bearing and Distance of Task 1 Gate
+- [ ] Detect Orange Flare
+- [ ] Provide Bearing and Distance of Orange Flare
+
+Task 2 & 3
+- [ ] Detect Buckets (Red, Blue)
+- [ ] Pinpoint Center of Bucket
+
+Task 4
+- [ ] Detect Flare and classify colour (Red, Green, Blue)
+- [ ] Provide Bearing and Distance of Each Flare
+
+## Task 1 - Obstacle Flare
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/dc0c511f-0dc3-4bbb-ab3e-32b9a07cc8d8" width="300" />
+
+## Task 2 & 3 - Buckets (Red and Blue)
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/219b9140-c8f1-4126-9e2f-66bacbc49b4b" width="300" />
+
+## Task 4 - Flares
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/0f2c6411-0ddf-421d-a441-532369c2fe9c" width="300" />
+
+
+# Current Progress (Mapping)
 - [x] USB Camera Driver Node
 - [x] Camera Calibration
 - [x] Produce Disparity Image
+- [ ] Finetune Disparity Image
+- [ ] Produce PointClourd
 
 # Packages used
 - v4l2camera
@@ -181,13 +214,15 @@ Suppose we have two cameras (left camera and right camera).
 ```
   ros2 run image_view disparity_view --ros-args --remap image:=/disparity
 ```
-![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8)
+
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="300" />
 
 5) To view the node diagrams, open a new terminal and run
 ```
   rqt_graph
 ```
-![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/21d3495f-4c80-41d6-949b-c82616d0ebe6)
+
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/21d3495f-4c80-41d6-949b-c82616d0ebe6" width="300" />
 
 ## Procedure to recalibrate camera
 
@@ -210,8 +245,8 @@ ros2 run camera_calibration cameracalibrator --size=9x6 --square=0.063 --approxi
 NOTE: these parameters assume you're using the image I linked earlier. If you're using another pattern, make sure to adjust size and square parameters accordingly.
 
 For more information on the different parameters, do refer to the image below.
-![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/e7636447-db43-4c4c-833b-ccaf73ec6049)
 
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/e7636447-db43-4c4c-833b-ccaf73ec6049" width="300" />
 
 You should see a window pop up with the two image views and 3 buttons: Calibrate,Save, Commit.
 
@@ -287,3 +322,38 @@ Convert these .ini files to .yml file using the following command:
 
     ros2 run camera_calibration_parsers convert left.ini left.yml
     ros2 run camera_calibration_parsers convert right.ini right.yml
+
+
+## For Object Detection
+
+Edit ~/camera_ws/src/camera/enhance.py to subscribe to desired topic (can be from a rosbag).
+
+Go to workspace and run:
+```
+  colcon build
+  source install/setup.bash
+```
+
+In current terminal, run:
+```
+  ros2 run camera enhance
+```
+
+In another terminal, run:
+```
+  ros2 run camera qualification_gate
+```
+> [!NOTE]
+> this repo does not contain rosbags, you will need to download it yourself from the Software Groupchat
+
+In the third terminal, run ros bag of your choice:
+```
+  Example: ros2 bag play <path to bag folder of choice>
+  Example: ros2 bag play ~/camera_ws/src/camera/bags/competition/
+```
+
+You will see a slider window to adjust hsv bounds, you may look at the qualification_gate node to see how to implement the slider window for other nodes. (Eg. to detect red/green/blue flares)
+
+Result:
+
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502" width="300" />
