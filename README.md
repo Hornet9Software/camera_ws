@@ -213,12 +213,16 @@ Suppose we have two cameras (left camera and right camera).
 ```
   ros2 run image_view disparity_view --ros-args --remap image:=/disparity
 ```
+
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="300" />
+
 5) To view the node diagrams, open a new terminal and run
 ```
   rqt_graph
 ```
+
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/21d3495f-4c80-41d6-949b-c82616d0ebe6" width="300" />
+
 ## Procedure to recalibrate camera
 
 To perform calibration, you will need a [chessboard](https://github.com/opencv/opencv/blob/master/doc/pattern.png). 
@@ -240,6 +244,7 @@ ros2 run camera_calibration cameracalibrator --size=9x6 --square=0.063 --approxi
 NOTE: these parameters assume you're using the image I linked earlier. If you're using another pattern, make sure to adjust size and square parameters accordingly.
 
 For more information on the different parameters, do refer to the image below.
+
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/e7636447-db43-4c4c-833b-ccaf73ec6049" width="300" />
 
 You should see a window pop up with the two image views and 3 buttons: Calibrate,Save, Commit.
@@ -349,4 +354,5 @@ In the third terminal, run ros bag of your choice:
 You will see a slider window to adjust hsv bounds, you may look at the qualification_gate node to see how to implement the slider window for other nodes. (Eg. to detect red/green/blue flares)
 
 Result:
+
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502" width="300" />
