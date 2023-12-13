@@ -30,13 +30,13 @@ Task 4
 - [ ] Provide Bearing and Distance of Each Flare
 
 ## Task 1 - Obstacle Flare
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/dc0c511f-0dc3-4bbb-ab3e-32b9a07cc8d8" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/dc0c511f-0dc3-4bbb-ab3e-32b9a07cc8d8" width="500" />
 
 ## Task 2 & 3 - Buckets (Red and Blue)
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/219b9140-c8f1-4126-9e2f-66bacbc49b4b" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/219b9140-c8f1-4126-9e2f-66bacbc49b4b" width="500" />
 
 ## Task 4 - Flares
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/0f2c6411-0ddf-421d-a441-532369c2fe9c" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/0f2c6411-0ddf-421d-a441-532369c2fe9c" width="500" />
 
 
 # Current Progress (Mapping)
@@ -215,14 +215,14 @@ Suppose we have two cameras (left camera and right camera).
   ros2 run image_view disparity_view --ros-args --remap image:=/disparity
 ```
 
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="500" />
 
 5) To view the node diagrams, open a new terminal and run
 ```
   rqt_graph
 ```
 
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/21d3495f-4c80-41d6-949b-c82616d0ebe6" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/21d3495f-4c80-41d6-949b-c82616d0ebe6" width="500" />
 
 ## Procedure to recalibrate camera
 
@@ -246,7 +246,7 @@ NOTE: these parameters assume you're using the image I linked earlier. If you're
 
 For more information on the different parameters, do refer to the image below.
 
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/e7636447-db43-4c4c-833b-ccaf73ec6049" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/e7636447-db43-4c4c-833b-ccaf73ec6049" width="500" />
 
 You should see a window pop up with the two image views and 3 buttons: Calibrate,Save, Commit.
 
@@ -356,4 +356,4 @@ You will see a slider window to adjust hsv bounds, you may look at the qualifica
 
 Result:
 
-<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502" width="300" />
+<img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502" width="500" />
