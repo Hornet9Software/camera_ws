@@ -12,7 +12,7 @@ ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
 # Current Progress (object detection)
 Qualification
-- [ ] Detect Qualification Gate (yellow/orange)
+- [X] Detect Qualification Gate (yellow/orange)
 - [ ] Provide Bearing and Distance of Qualification Gate
 Task 1
 - [ ] Detect Task 1 Gate (Red and Green)
@@ -348,7 +348,8 @@ In the third terminal, run ros bag of your choice:
   Example: ros2 bag play ~/camera_ws/src/camera/bags/competition/
 ```
 
+You will see a slider window to adjust hsv bounds, you may look at the qualification_gate node to see how to implement the slider window for other nodes. (Eg. to detect red/green/blue flares)
+
 Result:
 ![image](https://github.com/ShengBin-101/camera_ws/assets/52733750/30c5a0d3-a484-474a-afc7-3f42617f4502)
-
 
