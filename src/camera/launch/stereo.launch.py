@@ -4,18 +4,21 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 
 # This launch file launches the camera driver nodes after calibration, hence the path to yaml file is specified
+# Launch this file at ~/camera_ws/
 
 def generate_launch_description():
     # Declare the paths to left and right camera calibration files
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
-        default_value='file:///home/shengbin/camera_ws/calibration/calibrationdata/left.yaml',
+        # relative path to calibration file, with respect to ROS2 workspace
+        default_value='file://calibration/calibrationdata/left.yaml',
         description='Path to left camera calibration YAML file'
     )
     
     right_camera_calibration_arg = DeclareLaunchArgument(
         'right_camera_calibration', 
-        default_value='file:///home/shengbin/camera_ws/calibration/calibrationdata/right.yaml',
+        # relative path to calibration file, with respect to ROS2 workspace
+        default_value='file://calibration/calibrationdata/right.yaml',
         description='Path to right camera calibration YAML file'
     )
 
