@@ -1,3 +1,23 @@
 [submodule "src/image_common"]
 	path = src/image_common
 	url = https://github.com/ros-perception/image_common.git
+
+[submodule "src/image_pipeline"]
+	path = src/image_pipeline
+	url = https://github.com/ros-perception/image_pipeline.git
+
+[submodule "src/image_transport_plugins"]
+	path = src/image_transport_plugins
+	url = https://github.com/ros-perception/image_transport_plugins.git
+
+[submodule "src/vision_opencv"]
+	path = src/vision_opencv
+	url = https://github.com/ros-perception/vision_opencv.git
+
+[submodule "src/ros2_shared"]
+	path = src/ros2_shared
+	url = https://github.com/ptrmu/ros2_shared.git
+
+[submodule "src/ros2_v4l2_camera"]
+	path = src/ros2_v4l2_camera
+	url = https://gitlab.com/boldhearts/ros2_v4l2_camera.git

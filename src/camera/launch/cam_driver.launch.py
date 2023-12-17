@@ -3,10 +3,19 @@ from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 
-# This launch file launches the camera driver nodes after calibration, hence the path to yaml file is specified
-# Launch this file at ~/camera_ws/
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import ThisLaunchFileDir
+
+# launch file for pool test, inits 3 camera driver nodes and stereo_proc node
 
 def generate_launch_description():
+
+    # Include another launch file
+    included_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
+    )
+
     # Declare the paths to left and right camera calibration files
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
@@ -69,6 +78,7 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
+        included_launch,
     ])
 
 if __name__ == '__main__':
