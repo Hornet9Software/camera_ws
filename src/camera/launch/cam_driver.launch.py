@@ -22,6 +22,13 @@ def generate_launch_description():
         description='Path to right camera calibration YAML file'
     )
 
+    bottom_camera_calibration_arg = DeclareLaunchArgument(
+        'bottom_camera_calibration', 
+        # relative path to calibration file, with respect to ROS2 workspace
+        default_value='file://calibration/calibrationdata/bottom.yaml',
+        description='Path to right camera calibration YAML file'
+    )    
+
     # camera driver nodes
     leftcam = Node(
         package="v4l2_camera",
@@ -43,14 +50,25 @@ def generate_launch_description():
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
     )
+    bottomcam = Node(
+        package="v4l2_camera",
+        executable="v4l2_camera_node",
+        name="bottom",
+        namespace="bottom",
+        parameters=[
+            {"video_device": "/dev/video6"},
+            {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
+        ]
+    )
 
     # Add your nodes to the launch description
     return LaunchDescription([
         left_camera_calibration_arg, 
         right_camera_calibration_arg, 
+        bottom_camera_calibration_arg,
         leftcam,
         rightcam,
-        # stereo_proc
+        bottomcam,
     ])
 
 if __name__ == '__main__':
