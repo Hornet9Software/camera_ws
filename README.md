@@ -1,3 +1,13 @@
+# FOR POOL TEST
+
+1. Run cam_driver.launch.py
+
+      ros2 launch camera cam_driver.launch.py
+
+2. Record relevant rosbag for perception side
+
+      ./recordbags.sh
+
 # camera_ws
 ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
