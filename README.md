@@ -53,7 +53,7 @@ Task 4
 - [x] Camera Calibration
 - [x] Produce Disparity Image
 - [ ] Finetune Disparity Image
-- [ ] Produce PointClourd
+- [ ] Produce PointCloud (unable to assign frame id to v4l2 camera driver node, one fix could be to use usb_cam as USB Camera Driver Package)
 
 # Packages used
 - v4l2camera
