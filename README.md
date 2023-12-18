@@ -226,6 +226,12 @@ Suppose we have two cameras (left camera and right camera).
 
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="500" />
 
+To adjust disparity parameters
+'''
+      
+    ros2 run rqt_reconfigure rqt_reconfigure
+'''
+
 5) To view the node diagrams, open a new terminal and run
 ```
   rqt_graph
