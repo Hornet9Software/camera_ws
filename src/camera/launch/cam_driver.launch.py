@@ -44,8 +44,10 @@ def generate_launch_description():
         executable="v4l2_camera_node",
         name="left",
         namespace="left",
+        output='screen',
         parameters=[
-            {"video_device": "/dev/video2"},
+            {"video_device": "/dev/video4"},
+            {"camera_frame_id": "left_camera_frame"},
             {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
         ]
     )
@@ -54,8 +56,10 @@ def generate_launch_description():
         executable="v4l2_camera_node",
         name="right",
         namespace="right",
+        output='screen',
         parameters=[
-            {"video_device": "/dev/video4"},
+            {"video_device": "/dev/video2"},
+            {"camera_frame_id": "right_camera_frame"},
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
     )
@@ -64,8 +68,10 @@ def generate_launch_description():
         executable="v4l2_camera_node",
         name="bottom",
         namespace="bottom",
+        output='screen',
         parameters=[
-            {"video_device": "/dev/video6"},
+            {"video_device": "/dev/video0"},
+            {"camera_frame_id": "bottom_camera_frame"},
             {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
         ]
     )
