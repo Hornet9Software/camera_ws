@@ -46,7 +46,7 @@ def generate_launch_description():
         namespace="left",
         output='screen',
         parameters=[
-            {"video_device": "/dev/video4"},
+            {"video_device": "/dev/video2"},
             {"camera_frame_id": "left_camera_frame"},
             {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
         ]
@@ -58,7 +58,7 @@ def generate_launch_description():
         namespace="right",
         output='screen',
         parameters=[
-            {"video_device": "/dev/video2"},
+            {"video_device": "/dev/video4"},
             {"camera_frame_id": "right_camera_frame"},
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]

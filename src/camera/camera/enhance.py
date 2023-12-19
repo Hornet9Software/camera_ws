@@ -19,9 +19,8 @@ from cv_bridge import CvBridge
 class EnhanceNode(Node):
     def __init__(self):
         super().__init__('enhance_node')
-        self.dehazed_pub = self.create_publisher(CompressedImage, 'dehazed_image/compressed', 10)
+        # self.dehazed_pub = self.create_publisher(CompressedImage, 'dehazed_image/compressed', 10)
         self.grayworld_pub = self.create_publisher(CompressedImage, 'gray_world/compressed', 10)
-        self.balance_pub = self.create_publisher(CompressedImage, 'white_balance/compressed', 10)
         
         # Create subscriptions for both image and compressed image topics
         self.image_subscription = self.create_subscription(
@@ -30,9 +29,15 @@ class EnhanceNode(Node):
             self.image_callback, 10)
         self.compressed_image_subscription = self.create_subscription(
             CompressedImage, 
-            'Hornet/Cam/left/image_rect_color/compressed', 
+            '/right/image_rect/compressed', 
             self.compressed_image_callback, 10)
         
+        # self.compressed_image_subscription = self.create_subscription(
+        #     CompressedImage, 
+        #     'Hornet/Cam/left/image_rect_color/compressed', 
+        #     self.compressed_image_callback, 10)
+        
+
         self.bridge = CvBridge()
 
     # Callback function for image messages
@@ -54,62 +59,42 @@ class EnhanceNode(Node):
         if len(image.shape) == 2:
             image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
 
-        # Apply white balance
-        balanced_image = self.white_balance(image, alpha=0.5)
-        balanced_msg = self.bridge.cv2_to_compressed_imgmsg(balanced_image)
-        self.balance_pub.publish(balanced_msg)
-
         # Perform gray-world color correction
         gray_world_image = perform_gray_world(image)
         enhance_msg = self.bridge.cv2_to_compressed_imgmsg(gray_world_image)
         self.grayworld_pub.publish(enhance_msg)
 
         # Perform dark channel prior dehazing
-        dehazed_image = perform_dehazing(gray_world_image)
-        dehazed_msg = self.bridge.cv2_to_compressed_imgmsg(dehazed_image)
-        self.dehazed_pub.publish(dehazed_msg)
+        # dehazed_image = perform_dehazing(gray_world_image)
+        # dehazed_msg = self.bridge.cv2_to_compressed_imgmsg(dehazed_image)
+        # self.dehazed_pub.publish(dehazed_msg)
 
-def white_balance(self, img, alpha=0.5):
-    """
-    Perform white balance on the input image.
-    :param img: Input BGR image
-    :param alpha: Color balance coefficient [0, 1]; 0 means original image, 1 means perfect gray world assumption
-    :return: Balanced BGR image
-    """
-    channels = cv2.split(img)
-    result_norm_planes = []
-    for plane in channels:
-        avg = plane.mean()
-        p = plane / avg * 128  # scale the average color to 128
-        result_norm_planes.append(cv2.addWeighted(plane, alpha, p, 1 - alpha, 0))  # blend original image and gray world assumption image
-    return cv2.merge(result_norm_planes) 
+# def perform_dehazing(image):
+#     # Convert the image to float
+#     image = image.astype('float64')
 
-def perform_dehazing(image):
-    # Convert the image to float
-    image = image.astype('float64')
+#     # Define the size of the patch used for the minimum filter
+#     patch_size = 15
 
-    # Define the size of the patch used for the minimum filter
-    patch_size = 15
+#     # Apply minimum filter to each channel separately
+#     dark_channel = np.min(cv2.split(image), axis=0)
 
-    # Apply minimum filter to each channel separately
-    dark_channel = np.min(cv2.split(image), axis=0)
+#     # Apply minimum filter again to get the dark channel prior
+#     dark_channel = cv2.erode(dark_channel, np.ones((patch_size, patch_size)))
 
-    # Apply minimum filter again to get the dark channel prior
-    dark_channel = cv2.erode(dark_channel, np.ones((patch_size, patch_size)))
+#     # Estimate the atmospheric light
+#     atmospheric_light = np.max(dark_channel)
 
-    # Estimate the atmospheric light
-    atmospheric_light = np.max(dark_channel)
+#     # Add a constant to the atmospheric light to increase it
+#     atmospheric_light += 25
 
-    # Add a constant to the atmospheric light to increase it
-    atmospheric_light += 25
+#     # Normalize the image
+#     normalized_image = image / atmospheric_light
 
-    # Normalize the image
-    normalized_image = image / atmospheric_light
+#     # Clip the values to the valid range for an 8-bit image
+#     normalized_image = np.clip(normalized_image * 255, 0, 255).astype('uint8')
 
-    # Clip the values to the valid range for an 8-bit image
-    normalized_image = np.clip(normalized_image * 255, 0, 255).astype('uint8')
-
-    return normalized_image
+#     return normalized_image
 
 def perform_gray_world(image):
     # Convert image to float32 for accurate calculations

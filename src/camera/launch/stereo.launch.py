@@ -11,14 +11,14 @@ def generate_launch_description():
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
         # relative path to calibration file, with respect to ROS2 workspace
-        default_value='file://src/camera/calibration/calibrationdata/left.yaml',
+        default_value='file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/left.yaml',
         description='Path to left camera calibration YAML file'
     )
     
     right_camera_calibration_arg = DeclareLaunchArgument(
         'right_camera_calibration', 
         # relative path to calibration file, with respect to ROS2 workspace
-        default_value='file://src/camera/calibration/calibrationdata/left.yaml',
+        default_value='file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/right.yaml',
         description='Path to right camera calibration YAML file'
     )
 
