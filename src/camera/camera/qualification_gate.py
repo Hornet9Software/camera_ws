@@ -9,7 +9,7 @@ import threading
 # This node is run in conjunction with the dehaze node
 
 # This node detects for qualification gate (orange/yellow poles) 
-# and publishes the bearing and distance to the gate [not implemented yet]
+# and publishes the bearing and distance to the gate [not properly implemented yet]
 
 # Slider Window for HSV Bounds is created upon node creation
 
@@ -40,7 +40,7 @@ class Gate_Detector(Node):
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
-            "dehazed_image/compressed",
+            "gray_world/compressed",
             self.image_feed_callback,
             10)
         self.bridge = CvBridge()
@@ -89,6 +89,9 @@ class Gate_Detector(Node):
         self.mask_pub.publish(mask_img)
 
         # Draw Contours and Bounding Box for Gate
+        self.draw_contour(dilated, cv_img)
+        final_mask_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
+        self.final_mask_pub.publish(final_mask_msg)
 
         # Use Contour Dimensions to determine distance of gate
 
@@ -102,12 +105,14 @@ class Gate_Detector(Node):
 
         # find and draw contour
         contours, hierarchy = cv2.findContours(gray_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # Draw contours with green
         cv2.drawContours(cv_img, contours, -1, (0,255,0), 2)
     
         # draw bounding box
         for c in contours:
             x,y,w,h = cv2.boundingRect(c)
-            cv2.rectangle(cv_img,(x,y),(x+w,y+h),(0,255,0),2)
+            # draw bounding box in dark red
+            cv2.rectangle(cv_img,(x,y),(x+w,y+h),(0,0,128),3)
             # get midpoint of contour
             M = cv2.moments(c)
             if M["m00"] != 0:
@@ -116,10 +121,50 @@ class Gate_Detector(Node):
             else:
                 cX, cY = 0, 0
             cv2.circle(cv_img, (cX, cY), 5, (255, 255, 255), -1)
-            cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-            # get distance of midpoint from center of image
-            # get bearing of midpoint from center of image
-            # publish distance and bearing of midpoint
+            cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2)
+
+            # calculate yaw angle (currently yaw angle is done naively using x coordinate of centroid)
+            yaw_angle = calculate_yaw_angle(cv_img.shape[1], cX)
+
+            # put yaw angle on image 
+            cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2)
+            
+            # calculate distance (calculation of distance is not properly implemented yet)
+            distance = calculate_distance(cv_img.shape[1], w, 0.32, 3.2, 63.7)
+
+            # put distance on image
+            cv2.putText(cv_img, "Distance: {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2) 
+
+def calculate_yaw_angle(image_width, centroid_x):
+    # Calculate the center of the camera image
+    camera_center = image_width / 2
+
+    # Calculate the distance between the centroid and the camera center
+    distance_from_center = camera_center - centroid_x
+
+    focal_length_in_pixels = (image_width * 0.5) / np.tan(63.7 * 0.5)
+
+    # Calculate the yaw angle (calculation of yaw angle is not properly implemented yet)
+    yaw_angle = np.arctan2(distance_from_center, focal_length_in_pixels)
+
+    yaw_angle_degrees = np.degrees(yaw_angle)
+
+    # Shift the yaw angle so that the center of the image corresponds to -90 degrees
+    yaw_angle_degrees_shifted = yaw_angle_degrees + 90
+
+    return yaw_angle_degrees_shifted
+
+def calculate_distance(image_width_in_pixels, object_width_in_pixels, actual_object_width, focal_length_in_mm, horizontal_field_of_view_in_degrees):
+    # Convert the horizontal field of view from degrees to radians
+    horizontal_field_of_view_in_radians = np.radians(horizontal_field_of_view_in_degrees)
+
+    # Calculate the focal length in pixels
+    focal_length_in_pixels = (image_width_in_pixels * 0.5) / np.tan(horizontal_field_of_view_in_radians * 0.5)
+
+    # Calculate the distance to the object
+    distance_to_object = (actual_object_width * focal_length_in_pixels) / object_width_in_pixels
+
+    return distance_to_object
 
 def create_gui():
     cv2.namedWindow('HSV Bounds')
