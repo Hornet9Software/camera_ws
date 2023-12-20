@@ -14,20 +14,20 @@ import threading
 # Slider Window for HSV Bounds is created upon node creation
 
 # Initial values (to detect yellow/orange)
-# lower_hue = 12
-# upper_hue = 28
-# lower_saturation = 131
-# upper_saturation = 255
-# lower_value = 125
-# upper_value = 255
+lower_hue = 12
+upper_hue = 28
+lower_saturation = 131
+upper_saturation = 255
+lower_value = 125
+upper_value = 255
 
 # Value for red (cone)
-lower_hue = 0
-upper_hue = 12
-lower_saturation = 141
-upper_saturation = 255
-lower_value = 50
-upper_value = 255
+# lower_hue = 0
+# upper_hue = 12
+# lower_saturation = 141
+# upper_saturation = 255
+# lower_value = 50
+# upper_value = 255
 
 sensor_width_in_mm = 3.674 # mm
 sensor_resolution_width = 3264 #3280 # pixels
@@ -163,7 +163,6 @@ class Gate_Detector(Node):
 def calculate_yaw_angle(centroid_x, image_width):
     # Calculate the yaw angle
     image_center_x = image_width / 2
-
     yaw_angle = np.degrees(np.arctan2(centroid_x - image_center_x, focal_length_in_pixels))
     return yaw_angle
     
