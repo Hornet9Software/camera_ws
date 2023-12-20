@@ -14,20 +14,20 @@ import threading
 # Slider Window for HSV Bounds is created upon node creation
 
 # Initial values (to detect yellow/orange)
-lower_hue = 12
-upper_hue = 28
-lower_saturation = 131
-upper_saturation = 255
-lower_value = 125
-upper_value = 255
+# lower_hue = 12
+# upper_hue = 28
+# lower_saturation = 131
+# upper_saturation = 255
+# lower_value = 125
+# upper_value = 255
 
 # Value for red (cone)
-# lower_hue = 0
-# upper_hue = 12
-# lower_saturation = 141
-# upper_saturation = 255
-# lower_value = 50
-# upper_value = 255
+lower_hue = 0
+upper_hue = 12
+lower_saturation = 141
+upper_saturation = 255
+lower_value = 50
+upper_value = 255
 
 sensor_width_in_mm = 3.674 # mm
 sensor_resolution_width = 3264 #3280 # pixels
@@ -37,8 +37,8 @@ sensor_width_in_pixels = 3264 # pixels
 
 
 horizontal_field_of_view = 137 #96.2 #62.2 # degrees
- 
-object_width_in_m = 0.37 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
+object_width_in_cm = 150 # cm 
+object_width_in_m = object_width_in_cm / 100 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
 focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
 
 
@@ -154,7 +154,7 @@ class Gate_Detector(Node):
             cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
             # calculate distance (calculation of distance is not properly implemented yet)
-            distance = calculate_distance(w, object_width_in_m)
+            distance = calculate_distance(w, object_width_in_cm)
 
             # put distance on image
             cv2.putText(cv_img, "Distance (m): {:.4f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2) 
@@ -167,10 +167,11 @@ def calculate_yaw_angle(centroid_x, image_width):
     yaw_angle = np.degrees(np.arctan2(centroid_x - image_center_x, focal_length_in_pixels))
     return yaw_angle
     
-def calculate_distance(object_width_in_pixels, actual_object_width):
+def calculate_distance(object_width_in_pixels, object_width_in_cm):
 
+    object_width_in_m = object_width_in_cm / 100
     # convert distance to center in pixels to metres
-    distance_to_object = (actual_object_width * focal_length_in_pixels) / object_width_in_pixels
+    distance_to_object = (object_width_in_m * focal_length_in_pixels) / object_width_in_pixels
     return distance_to_object
 
 def create_gui():
@@ -181,12 +182,13 @@ def create_gui():
     cv2.createTrackbar('Upper Saturation', 'HSV Bounds', upper_saturation, 255, update_bounds)
     cv2.createTrackbar('Lower Value', 'HSV Bounds', lower_value, 255, update_bounds)
     cv2.createTrackbar('Upper Value', 'HSV Bounds', upper_value, 255, update_bounds)
-    cv2.createTrackbar('HFOV', 'HSV Bounds', 10, 150, update_bounds)
+    cv2.createTrackbar('HFOV', 'HSV Bounds', horizontal_field_of_view, 150, update_bounds)
+    cv2.createTrackbar('Object Width (cm)', 'HSV Bounds', object_width_in_cm, 160, update_bounds)
     while True:
         cv2.waitKey(1)  
 
 def update_bounds(val):
-    global lower_hue, upper_hue, lower_saturation, upper_saturation, lower_value, upper_value, horizontal_field_of_view
+    global lower_hue, upper_hue, lower_saturation, upper_saturation, lower_value, upper_value, horizontal_field_of_view, object_width_in_cm
     try:
         lower_hue = cv2.getTrackbarPos('Lower Hue', 'HSV Bounds')
     except cv2.error:
@@ -215,6 +217,11 @@ def update_bounds(val):
         horizontal_field_of_view = cv2.getTrackbarPos('HFOV', 'HSV Bounds')
     except cv2.error:
         pass
+    try:
+        object_width_in_cm = cv2.getTrackbarPos('Object Width (cm)', 'HSV Bounds')
+    except cv2.error:
+        pass
+
 def main(args=None):
     rclpy.init(args=args)
     gate_detector = Gate_Detector()
