@@ -80,9 +80,9 @@ def generate_launch_description():
         executable="enhance",
         output='screen',
     )
-    qualification_node = Node(
+    detection_node = Node(
         package="camera",
-        executable="qualification_gate",
+        executable="debug_detect",
         output='screen',
     )
 
@@ -94,9 +94,9 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
-        qualification_node,
-        enhance_node,
         included_launch,
+        enhance_node,
+        detection_node,
     ])
 
 if __name__ == '__main__':

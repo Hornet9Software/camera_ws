@@ -50,7 +50,6 @@ def generate_launch_description():
         right_camera_calibration_arg, 
         leftcam,
         rightcam,
-        # stereo_proc
     ])
 
 if __name__ == '__main__':

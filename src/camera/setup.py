@@ -21,7 +21,7 @@ setup(
     zip_safe=True,
     maintainer='shengbin',
     maintainer_email='shengbin.chan@gmail.com',
-    description='Camera Package to perform Stereo Vision and Object Detection',
+    description='Camera Package to perform Object Detection',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
@@ -29,8 +29,6 @@ setup(
             'enhance = camera.enhance:main',
             'qualification_gate = camera.qualification_gate:main',
             'debug_detect = camera.debug_detect:main',
-            'detect_red = camera.detect_red:main',
-            'optical_flow = camera.optical_flow:main',
             'stereo_vision = camera.stereo_vision:main',
         ],
     },

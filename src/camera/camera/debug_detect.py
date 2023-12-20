@@ -6,11 +6,12 @@ import cv2
 from cv_bridge import CvBridge
 import threading
 
+####################
+# Debug node to detect custom objects by adjusting custom hsv bounds
 # This node is run in conjunction with the enhance node
-
 # This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate
-
 # Slider Window for HSV Bounds is created upon creation of node
+####################
 
 # Initial values (to detect yellow/orange)
 lower_hue = 12
