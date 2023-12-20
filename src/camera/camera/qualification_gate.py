@@ -21,6 +21,28 @@ upper_saturation = 255
 lower_value = 125
 upper_value = 255
 
+# Value for red (cone)
+# lower_hue = 0
+# upper_hue = 12
+# lower_saturation = 141
+# upper_saturation = 255
+# lower_value = 50
+# upper_value = 255
+
+sensor_width_in_mm = 3.674 # mm
+sensor_resolution_width = 3264 #3280 # pixels
+physical_width_resolution = 3.6656 # mm
+actual_focal_length = 3.2 # mm
+sensor_width_in_pixels = 3264 # pixels
+
+
+horizontal_field_of_view = 137 #96.2 #62.2 # degrees
+ 
+object_width_in_m = 0.37 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
+focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
+
+
+
 class Gate_Detector(Node):
     def __init__(self):
         super().__init__("qualification_gate_detector")
@@ -93,16 +115,10 @@ class Gate_Detector(Node):
         final_mask_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
         self.final_mask_pub.publish(final_mask_msg)
 
-        # Use Contour Dimensions to determine distance of gate
-
-        # Use Contour Midpoint to determine bearing of gate
-
-        # Publish bearing and distance of gate
-
-        # Publish image with gate detected
     
     def draw_contour(self, gray_img, cv_img):
 
+        
         # find and draw contour
         contours, hierarchy = cv2.findContours(gray_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # Draw contours with green
@@ -123,47 +139,38 @@ class Gate_Detector(Node):
             cv2.circle(cv_img, (cX, cY), 5, (255, 255, 255), -1)
             cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2)
 
+            cv2.putText(cv_img, "Image Center: {:.2f}".format(cv_img.shape[1]), (10, 70),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
             # calculate yaw angle (currently yaw angle is done naively using x coordinate of centroid)
-            yaw_angle = calculate_yaw_angle(cv_img.shape[1], cX)
+
+            # put hfov on image
+            cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+
+            # pute focal length in pixels on image
+            cv2.putText(cv_img, "Focal Length (pixels): {:.2f}".format(focal_length_in_pixels), (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+
+            yaw_angle = calculate_yaw_angle(cX, cv_img.shape[1])
 
             # put yaw angle on image 
-            cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2)
-            
+            cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+
             # calculate distance (calculation of distance is not properly implemented yet)
-            distance = calculate_distance(cv_img.shape[1], w, 0.32, 3.2, 63.7)
+            distance = calculate_distance(w, object_width_in_m)
 
             # put distance on image
-            cv2.putText(cv_img, "Distance: {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 128, 0), 2) 
+            cv2.putText(cv_img, "Distance (m): {:.4f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2) 
 
-def calculate_yaw_angle(image_width, centroid_x):
-    # Calculate the center of the camera image
-    camera_center = image_width / 2
 
-    # Calculate the distance between the centroid and the camera center
-    distance_from_center = camera_center - centroid_x
+def calculate_yaw_angle(centroid_x, image_width):
+    # Calculate the yaw angle
+    image_center_x = image_width / 2
 
-    focal_length_in_pixels = (image_width * 0.5) / np.tan(63.7 * 0.5)
+    yaw_angle = np.degrees(np.arctan2(centroid_x - image_center_x, focal_length_in_pixels))
+    return yaw_angle
+    
+def calculate_distance(object_width_in_pixels, actual_object_width):
 
-    # Calculate the yaw angle (calculation of yaw angle is not properly implemented yet)
-    yaw_angle = np.arctan2(distance_from_center, focal_length_in_pixels)
-
-    yaw_angle_degrees = np.degrees(yaw_angle)
-
-    # Shift the yaw angle so that the center of the image corresponds to -90 degrees
-    yaw_angle_degrees_shifted = yaw_angle_degrees + 90
-
-    return yaw_angle_degrees_shifted
-
-def calculate_distance(image_width_in_pixels, object_width_in_pixels, actual_object_width, focal_length_in_mm, horizontal_field_of_view_in_degrees):
-    # Convert the horizontal field of view from degrees to radians
-    horizontal_field_of_view_in_radians = np.radians(horizontal_field_of_view_in_degrees)
-
-    # Calculate the focal length in pixels
-    focal_length_in_pixels = (image_width_in_pixels * 0.5) / np.tan(horizontal_field_of_view_in_radians * 0.5)
-
-    # Calculate the distance to the object
+    # convert distance to center in pixels to metres
     distance_to_object = (actual_object_width * focal_length_in_pixels) / object_width_in_pixels
-
     return distance_to_object
 
 def create_gui():
@@ -174,11 +181,12 @@ def create_gui():
     cv2.createTrackbar('Upper Saturation', 'HSV Bounds', upper_saturation, 255, update_bounds)
     cv2.createTrackbar('Lower Value', 'HSV Bounds', lower_value, 255, update_bounds)
     cv2.createTrackbar('Upper Value', 'HSV Bounds', upper_value, 255, update_bounds)
+    cv2.createTrackbar('HFOV', 'HSV Bounds', 10, 150, update_bounds)
     while True:
         cv2.waitKey(1)  
 
 def update_bounds(val):
-    global lower_hue, upper_hue, lower_saturation, upper_saturation, lower_value, upper_value
+    global lower_hue, upper_hue, lower_saturation, upper_saturation, lower_value, upper_value, horizontal_field_of_view
     try:
         lower_hue = cv2.getTrackbarPos('Lower Hue', 'HSV Bounds')
     except cv2.error:
@@ -203,7 +211,10 @@ def update_bounds(val):
         upper_value = cv2.getTrackbarPos('Upper Value', 'HSV Bounds')
     except cv2.error:
         pass
-
+    try:
+        horizontal_field_of_view = cv2.getTrackbarPos('HFOV', 'HSV Bounds')
+    except cv2.error:
+        pass
 def main(args=None):
     rclpy.init(args=args)
     gate_detector = Gate_Detector()
