@@ -70,10 +70,20 @@ def generate_launch_description():
         namespace="bottom",
         output='screen',
         parameters=[
-            {"video_device": "/dev/video0"},
+            {"video_device": "/dev/video6"},
             {"camera_frame_id": "bottom_camera_frame"},
             {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
         ]
+    )
+    enhance_node = Node(
+        package="camera",
+        executable="enhance",
+        output='screen',
+    )
+    gate_detection_node = Node(
+        package="camera",
+        executable="qualification_gate",
+        output='screen',
     )
 
     # Add your nodes to the launch description
@@ -84,7 +94,10 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
+        # add in image_proc_node (for bottom camera),
         included_launch,
+        enhance_node,
+        gate_detection_node,
     ])
 
 if __name__ == '__main__':
