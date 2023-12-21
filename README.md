@@ -1,68 +1,14 @@
-# camera_ws
-ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
-
-# First Setup
-
-Install the following utilities:
-
-    sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
-    sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
-
-Go into the /src folder of the workspace and clone the following packages:
-
-    git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
-    git clone --branch humble https://github.com/ros-perception/vision_opencv.git
-    git clone --branch humble https://github.com/ros-perception/image_pipeline.git
-    git clone --branch humble https://github.com/ros-perception/image_common.git
-    git clone --branch humble https://github.com/ros-perception/image_transport_plugins.git
-    git clone https://github.com/ptrmu/ros2_shared.git
-    cd ..
-    rosdep install --from-paths src -r -y
-    colcon build 
-    source install/setup.bash
-
-If you are met with 'setup.py install is deprecated' when running colcon build, 
-Install the setuptools 58.2.0 version using the following command:
-        
-    pip install setuptools==58.2.0
-
-Once installed, rerun colcon build:
-        
-    colcon build 
-    source install/setup.bash
-
-Update the path to camera calibration files inside launch files to suit your device. 
-
-Example
-
-    left_camera_calibration_arg = DeclareLaunchArgument(
-        'left_camera_calibration', 
-        default_value='file:///home/**{user}**/**{workspace name}**/src/camera/calibration/calibrationdata/left.yml',
-        description='Path to left camera calibration YAML file'
-    )
-    
-    right_camera_calibration_arg = DeclareLaunchArgument(
-        'right_camera_calibration', 
-        default_value='file:///home/**{user}**/**{workspace name}**/src/camera/calibration/calibrationdata/right.yml',
-        description='Path to right camera calibration YAML file'
-
-> [!NOTE]
-> Replace {user} with your device's username.
-> Replace {workspace name} with your workspace name
-
-
 # FOR POOL TEST
 
-Run pooltest.launch.py
+Run cam_driver.launch.py
 
-      ros2 launch camera pooltest.launch.py
-
-This launch file executes 3 camera driver nodes, 1 stereo_proc node (front), 1 image_proc node (bottom), 1 image_enhance node and 1 qualification_gate detector node.
+      ros2 launch camera cam_driver.launch.py
 
 Record relevant rosbag for perception side
 
-      cd src/camera
       ./recordbags.sh
+# camera_ws
+ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
 
 # Objectives
 
@@ -121,6 +67,77 @@ Task 4
 [This article](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329) is used for reference in calibrating the cameras. Only modification would be to use v4l2_camera instead of opencv_cam. 
 
 Articles are just for reference, all relevant commands have been compiled below.
+
+# Clone and Setup:
+
+Clone this repo into your home directory using git clone:
+
+    git clone https://github.com/ShengBin-101/camera_ws.git
+
+If haven't done so, add sourcing to your shell startup script (so you don't have to source the setup file every time you open a new shell):
+
+    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+Install the following utilities:
+
+    sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
+    sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
+
+
+Go into the /src folder of the workspace and clone the following packages:
+
+    git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
+    git clone --branch humble https://github.com/ros-perception/vision_opencv.git
+    git clone --branch humble https://github.com/ros-perception/image_pipeline.git
+    git clone --branch humble https://github.com/ros-perception/image_common.git
+    git clone --branch humble https://github.com/ros-perception/image_transport_plugins.git
+    git clone https://github.com/ptrmu/ros2_shared.git
+    cd ..
+    rosdep install --from-paths src -r -y
+    colcon build 
+    source install/setup.bash
+
+If you are met with 'setup.py install is deprecated' when running colcon build, 
+Install the setuptools 58.2.0 version using the following command:
+        
+    pip install setuptools==58.2.0
+
+Once installed, rerun colcon build:
+        
+    colcon build 
+    source install/setup.bash
+
+Update the path to camera calibration files inside /src/camera/launch/stereo.launch.py. 
+
+Original
+
+    left_camera_calibration_arg = DeclareLaunchArgument(
+        'left_camera_calibration', 
+        default_value='file:///home/**shengbin**/camera_ws/calibration/left.yml',
+        description='Path to left camera calibration YAML file'
+    )
+    
+    right_camera_calibration_arg = DeclareLaunchArgument(
+        'right_camera_calibration', 
+        default_value='file:///home/**shengbin**/camera_ws/calibration/right.yml',
+        description='Path to right camera calibration YAML file'
+    )
+
+Change to
+
+    left_camera_calibration_arg = DeclareLaunchArgument(
+        'left_camera_calibration', 
+        default_value='file:///home/**{user}**/camera_ws/calibration/left.yml',
+        description='Path to left camera calibration YAML file'
+    )
+    
+    right_camera_calibration_arg = DeclareLaunchArgument(
+        'right_camera_calibration', 
+        default_value='file:///home/**{user}**/camera_ws/calibration/right.yml',
+        description='Path to right camera calibration YAML file'
+
+> [!NOTE]
+> Replace {user} with your device's username.
 
 ## For WSL users
 You will have to reconfigure your linux kernel to allow the USB camera to attach to your WSL. [Here's the tutorial](https://www.youtube.com/watch?v=t_YnACEPmrM&t=481s)\
@@ -208,12 +225,6 @@ Suppose we have two cameras (left camera and right camera).
 ```
 
 <img src="https://github.com/ShengBin-101/camera_ws/assets/52733750/24635edb-9f64-4fcf-a10f-be6e930200e8" width="500" />
-
-To adjust disparity parameters
-'''
-      
-    ros2 run rqt_reconfigure rqt_reconfigure
-'''
 
 5) To view the node diagrams, open a new terminal and run
 ```

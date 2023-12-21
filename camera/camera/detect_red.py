@@ -1,6 +1,3 @@
-# Code from curtis to detect red color
-# Node looks at bottom camera and detects red color for pail detection
-
 import rclpy
 from rclpy.node import Node
 import numpy as np
