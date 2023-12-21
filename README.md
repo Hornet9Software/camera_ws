@@ -1,6 +1,24 @@
 # camera_ws (this repo is not a workspace but packages that enable H9 perception)
 ROS2 Humble package to perform perception and localisation for Hornet 9.0 AUV.
 
+# FOR POOL TEST
+
+To debug hsv bounds for detection, run debug_detect.launch.py (which calls debug_detect.py)
+
+    ros2 launch camera debug.launch.py
+
+Remember to update hsv bounds in qualification_gate.py after finding desired hsv bounds.
+
+To test detection, run pooltest.launch.py (which calls qualification_gate.py)
+This launch file executes 3 camera driver nodes, 1 stereo_proc node (front), 1 image_proc node (bottom), 1 image_enhance node and 1 qualification_gate detector node.
+
+      ros2 launch camera pooltest.launch.py
+
+Record rosbags (edit ur script file to record specific topics)
+
+      cd src/camera_ws/camera
+      ./recordbags.sh
+
 # First Setup
 
 Install the following utilities:
@@ -51,19 +69,6 @@ Example
 > Replace {user} with your device's username.
 > Replace {workspace name} with your workspace name
 
-
-# FOR POOL TEST
-
-Run pooltest.launch.py
-
-      ros2 launch camera pooltest.launch.py
-
-This launch file executes 3 camera driver nodes, 1 stereo_proc node (front), 1 image_proc node (bottom), 1 image_enhance node and 1 qualification_gate detector node.
-
-Record relevant rosbag for perception side
-
-      cd src/camera
-      ./recordbags.sh
 
 # Objectives
 

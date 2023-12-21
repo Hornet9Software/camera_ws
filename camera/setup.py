@@ -29,7 +29,7 @@ setup(
             'debug_detect = camera.debug_detect:main',
             'enhance = camera.enhance:main',
             'qualification_gate = camera.qualification_gate:main',
-            'stereo_vision = camera.stereo_vision:main',
+            # 'stereo_vision = camera.stereo_vision:main',
         ],
     },
 )

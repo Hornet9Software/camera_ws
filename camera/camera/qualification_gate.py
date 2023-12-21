@@ -48,7 +48,7 @@ class Gate_Detector(Node):
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
-            "gray_world/compressed",
+            "/left/gray_world/compressed",
             self.image_feed_callback,
             10)
         self.bridge = CvBridge()
@@ -123,22 +123,22 @@ class Gate_Detector(Node):
                 
                 # draw centroid
                 cv2.circle(cv_img, (cX, cY), 5, (0, 0, 255), -1)
-                cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                # cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
                 # put hfov variable on image
-                cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                # cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
                 # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
                 yaw_angle = calculate_yaw_angle(cX)
 
                 # put yaw angle on image
-                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
+                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
 
                 # calculate distance
                 distance = calculate_distance(w, object_width_in_cm)
 
                 # put distance on image
-                cv2.putText(cv_img, "Distance (m): {:.4f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
+                cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2) 
 
                 # publish bearing and distance to gate
                 self.publish_bearing_distance(yaw_angle, distance)
