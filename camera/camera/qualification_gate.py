@@ -4,6 +4,7 @@ import numpy as np
 from sensor_msgs.msg import CompressedImage
 import cv2
 from cv_bridge import CvBridge
+from std_msgs.msg import Float32
 
 ####################
 # This node is run in conjunction with the enhance node..
@@ -24,7 +25,7 @@ actual_focal_length = 3.2   # mm
 sensor_width_in_pixels = 3264 # pixels
 
 horizontal_field_of_view = 137  # degrees #96.2 #62.2 
-object_width_in_cm = 150        # cm 
+object_width_in_cm = 37        # cm 
 object_width_in_m = object_width_in_cm / 100 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
 focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
 
@@ -42,6 +43,8 @@ class Gate_Detector(Node):
         self.range_pub = self.create_publisher(CompressedImage, "/gate/range/compressed", 10)
         self.mask_pub = self.create_publisher(CompressedImage, "/gate/mask/compressed", 10)
         self.final_mask_pub = self.create_publisher(CompressedImage, "/gate/finalmask/compressed", 10)
+        self.bearing_pub = self.create_publisher(Float32, "/object/gate/bearing", 10)
+        self.distance_pub = self.create_publisher(Float32, "/object/gate/distance", 10)
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
@@ -131,7 +134,7 @@ class Gate_Detector(Node):
                 # put yaw angle on image
                 cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
 
-                # calculate distance (calculation of distance is not properly implemented yet)
+                # calculate distance
                 distance = calculate_distance(w, object_width_in_cm)
 
                 # put distance on image
@@ -140,10 +143,15 @@ class Gate_Detector(Node):
                 # publish bearing and distance to gate
                 self.publish_bearing_distance(yaw_angle, distance)
 
-def publish_bearing_distance(yaw_angle, distance):
-    # publish bearing and distance to gate
-    pass
+    def publish_bearing_distance(self, yaw_angle, distance):
+        # publish bearing and distance to gate
+        bearing_msg = Float32()
+        bearing_msg.data = yaw_angle
+        distance_msg = Float32()
+        distance_msg.data = distance
 
+        self.bearing_pub.publish(bearing_msg)
+        self.distance_pub.publish(distance_msg)
 
 def calculate_yaw_angle(centroid_x):
     # Calculate the yaw angle
