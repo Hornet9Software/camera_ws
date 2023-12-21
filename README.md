@@ -37,7 +37,7 @@ Install the following packages:
 Navigate to workspace
 
     rosdep install --from-paths src -r -y
-    colcon build 
+    colcon build --symlink-install (remove existing /build /install /log before running this)
     source install/setup.bash
 
 If you are met with 'setup.py install is deprecated' when running colcon build, 
