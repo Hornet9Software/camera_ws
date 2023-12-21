@@ -13,20 +13,20 @@ import threading
 # Slider Window for HSV Bounds is created upon creation of node
 
 # Initial values (to detect yellow/orange)
-lower_hue = 12
-upper_hue = 28
-lower_saturation = 131
-upper_saturation = 255
-lower_value = 125
-upper_value = 255
+# lower_hue = 12
+# upper_hue = 28
+# lower_saturation = 131
+# upper_saturation = 255
+# lower_value = 125
+# upper_value = 255
 
 # Value for red (cone)
-# lower_hue = 0
-# upper_hue = 12
-# lower_saturation = 141
-# upper_saturation = 255
-# lower_value = 50
-# upper_value = 255
+lower_hue = 0
+upper_hue = 12
+lower_saturation = 141
+upper_saturation = 255
+lower_value = 50
+upper_value = 255
 
 area_threshold = 2000
 sensor_width_in_mm = 3.674  # mm
@@ -34,7 +34,7 @@ actual_focal_length = 3.2   # mm
 sensor_width_in_pixels = 3264 # pixels
 
 horizontal_field_of_view = 137  # degrees #96.2 #62.2 
-object_width_in_cm = 150        # cm 
+object_width_in_cm = 37        # cm 
 object_width_in_m = object_width_in_cm / 100 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
 focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
 
