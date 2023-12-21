@@ -1,5 +1,5 @@
-# camera_ws
-ROS2 Humble workspace to perform perception and localisation for Hornet 9.0 AUV.
+# camera_ws (this repo is not a workspace but packages that enable H9 perception)
+ROS2 Humble package to perform perception and localisation for Hornet 9.0 AUV.
 
 # First Setup
 
@@ -8,7 +8,7 @@ Install the following utilities:
     sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
 
-Go into the /src folder of the workspace and clone the following packages:
+Clone the following packages:
 
     git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
     git clone --branch humble https://github.com/ros-perception/vision_opencv.git
@@ -16,7 +16,9 @@ Go into the /src folder of the workspace and clone the following packages:
     git clone --branch humble https://github.com/ros-perception/image_common.git
     git clone --branch humble https://github.com/ros-perception/image_transport_plugins.git
     git clone https://github.com/ptrmu/ros2_shared.git
-    cd ..
+
+Navigate to workspace
+
     rosdep install --from-paths src -r -y
     colcon build 
     source install/setup.bash
