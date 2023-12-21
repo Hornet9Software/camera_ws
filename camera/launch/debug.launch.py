@@ -6,13 +6,14 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import ThisLaunchFileDir
+from launch_ros.actions import Node
 
-# launch file for pool test, inits 3 camera driver nodes and stereo_proc node
+# launch file for debuggin hsv bounds, inits 3 camera driver nodes and stereo_proc node
 
 def generate_launch_description():
 
     # Include another launch file
-    included_launch = IncludeLaunchDescription(
+    stereo_proc_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
     )
 
@@ -75,14 +76,27 @@ def generate_launch_description():
             {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
         ]
     )
+
+    image_proc_node = Node(
+        package="image_proc",
+        executable="image_proc",
+        name="image_proc_bottom",
+        namespace="bottom",
+        output='screen',
+        remappings=[
+            ("image_raw", "/bottom/image_raw"),
+            ("camera_info", "/bottom/camera_info")
+        ]
+    )
+
     enhance_node = Node(
         package="camera",
         executable="enhance",
         output='screen',
     )
-    qualification_node = Node(
+    debug_hsv_node = Node(
         package="camera",
-        executable="qualification_gate",
+        executable="debug_detect",
         output='screen',
     )
 
@@ -94,9 +108,11 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
-        qualification_node,
+        image_proc_node,
+        stereo_proc_launch,
         enhance_node,
-        included_launch,
+        debug_hsv_node,
+
     ])
 
 if __name__ == '__main__':

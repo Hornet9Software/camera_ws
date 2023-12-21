@@ -7,7 +7,8 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import ThisLaunchFileDir
 
-# launch file for pool test, inits 3 camera driver nodes and stereo_proc node
+# launch file for pool test, 
+# inits 3 camera driver nodes, 1 enhance node, 1 qualification_gate_detector node, and stereo_proc node
 
 def generate_launch_description():
 
@@ -76,6 +77,28 @@ def generate_launch_description():
         ]
     )
 
+    image_proc_node = Node(
+        package="image_proc",
+        executable="image_proc",
+        name="image_proc_bottom",
+        namespace="bottom",
+        output='screen',
+        remappings=[
+            ("image_raw", "/bottom/image_raw"),
+            ("camera_info", "/bottom/camera_info")
+        ]
+    )
+    enhance_node = Node(
+        package="camera",
+        executable="enhance",
+        output='screen',
+    )
+    qualification_gate_detector = Node(
+        package="camera",
+        executable="qualification_gate",
+        output='screen',
+    )
+
     # Add your nodes to the launch description
     return LaunchDescription([
         left_camera_calibration_arg, 
@@ -84,7 +107,10 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
+        image_proc_node,
         included_launch,
+        enhance_node,
+        qualification_gate_detector,
     ])
 
 if __name__ == '__main__':
