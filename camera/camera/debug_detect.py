@@ -153,7 +153,7 @@ class Gate_Detector(Node):
                 cv2.putText(cv_img, "Distance (m): {:.4f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
 
                 # publish bearing and distance to gate
-                self.publish_bearing_distance(yaw_angle, distance)
+                # self.publish_bearing_distance(yaw_angle, distance)
 
 def publish_bearing_distance(yaw_angle, distance):
     # publish bearing and distance to gate

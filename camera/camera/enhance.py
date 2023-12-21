@@ -25,7 +25,7 @@ class EnhanceNode(Node):
         # Create subscriptions for both image and compressed image topics
         self.image_subscription = self.create_subscription(
             Image, 
-            '/left/image_rect_color', 
+            '/right/image_rect_color', 
             self.image_callback, 10)
         # self.compressed_image_subscription = self.create_subscription(
         #     CompressedImage, 

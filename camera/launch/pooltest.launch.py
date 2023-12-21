@@ -21,21 +21,21 @@ def generate_launch_description():
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
         # relative path to calibration file, with respect to ROS2 workspace
-        default_value='file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/left.yaml',
+        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml',
         description='Path to left camera calibration YAML file'
     )
     
     right_camera_calibration_arg = DeclareLaunchArgument(
         'right_camera_calibration', 
         # relative path to calibration file, with respect to ROS2 workspace
-        default_value='file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/right.yaml',
+        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml',
         description='Path to right camera calibration YAML file'
     )
 
     bottom_camera_calibration_arg = DeclareLaunchArgument(
         'bottom_camera_calibration', 
         # relative path to calibration file, with respect to ROS2 workspace
-        default_value='file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/bottom.yaml',
+        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml',
         description='Path to bottom camera calibration YAML file'
     )    
 
@@ -47,7 +47,7 @@ def generate_launch_description():
         namespace="left",
         output='screen',
         parameters=[
-            {"video_device": "/dev/video2"},
+            {"video_device": "/dev/video4"},
             {"camera_frame_id": "left_camera_frame"},
             {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
         ]
@@ -59,7 +59,7 @@ def generate_launch_description():
         namespace="right",
         output='screen',
         parameters=[
-            {"video_device": "/dev/video4"},
+            {"video_device": "/dev/video2"},
             {"camera_frame_id": "right_camera_frame"},
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
