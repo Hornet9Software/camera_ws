@@ -20,7 +20,7 @@ class EnhanceNode(Node):
     def __init__(self):
         super().__init__('enhance_node')
         # self.dehazed_pub = self.create_publisher(CompressedImage, 'dehazed_image/compressed', 10)
-        self.grayworld_pub = self.create_publisher(CompressedImage, 'gray_world/compressed', 10)
+        self.grayworld_pub = self.create_publisher(CompressedImage, 'left/gray_world/compressed', 10)
         
         # Create subscriptions for both image and compressed image topics
         self.image_subscription = self.create_subscription(

@@ -5,11 +5,10 @@ from sensor_msgs.msg import Image, CompressedImage
 import cv2
 from cv_bridge import CvBridge
 import threading
+from std_msgs.msg import Float32
 
 # This node is run in conjunction with the enhance node
-
 # This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate
-
 # Slider Window for HSV Bounds is created upon creation of node
 
 # Initial values (to detect yellow/orange)
@@ -55,10 +54,12 @@ class Gate_Detector(Node):
         self.range_pub = self.create_publisher(CompressedImage, "/gate/range/compressed", 10)
         self.mask_pub = self.create_publisher(CompressedImage, "/gate/mask/compressed", 10)
         self.final_mask_pub = self.create_publisher(CompressedImage, "/gate/finalmask/compressed", 10)
+        self.bearing_pub = self.create_publisher(Float32, "/object/gate/bearing", 10)
+        self.distance_pub = self.create_publisher(Float32, "/object/gate/distance", 10)
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
-            "gray_world/compressed",
+            "/left/gray_world/compressed",
             self.image_feed_callback,
             10)
         self.bridge = CvBridge()
@@ -133,31 +134,37 @@ class Gate_Detector(Node):
                 
                 # draw centroid
                 cv2.circle(cv_img, (cX, cY), 5, (0, 0, 255), -1)
-                cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                # cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
                 focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
 
                 # put hfov variable on image
-                cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
                 # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
                 yaw_angle = calculate_yaw_angle(cX, focal_length_in_pixels)
 
                 # put yaw angle on image
-                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
+                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
                 # calculate distance (calculation of distance is not properly implemented yet)
                 distance = calculate_distance(w, object_width_in_cm, focal_length_in_pixels)
 
                 # put distance on image
-                cv2.putText(cv_img, "Distance (m): {:.4f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
+                cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
 
                 # publish bearing and distance to gate
                 self.publish_bearing_distance(yaw_angle, distance)
 
-def publish_bearing_distance(yaw_angle, distance):
-    # publish bearing and distance to gate
-    pass
+    def publish_bearing_distance(self, yaw_angle, distance):
+        # publish bearing and distance to gate
+        bearing_msg = Float32()
+        bearing_msg.data = yaw_angle
+        distance_msg = Float32()
+        distance_msg.data = distance
+
+        self.bearing_pub.publish(bearing_msg)
+        self.distance_pub.publish(distance_msg)
 
 
 def calculate_yaw_angle(centroid_x, focal_length_in_pixels):
