@@ -5,7 +5,7 @@ ROS2 Humble package to perform perception and localisation for Hornet 9.0 AUV.
 
 To debug hsv bounds for detection, run debug_detect.launch.py (which calls debug_detect.py)
 
-    ros2 launch camera debug_detect.launch.py
+    ros2 launch camera debug.launch.py
 
 Remember to update hsv bounds in qualification_gate.py after finding desired hsv bounds.
 
