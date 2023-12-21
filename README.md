@@ -8,14 +8,13 @@ Install the following utilities:
     sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
 
-Clone the following packages:
+Install the following packages:
 
-    git clone --branch humble https://gitlab.com/boldhearts/ros2_v4l2_camera.git
-    git clone --branch humble https://github.com/ros-perception/vision_opencv.git
-    git clone --branch humble https://github.com/ros-perception/image_pipeline.git
-    git clone --branch humble https://github.com/ros-perception/image_common.git
-    git clone --branch humble https://github.com/ros-perception/image_transport_plugins.git
-    git clone https://github.com/ptrmu/ros2_shared.git
+    sudo apt-get install ros-humble-v4l2-camera
+    sudo apt-get install ros-humble-vision-opencv
+    sudo apt-get install ros-humble-image-common
+    sudo apt-get install ros-humble-image-pipeline
+    sudo apt-get install ros-humble-image-transport-plugins
 
 Navigate to workspace
 
