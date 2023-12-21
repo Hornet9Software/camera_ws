@@ -1,5 +1,5 @@
 [submodule "image_common"]
-	path = /image_common
+	path = image_common
 	url = https://github.com/ros-perception/image_common.git
 
 [submodule "image_pipeline"]
