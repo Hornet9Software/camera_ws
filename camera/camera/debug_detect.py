@@ -96,7 +96,7 @@ class Gate_Detector(Node):
         # Morphological operations to remove noise
 
         eroded = cv2.erode(gate_mask, kernel2, iterations=1)
-        dilated = cv2.dilate(eroded, kernel1, iterations=3)
+        dilated = cv2.dilate(eroded, kernel1, iterations=4)
         
         gate_regions = cv2.bitwise_and(cv_img, cv_img, mask=dilated)
         mask_img = self.bridge.cv2_to_compressed_imgmsg(gate_regions)
@@ -154,7 +154,7 @@ class Gate_Detector(Node):
                 cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
 
                 # publish bearing and distance to gate
-                # self.publish_bearing_distance(yaw_angle, distance)
+                self.publish_bearing_distance(yaw_angle, distance)
 
     def publish_bearing_distance(self, yaw_angle, distance):
         # publish bearing and distance to gate
