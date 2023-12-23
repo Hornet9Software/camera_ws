@@ -17,7 +17,9 @@ This launch file executes 3 camera driver nodes, 1 stereo_proc node (front), 1 i
 Record rosbags (edit ur script file to record specific topics)
 
       cd src/camera_ws/camera
-      ./recordbags.sh
+      ./recordbags.sh (whichever script file of choice)
+
+All recorded bags will be located at src/camera_ws/camera/pooltest_bags/, rename bags after pool test for easier reference
 
 # First Setup
 
