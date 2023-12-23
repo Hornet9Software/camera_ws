@@ -3,7 +3,11 @@ from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 
-# This launch file launches the camera driver nodes for calibration, hence no path to yaml file is specified
+# This launch file launches the camera driver nodes for STEREO calibration, 
+# hence no path to yaml file is specified
+
+# video port for left camera is /dev/video4
+# video port for right camera is /dev/video2
 
 def generate_launch_description():
     # Declare the paths to left and right camera calibration files
@@ -26,7 +30,7 @@ def generate_launch_description():
         name="left",
         namespace="left",
         parameters=[
-            {"video_device": "/dev/video2"},
+            {"video_device": "/dev/video4"},
             {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
         ]
     )
@@ -36,7 +40,7 @@ def generate_launch_description():
         name="right",
         namespace="right",
         parameters=[
-            {"video_device": "/dev/video4"},
+            {"video_device": "/dev/video2"},
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
     )

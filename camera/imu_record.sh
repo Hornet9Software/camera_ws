@@ -16,5 +16,11 @@ next_number=$((latest_number + 1))
 filename=$(printf "$filename_template" "$next_number")
 
 # Record the published topics
-# ros2 bag record -o "$filename" /left/camera_info /left/image_raw/compressed /left/image_rect_color
-ros2 bag record -o "$filename" /sensors/imu /left/camera_info /left/image_raw/compressed /left/image_rect_color /right/camera_info /right/image_raw/compressed /right/image_rect_color /bottom/camera_info /bottom/image_raw/compressed
+
+# Topics:
+# /sensors/imu
+# /left/image_raw/compressed
+# /right/image_raw/compressed
+# /bottom/image_raw/compressed
+
+ros2 bag record -o $filename /sensors/imu /left/image_raw/compressed /right/image_raw/compressed /bottom/image_raw/compressed
