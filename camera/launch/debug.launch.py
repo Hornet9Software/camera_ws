@@ -64,30 +64,20 @@ def generate_launch_description():
             {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
         ]
     )
-    # bottomcam = Node(
-    #     package="v4l2_camera",
-    #     executable="v4l2_camera_node",
-    #     name="bottom",
-    #     namespace="bottom",
-    #     output='screen',
-    #     parameters=[
-    #         {"video_device": "/dev/video0"},
-    #         {"camera_frame_id": "bottom_camera_frame"},
-    #         {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
-    #     ]
-    # )
+    bottomcam = Node(
+        package="v4l2_camera",
+        executable="v4l2_camera_node",
+        name="bottom",
+        namespace="bottom",
+        output='screen',
+        parameters=[
+            {"video_device": "/dev/video0"},
+            {"camera_frame_id": "bottom_camera_frame"},
+            {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
+        ]
+    )
 
-    # image_proc_node = Node(
-    #     package="image_proc",
-    #     executable="image_proc",
-    #     name="image_proc_bottom",
-    #     namespace="bottom",
-    #     output='screen',
-    #     remappings=[
-    #         ("image_raw", "/bottom/image_raw"),
-    #         ("camera_info", "/bottom/camera_info")
-    #     ]
-    # )
+
 
     enhance_node = Node(
         package="camera",
@@ -107,11 +97,11 @@ def generate_launch_description():
         bottom_camera_calibration_arg,
         leftcam,
         rightcam,
-        # bottomcam,
+        bottomcam,
         # image_proc_node,
-        stereo_proc_launch,
-        enhance_node,
-        debug_hsv_node,
+        # stereo_proc_launch,
+        # enhance_node,
+        # debug_hsv_node,
 
     ])
 

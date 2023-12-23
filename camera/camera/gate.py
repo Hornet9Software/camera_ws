@@ -4,6 +4,8 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
+# Detect Task 1 Gate
+
 class ObjectDetectionNode(Node):
     def __init__(self):
         super().__init__('object_detection_node')
