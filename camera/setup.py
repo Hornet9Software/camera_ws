@@ -31,6 +31,7 @@ setup(
             'qualification_gate = camera.qualification_gate:main',
             'lines = camera.pool_lines:main',
             'stereo_vision = camera.stereo_vision:main',
+            'export = camera.export:main',
         ],
     },
 )

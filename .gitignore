@@ -1,4 +1,9 @@
 camera/bags/
 camera/pooltest_bags/
 camera/notebook/
+camera/camera/frames/
+camera/camera/gate.mp4
+camera/camera/output.mp4
+camera/camera/output1.mp4
+camera/camera/output2.mp4
 __pycache__

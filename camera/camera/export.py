@@ -1,0 +1,55 @@
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import CompressedImage, Image
+import cv2
+import numpy as np
+import cv_bridge
+
+class VideoWriterNode(Node):
+    def __init__(self):
+        super().__init__('video_writer_node')
+        self.subscription = self.create_subscription(
+            Image,
+            '/video_feed',
+            self.image_callback,
+            10
+        )
+        self.video_writer = None
+        self.bridge = cv_bridge.CvBridge()
+
+    def image_callback(self, msg):
+        try:
+            
+            # Convert compressed image to OpenCV image
+            image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+            if len(image.shape) == 2:
+                image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
+
+            # rotate image
+            image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            
+            # resize image
+            image = cv2.resize(image, (640, 480))
+
+            # Initialize video writer if not already done
+            if self.video_writer is None:
+                width = 640
+                height = 480
+                fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+                self.video_writer = cv2.VideoWriter('output2.mp4', fourcc, 30, (width, height))
+
+            # Write frame to video file
+            self.video_writer.write(image)
+
+        except Exception as e:
+            self.get_logger().error('Error processing image: %s' % str(e))
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = VideoWriterNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
