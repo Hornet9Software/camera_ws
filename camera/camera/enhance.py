@@ -23,19 +23,19 @@ class EnhanceNode(Node):
         self.grayworld_pub = self.create_publisher(CompressedImage, 'left/gray_world/compressed', 10)
         
         # Create subscriptions for both image and compressed image topics
-        self.image_subscription = self.create_subscription(
-            Image, 
-            '/right/image_rect_color', 
-            self.image_callback, 10)
+        # self.image_subscription = self.create_subscription(
+        #     Image, 
+        #     '/right/image_rect_color', 
+        #     self.image_callback, 10)
         # self.compressed_image_subscription = self.create_subscription(
         #     CompressedImage, 
         #     '/right/image_rect/compressed', 
         #     self.compressed_image_callback, 10)
         
-        # self.compressed_image_subscription = self.create_subscription(
-        #     CompressedImage, 
-        #     'Hornet/Cam/left/image_rect_color/compressed', 
-        #     self.compressed_image_callback, 10)
+        self.compressed_image_subscription = self.create_subscription(
+            CompressedImage, 
+            'Hornet/Cam/left/image_rect_color/compressed', 
+            self.compressed_image_callback, 10)
         
 
         self.bridge = CvBridge()

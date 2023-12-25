@@ -1,4 +1,6 @@
 camera/bags/
 camera/pooltest_bags/
 camera/notebook/
+camera/camera/__pycache__
+camera/camera/weights/
 __pycache__

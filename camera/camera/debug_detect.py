@@ -12,22 +12,18 @@ from std_msgs.msg import Float32
 # Slider Window for HSV Bounds is created upon creation of node
 
 # Initial values (to detect yellow/orange)
-# lower_hue = 12
-# upper_hue = 28
-# lower_saturation = 131
-# upper_saturation = 255
-# lower_value = 125
-# upper_value = 255
-
-# Value for red (cone)
-lower_hue = 0
-upper_hue = 12
-lower_saturation = 141
+lower_hue = 18
+upper_hue = 39
+lower_saturation = 54
 upper_saturation = 255
-lower_value = 50
+lower_value = 56
 upper_value = 255
 
 area_threshold = 2000
+# aspect ratio for upright rectangle
+aspect_ratio_threshold = 1.5
+
+
 sensor_width_in_mm = 3.674  # mm
 actual_focal_length = 3.2   # mm
 sensor_width_in_pixels = 3264 # pixels
@@ -59,6 +55,7 @@ class Gate_Detector(Node):
 
         self.front_image_feed = self.create_subscription(
             CompressedImage,
+            # 'Hornet/Cam/left/image_rect_color/compressed',
             "/left/gray_world/compressed",
             self.image_feed_callback,
             10)
@@ -90,13 +87,14 @@ class Gate_Detector(Node):
         self.range_pub.publish(range_msg)
 
         # Segment out gate regions using the mask
-        kernel1 = np.ones((9, 9), np.uint8)
+        kernel1 = np.ones((5, 5), np.uint8)
         kernel2 = np.ones((3, 3), np.uint8)
         
         # Morphological operations to remove noise
 
         eroded = cv2.erode(gate_mask, kernel2, iterations=1)
         dilated = cv2.dilate(eroded, kernel1, iterations=4)
+        eroded = cv2.erode(gate_mask, kernel1, iterations=2)
         
         gate_regions = cv2.bitwise_and(cv_img, cv_img, mask=dilated)
         mask_img = self.bridge.cv2_to_compressed_imgmsg(gate_regions)
@@ -136,25 +134,25 @@ class Gate_Detector(Node):
                 cv2.circle(cv_img, (cX, cY), 5, (0, 0, 255), -1)
                 # cv2.putText(cv_img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
-                focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
+                # focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
 
-                # put hfov variable on image
-                cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                # # put hfov variable on image
+                # cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
-                # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
-                yaw_angle = calculate_yaw_angle(cX, focal_length_in_pixels)
+                # # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
+                # yaw_angle = calculate_yaw_angle(cX, focal_length_in_pixels)
 
-                # put yaw angle on image
-                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                # # put yaw angle on image
+                # cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
-                # calculate distance (calculation of distance is not properly implemented yet)
-                distance = calculate_distance(w, object_width_in_cm, focal_length_in_pixels)
+                # # calculate distance (calculation of distance is not properly implemented yet)
+                # distance = calculate_distance(w, object_width_in_cm, focal_length_in_pixels)
 
-                # put distance on image
-                cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
+                # # put distance on image
+                # cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2) 
 
-                # publish bearing and distance to gate
-                self.publish_bearing_distance(yaw_angle, distance)
+                # # publish bearing and distance to gate
+                # self.publish_bearing_distance(yaw_angle, distance)
 
     def publish_bearing_distance(self, yaw_angle, distance):
         # publish bearing and distance to gate

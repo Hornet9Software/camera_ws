@@ -8,7 +8,7 @@ from std_msgs.msg import Float32
 
 # Detect Task 1 Flare (Orange) and Task 4 Flares (Red, Blue, Yellow)
 
-# Value for red (cone)
+# Value for red flare
 lower_hue = 0
 upper_hue = 12
 lower_saturation = 141
