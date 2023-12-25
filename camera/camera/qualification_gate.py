@@ -9,6 +9,7 @@ from std_msgs.msg import Float32
 ####################
 # This node is run in conjunction with the enhance node..
 # This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate.
+# Traditional OpenCV method of detection
 ####################
 
 # Value for qualification gate (yellow)

@@ -5,6 +5,9 @@ import cv2
 import numpy as np
 import cv_bridge
 
+# This node subscribes to a topic and writes it to a video file
+# Used to create dataset for training
+
 class VideoWriterNode(Node):
     def __init__(self):
         super().__init__('video_writer_node')
@@ -25,18 +28,18 @@ class VideoWriterNode(Node):
             if len(image.shape) == 2:
                 image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
 
-            # rotate image
-            image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            # # rotate image (if needed)
+            # image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
             
-            # resize image
-            image = cv2.resize(image, (640, 480))
+            # # resize image (if needed)
+            # image = cv2.resize(image, (640, 480))
 
             # Initialize video writer if not already done
             if self.video_writer is None:
                 width = 640
                 height = 480
                 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-                self.video_writer = cv2.VideoWriter('output2.mp4', fourcc, 30, (width, height))
+                self.video_writer = cv2.VideoWriter('output.mp4', fourcc, 30, (width, height))
 
             # Write frame to video file
             self.video_writer.write(image)

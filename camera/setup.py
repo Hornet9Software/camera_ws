@@ -28,10 +28,16 @@ setup(
         'console_scripts': [
             'debug_detect = camera.debug_detect:main',
             'enhance = camera.enhance:main',
-            'qualification_gate = camera.qualification_gate:main',
+           
             'lines = camera.pool_lines:main',
             'stereo_vision = camera.stereo_vision:main',
             'export = camera.export:main',
+
+            'qualification_gate = camera.qualification_gate:main',
+            'gate_detecto = camera.gate_detecto:main',
+            'gate_yolo = camera.gate_yolo:main',
+
+            'flare = camera.flare:main',
         ],
     },
 )
