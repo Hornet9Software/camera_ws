@@ -28,9 +28,19 @@ upper_value = 255
 # lower_value = 150
 # upper_value = 200
 
-area_threshold = 2000
 # aspect ratio for upright rectangle
 aspect_ratio_threshold = 1.5
+area_threshold = 2000
+sensor_width_in_mm = 3.674  # mm
+actual_focal_length = 3.2   # mm
+sensor_width_in_pixels = 3264 # pixels
+
+horizontal_field_of_view = 137  # degrees #96.2 #62.2 
+object_width_in_cm = 37        # cm 
+object_width_in_m = object_width_in_cm / 100 # m (EDIT THIS ACCORDING TO THE WIDTH OF THE GATE/OBJECT)
+focal_length_in_pixels = sensor_width_in_pixels / (2 * np.tan(np.radians(horizontal_field_of_view/ 2)))
+
+image_center_x = 320 # pixels
 
 class Gate_Detector(Node):
     def __init__(self):
