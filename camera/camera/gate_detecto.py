@@ -14,11 +14,12 @@ from detecto import utils
 ####################
 # This node is run in conjunction with the enhance node..
 # This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate.
-# ML method of detection, uses detecto library (Pre-trained Faster R-CNN ResNet-50 FPN Model)
-####################
+# ML method of detection, uses detecto library 
+# (torchvision.models.detection.faster_rcnn.FasterRCNN)
+#####################
 
 labels = ['gate']
-model = Model.load('weights/detecto_model.pth', labels)
+model = Model.load('/home/shengbin/camera_ws/src/camera/camera/weights/detecto_model.pth', labels)
 # Transform to apply on individual frames of the video
 
 transform_frame = transforms.Compose([

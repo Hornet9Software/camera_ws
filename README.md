@@ -1,7 +1,7 @@
-# camera_ws (this repo is not a workspace but packages that enable H9 perception)
+# camera_ws
 ROS2 Humble package to perform perception and localisation for Hornet 9.0 AUV.
 
-# FOR POOL TEST
+# POOL TEST
 
 To debug hsv bounds for detection, run debug_detect.launch.py (which calls debug_detect.py)
 
@@ -36,6 +36,8 @@ Install the following packages:
     sudo apt-get install ros-humble-image-common
     sudo apt-get install ros-humble-image-pipeline
     sudo apt-get install ros-humble-image-transport-plugins
+    pip3 install detecto
+    pip install ultralytics
 
 Navigate to workspace
 
