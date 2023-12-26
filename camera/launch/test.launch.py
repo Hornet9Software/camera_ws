@@ -19,8 +19,7 @@ def generate_launch_description():
             'video_device': '/dev/video4',
             'camera_name': 'left_camera',
             'camera_frame_id': 'left_camera_frame',
-            'camera_info_url': 'file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/left.yaml',
-            'pixel_format': 'yuyv2rgb',
+            #'camera_info_url': 'file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml',
         }]
     ))
 
@@ -33,8 +32,7 @@ def generate_launch_description():
             'video_device': '/dev/video2',
             'camera_name': 'right_camera',
             'camera_frame_id': 'right_camera_frame',
-            'camera_info_url': 'file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/right.yaml',
-            'pixel_format': 'yuyv2rgb',
+            #'camera_info_url': 'file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml',
             }]
     ))
 
@@ -47,25 +45,26 @@ def generate_launch_description():
             'video_device': '/dev/video0',
             'camera_name': 'bottom_camera',
             'camera_frame_id': 'bottom_camera_frame',
-            'camera_info_url': 'file:///home/shengbin/camera_ws/src/camera/calibration/calibrationdata/bottom.yaml',
-            'pixel_format': 'yuyv2rgb',
+            #'camera_info_url': 'file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml',
+            #'pixel_format': 'yuyv2rgb',
+            #'color_format': 'yuv422p'
         }],
     ))
 
     # Launch bottom image proc for bottom camera
     # Include another launch file
-    bottom_image_proc = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/bottom_image_proc.launch.py'])
-    )
+    #bottom_image_proc = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/bottom_image_proc.launch.py'])
+    #)
 
-    ld.add_action(bottom_image_proc)
+    #ld.add_action(bottom_image_proc)
 
     # Launch stereo image proc for left and right cameras
-    stereo_image_proc = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
-    )
+    #stereo_image_proc = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
+    #)
 
-    ld.add_action(stereo_image_proc)
+    #ld.add_action(stereo_image_proc)
 
 
     return ld

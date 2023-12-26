@@ -26,6 +26,7 @@ def generate_launch_description():
         namespace="bottom",
         parameters=[
             {"video_device": "/dev/video0"},
+            {"framerate": "30"},
             {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
         ]
     )

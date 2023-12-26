@@ -13,28 +13,29 @@ from launch.substitutions import ThisLaunchFileDir
 def generate_launch_description():
 
     # Include another launch file
-    included_launch = IncludeLaunchDescription(
+    stereo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
+    )
+
+    bottom_proc_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/bottom_image_proc.launch.py'])
     )
 
     # Declare the paths to left and right camera calibration files
     left_camera_calibration_arg = DeclareLaunchArgument(
         'left_camera_calibration', 
-        # relative path to calibration file, with respect to ROS2 workspace
         default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml',
         description='Path to left camera calibration YAML file'
     )
     
     right_camera_calibration_arg = DeclareLaunchArgument(
         'right_camera_calibration', 
-        # relative path to calibration file, with respect to ROS2 workspace
         default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml',
         description='Path to right camera calibration YAML file'
     )
 
     bottom_camera_calibration_arg = DeclareLaunchArgument(
         'bottom_camera_calibration', 
-        # relative path to calibration file, with respect to ROS2 workspace
         default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml',
         description='Path to bottom camera calibration YAML file'
     )    
@@ -49,7 +50,8 @@ def generate_launch_description():
         parameters=[
             {"video_device": "/dev/video4"},
             {"camera_frame_id": "left_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('left_camera_calibration')}
+            {"camera_info_url": LaunchConfiguration('left_camera_calibration')},
+            {"time_per_frame": "[1,30]"},
         ]
     )
     rightcam = Node(
@@ -61,7 +63,8 @@ def generate_launch_description():
         parameters=[
             {"video_device": "/dev/video2"},
             {"camera_frame_id": "right_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('right_camera_calibration')}
+            {"camera_info_url": LaunchConfiguration('right_camera_calibration')},
+            {"time_per_frame": "[1,30]"},
         ]
     )
     bottomcam = Node(
@@ -73,21 +76,11 @@ def generate_launch_description():
         parameters=[
             {"video_device": "/dev/video0"},
             {"camera_frame_id": "bottom_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')}
+            {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')},
+            {"time_per_frame": "[1,30]"},
         ]
     )
 
-    image_proc_node = Node(
-        package="image_proc",
-        executable="image_proc",
-        name="image_proc_bottom",
-        namespace="bottom",
-        output='screen',
-        remappings=[
-            ("image_raw", "/bottom/image_raw"),
-            ("camera_info", "/bottom/camera_info")
-        ]
-    )
     enhance_node = Node(
         package="camera",
         executable="enhance",
@@ -107,10 +100,11 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
-        image_proc_node,
-        included_launch,
-        enhance_node,
-        qualification_gate_detector,
+        #stereo_launch,
+        bottom_proc_launch,
+
+        #enhance_node,
+        #qualification_gate_detector,
     ])
 
 if __name__ == '__main__':
