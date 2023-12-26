@@ -29,7 +29,7 @@ setup(
             'debug_detect = camera.debug_detect:main',
             'enhance = camera.enhance:main',
            
-            'lines = camera.pool_lines:main',
+            'lines = camera.lines:main',
             'stereo_vision = camera.stereo_vision:main',
             'export = camera.export:main',
 
