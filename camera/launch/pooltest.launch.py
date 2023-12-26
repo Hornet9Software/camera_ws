@@ -13,9 +13,9 @@ from launch.substitutions import ThisLaunchFileDir
 def generate_launch_description():
 
     # Include another launch file
-    stereo_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
-    )
+    # stereo_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
+    # )
 
     bottom_proc_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/bottom_image_proc.launch.py'])
@@ -81,16 +81,33 @@ def generate_launch_description():
         ]
     )
 
-    enhance_node = Node(
+    # launch lines.py and gate_yolo.py
+    lines_node = Node(
         package="camera",
-        executable="enhance",
+        executable="lines",
         output='screen',
     )
-    qualification_gate_detector = Node(
+    gate_yolo_node = Node(
         package="camera",
-        executable="qualification_gate",
+        executable="gate_yolo",
         output='screen',
     )
+
+    # Add in bearing and distance extraction node here
+    # ------------------Here------------------------
+    # 
+
+
+    # enhance_node = Node(
+    #     package="camera",
+    #     executable="enhance",
+    #     output='screen',
+    # )
+    # qualification_gate_detector = Node(
+    #     package="camera",
+    #     executable="qualification_gate",
+    #     output='screen',
+    # )
 
     # Add your nodes to the launch description
     return LaunchDescription([
@@ -102,7 +119,8 @@ def generate_launch_description():
         bottomcam,
         #stereo_launch,
         bottom_proc_launch,
-
+        lines_node,
+        gate_yolo_node,
         #enhance_node,
         #qualification_gate_detector,
     ])
