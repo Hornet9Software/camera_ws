@@ -9,16 +9,27 @@ from std_msgs.msg import Float32
 ####################
 # This node is run in conjunction with the enhance node..
 # This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate.
+# Traditional OpenCV method of detection
 ####################
 
-# Value for red (cone)
-lower_hue = 0
-upper_hue = 12
-lower_saturation = 141
+# Value for qualification gate (yellow)
+lower_hue = 18
+upper_hue = 39
+lower_saturation = 54
 upper_saturation = 255
-lower_value = 50
+lower_value = 56
 upper_value = 255
 
+# Initial values (to detect yellow/orange for competition bag)
+# lower_hue = 24
+# upper_hue = 35
+# lower_saturation = 15
+# upper_saturation = 80
+# lower_value = 150
+# upper_value = 200
+
+# aspect ratio for upright rectangle
+aspect_ratio_threshold = 1.5
 area_threshold = 2000
 sensor_width_in_mm = 3.674  # mm
 actual_focal_length = 3.2   # mm
@@ -79,20 +90,21 @@ class Gate_Detector(Node):
         self.range_pub.publish(range_msg)
 
         # Segment out gate regions using the mask
-        kernel1 = np.ones((9, 9), np.uint8)
+        kernel1 = np.ones((5, 5), np.uint8)
         kernel2 = np.ones((3, 3), np.uint8)
         
         # Morphological operations to remove noise
 
         eroded = cv2.erode(gate_mask, kernel2, iterations=1)
-        dilated = cv2.dilate(eroded, kernel1, iterations=3)
+        dilated = cv2.dilate(eroded, kernel1, iterations=4)
+        eroded1 = cv2.erode(dilated, kernel1, iterations=1)
         
-        gate_regions = cv2.bitwise_and(cv_img, cv_img, mask=dilated)
+        gate_regions = cv2.bitwise_and(cv_img, cv_img, mask=eroded1)
         mask_img = self.bridge.cv2_to_compressed_imgmsg(gate_regions)
         self.mask_pub.publish(mask_img)
 
         # Draw Contours and Bounding Box for Gate
-        self.draw_contour(dilated, cv_img)
+        self.draw_contour(eroded1, cv_img)
         final_mask_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
         self.final_mask_pub.publish(final_mask_msg)
 
@@ -104,11 +116,14 @@ class Gate_Detector(Node):
         # Draw contours with green
         cv2.drawContours(cv_img, contours, -1, (0,255,0), 2)
     
-        # draw bounding box
+
         for c in contours:
             x,y,w,h = cv2.boundingRect(c)
-            # draw bounding box only if area is above area threshold
-            if cv2.contourArea(c) > area_threshold:
+           
+            # draw bounding box only if aspect ratio is above threshold
+        
+            if cv2.contourArea(c) > 1500 and (h/w) > aspect_ratio_threshold:
+            # if (h/w) > aspect_ratio_threshold:
                 # draw bounding box
                 cv2.rectangle(cv_img, (x,y), (x+w,y+h), (0,0,128), 3)
                 
@@ -128,20 +143,20 @@ class Gate_Detector(Node):
                 # put hfov variable on image
                 # cv2.putText(cv_img, "HFOV: {:.2f}".format(horizontal_field_of_view), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
 
-                # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
-                yaw_angle = calculate_yaw_angle(cX)
+                # # calculate yaw angle (currently yaw angle is done purely using x coordinate of centroid)
+                # yaw_angle = calculate_yaw_angle(cX)
 
-                # put yaw angle on image
-                cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
+                # # put yaw angle on image
+                # cv2.putText(cv_img, "Yaw Angle: {:.2f}".format(yaw_angle), (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2)
 
-                # calculate distance
-                distance = calculate_distance(w, object_width_in_cm)
+                # # calculate distance
+                # distance = calculate_distance(w, object_width_in_cm)
 
-                # put distance on image
-                cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2) 
+                # # put distance on image
+                # cv2.putText(cv_img, "Distance (m): {:.2f}".format(distance), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (112, 232, 100), 2) 
 
-                # publish bearing and distance to gate
-                self.publish_bearing_distance(yaw_angle, distance)
+                # # publish bearing and distance to gate
+                # self.publish_bearing_distance(yaw_angle, distance)
 
     def publish_bearing_distance(self, yaw_angle, distance):
         # publish bearing and distance to gate

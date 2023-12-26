@@ -7,6 +7,9 @@ from cv_bridge import CvBridge
 from std_msgs.msg import Float32MultiArray
 from skimage import filters
 
+# Detect Floor tile lines and calculate angles
+# Giving estimate for yaw angles
+
 class FloorTilesNode(Node):
     def __init__(self):
         super().__init__('floor_tiles_node')
