@@ -13,7 +13,7 @@ from std_msgs.msg import Float32MultiArray
 # (torchvision.models.detection.faster_rcnn.FasterRCNN)
 #####################
 
-model = YOLO('/home/shengbin/camera_ws/src/camera/camera/weights/yolo_gate_weights.pt')
+model = YOLO('/home/bb/poolTest_ws/src/camera_ws/camera/weights/yolo_gate_weights.pt')
 # Transform to apply on individual frames of the video
 
 
@@ -21,8 +21,8 @@ class GateDetectorNode(Node):
     def __init__(self):
         super().__init__('gate_detector_node')
         self.subscription = self.create_subscription(
-            CompressedImage,
-            '/left/gray_world/compressed',
+            Image,
+            '/left/image_rect_color',
             # '/Hornet/Cam/left/image_rect_color/compressed',
             self.image_callback,
             10
@@ -41,7 +41,7 @@ class GateDetectorNode(Node):
 
 
     def image_callback(self, msg):
-        cv_image = self.cv_bridge.compressed_imgmsg_to_cv2(msg)
+        cv_image = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         
         # detection
         results = model(cv_image)

@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import CompressedImage
+from sensor_msgs.msg import CompressedImage, Image
 import numpy as np
 import cv2
 from cv_bridge import CvBridge
@@ -15,10 +15,10 @@ class FloorTilesNode(Node):
         super().__init__('floor_tiles_node')
 
         # self.tile_img_pub = self.create_publisher(CompressedImage, 'compressed_image_topic', 10)
-        self.tile_angles = self.create_publisher(Float32MultiArray, '/angles', 10)
+        self.tile_angles = self.create_publisher(Float32MultiArray, '/poolLines', 10)
         self.bottom_image_feed = self.create_subscription(
-            CompressedImage,
-            '/Hornet/Cam/Floor/image_rect_color/compressed',
+            Image,
+            '/bottom/image_rect_color',
             self.image_callback,
             10
         )
@@ -26,7 +26,7 @@ class FloorTilesNode(Node):
 
     def image_callback(self, msg):
         # Convert compressed image to OpenCV image
-        img = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
+        img = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         # clear terminal
         print("\033c")
         # if image contain green mat, return
