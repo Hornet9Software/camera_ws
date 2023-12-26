@@ -36,6 +36,8 @@ Install the following packages:
     sudo apt-get install ros-humble-image-common
     sudo apt-get install ros-humble-image-pipeline
     sudo apt-get install ros-humble-image-transport-plugins
+
+    # To enable ML-based Object Detection
     pip3 install detecto
     pip install ultralytics
 
