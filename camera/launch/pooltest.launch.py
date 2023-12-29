@@ -1,129 +1,111 @@
 from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, TimerAction
 from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
 
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import ThisLaunchFileDir
+# Launch file for pool test.
+# Inits 3 camera driver nodes, 1 gate detection node, and 1 pool lines detection node.
 
-# launch file for pool test, 
-# inits 3 camera driver nodes, 1 enhance node, 1 qualification_gate_detector node, and stereo_proc node
+camera_init_delay = 10.0
+
+camera_parameters = [
+    {"white_balance_temperature_auto": False},
+    {"white_balance_temperature": 5500},
+    {"brightness": 20},
+    {"output_encoding": "yuv422_yuy2"},
+    {"exposure_auto": 1},
+    {"backlight_compensation": 0},
+    {"time_per_frame": "[1,20]"},
+]
+
 
 def generate_launch_description():
-
-    # Include another launch file
-    # stereo_launch = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/stereo_image_proc.launch.py'])
-    # )
-
-    bottom_proc_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/bottom_image_proc.launch.py'])
-    )
-
-    # Declare the paths to left and right camera calibration files
+    # Declare the paths to camera calibration files
     left_camera_calibration_arg = DeclareLaunchArgument(
-        'left_camera_calibration', 
-        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml',
-        description='Path to left camera calibration YAML file'
+        "left_camera_calibration",
+        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml",
+        description="Path to left camera calibration YAML file",
     )
-    
+
     right_camera_calibration_arg = DeclareLaunchArgument(
-        'right_camera_calibration', 
-        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml',
-        description='Path to right camera calibration YAML file'
+        "right_camera_calibration",
+        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml",
+        description="Path to right camera calibration YAML file",
     )
 
     bottom_camera_calibration_arg = DeclareLaunchArgument(
-        'bottom_camera_calibration', 
-        default_value='file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml',
-        description='Path to bottom camera calibration YAML file'
-    )    
+        "bottom_camera_calibration",
+        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml",
+        description="Path to bottom camera calibration YAML file",
+    )
 
-    # camera driver nodes
+    # Camera driver nodes
     leftcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
         name="left",
         namespace="left",
-        output='screen',
+        output="screen",
         parameters=[
             {"video_device": "/dev/video4"},
             {"camera_frame_id": "left_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('left_camera_calibration')},
-            {"time_per_frame": "[1,30]"},
-        ]
+            {"camera_info_url": LaunchConfiguration("left_camera_calibration")},
+            *camera_parameters,
+        ],
     )
     rightcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
         name="right",
         namespace="right",
-        output='screen',
+        output="screen",
         parameters=[
-            {"video_device": "/dev/video2"},
+            {"video_device": "/dev/video4"},
             {"camera_frame_id": "right_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('right_camera_calibration')},
-            {"time_per_frame": "[1,30]"},
-        ]
+            {"camera_info_url": LaunchConfiguration("right_camera_calibration")},
+            *camera_parameters,
+        ],
     )
     bottomcam = Node(
         package="v4l2_camera",
         executable="v4l2_camera_node",
         name="bottom",
         namespace="bottom",
-        output='screen',
+        output="screen",
         parameters=[
-            {"video_device": "/dev/video0"},
+            {"video_device": "/dev/video2"},
             {"camera_frame_id": "bottom_camera_frame"},
-            {"camera_info_url": LaunchConfiguration('bottom_camera_calibration')},
-            {"time_per_frame": "[1,30]"},
-        ]
+            {"camera_info_url": LaunchConfiguration("bottom_camera_calibration")},
+            *camera_parameters,
+        ],
     )
 
-    # launch lines.py and gate_yolo.py
+    # Launch lines.py and gate_yolo.py
     lines_node = Node(
         package="camera",
         executable="lines",
-        output='screen',
+        output="screen",
     )
     gate_yolo_node = Node(
         package="camera",
         executable="gate_yolo",
-        output='screen',
+        output="screen",
     )
 
-    # Add in bearing and distance extraction node here
-    # ------------------Here------------------------
-    # 
+    return LaunchDescription(
+        [
+            left_camera_calibration_arg,
+            right_camera_calibration_arg,
+            bottom_camera_calibration_arg,
+            # May not need to delay.
+            TimerAction(period=camera_init_delay, actions=[leftcam]),
+            TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
+            TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
+            lines_node,
+            gate_yolo_node,
+        ]
+    )
 
 
-    # enhance_node = Node(
-    #     package="camera",
-    #     executable="enhance",
-    #     output='screen',
-    # )
-    # qualification_gate_detector = Node(
-    #     package="camera",
-    #     executable="qualification_gate",
-    #     output='screen',
-    # )
-
-    # Add your nodes to the launch description
-    return LaunchDescription([
-        left_camera_calibration_arg, 
-        right_camera_calibration_arg, 
-        bottom_camera_calibration_arg,
-        leftcam,
-        rightcam,
-        bottomcam,
-        #stereo_launch,
-        bottom_proc_launch,
-        lines_node,
-        gate_yolo_node,
-        #enhance_node,
-        #qualification_gate_detector,
-    ])
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     generate_launch_description()

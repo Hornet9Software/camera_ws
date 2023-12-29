@@ -3,20 +3,22 @@ ROS2 Humble package to perform perception and localisation for Hornet 9.0 AUV.
 
 # POOL TEST
 
+## HSV Gate Detection
 To debug hsv bounds for detection, run debug_detect.launch.py (which calls debug_detect.py)
 
     ros2 launch camera debug.launch.py
 
 Remember to update hsv bounds in qualification_gate.py after finding desired hsv bounds.
 
-To test detection, run pooltest.launch.py (which calls qualification_gate.py)
-This launch file executes 3 camera driver nodes, 1 stereo_proc node (front), 1 image_proc node (bottom), 1 image_enhance node and 1 qualification_gate detector node.
+## Main Task
+To test detection, run pooltest.launch.py
+This launch file executes 3 camera driver nodes, 1 pool lines detection node and 1 qualification_gate detector node.
 
       ros2 launch camera pooltest.launch.py
 
 Record rosbags (edit ur script file to record specific topics)
 
-      cd src/camera_ws/camera
+      cd src/camera_ws/camera/record_scripts
       ./recordbags.sh (whichever script file of choice)
 
 All recorded bags will be located at src/camera_ws/camera/pooltest_bags/, rename bags after pool test for easier reference
@@ -37,9 +39,19 @@ Install the following packages:
     sudo apt-get install ros-humble-image-pipeline
     sudo apt-get install ros-humble-image-transport-plugins
 
+    pip3 install skimage
+
     # To enable ML-based Object Detection
-    pip3 install detecto
     pip install ultralytics
+
+To enable CUDA on the Jetson, add the following to `~/.bashrc`:
+
+    export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+    export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+Then, follow the instructions at https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048 to install PyTorch.
+For Ultralytics compatibility, best to use PyTorch v2.0.0 and torchvision v0.15.0. Do not install using other pip wheels.
+Follow the instructions strictly.
 
 Navigate to workspace
 
