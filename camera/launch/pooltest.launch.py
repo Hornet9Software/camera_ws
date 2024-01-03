@@ -6,17 +6,27 @@ from launch_ros.actions import Node
 # Launch file for pool test.
 # Inits 3 camera driver nodes, 1 gate detection node, and 1 pool lines detection node.
 
-camera_init_delay = 10.0
+camera_init_delay = 5.0
 
 camera_parameters = [
-    {"white_balance_temperature_auto": False},
-    {"white_balance_temperature": 5500},
-    {"brightness": 20},
-    {"output_encoding": "yuv422_yuy2"},
-    {"exposure_auto": 1},
-    {"backlight_compensation": 0},
-    {"time_per_frame": "[1,20]"},
+    {"width": 640},
+    {"height": 480},
+    {"codec": "unknown"},
+    {"loop": 0},
+    {"latency": 2000},
+    {"framerate": 20.0},
 ]
+
+# For v4l2_camera package, to reduce load on driver.
+# camera_parameters = [
+#     {"white_balance_temperature_auto": False},
+#     {"white_balance_temperature": 5500},
+#     {"brightness": 20},
+#     {"output_encoding": "yuv422_yuy2"},
+#     {"exposure_auto": 1},
+#     {"backlight_compensation": 0},
+#     {"time_per_frame": "[1,20]"},
+# ]
 
 
 def generate_launch_description():
@@ -41,41 +51,37 @@ def generate_launch_description():
 
     # Camera driver nodes
     leftcam = Node(
-        package="v4l2_camera",
-        executable="v4l2_camera_node",
+        package="ros_deep_learning",
+        executable="video_source",
         name="left",
         namespace="left",
         output="screen",
         parameters=[
-            {"video_device": "/dev/video4"},
-            {"camera_frame_id": "left_camera_frame"},
-            {"camera_info_url": LaunchConfiguration("left_camera_calibration")},
+            {"resource": "v4l2:///dev/video0"},
             *camera_parameters,
         ],
     )
+
     rightcam = Node(
-        package="v4l2_camera",
-        executable="v4l2_camera_node",
+        package="ros_deep_learning",
+        executable="video_source",
         name="right",
         namespace="right",
         output="screen",
         parameters=[
-            {"video_device": "/dev/video4"},
-            {"camera_frame_id": "right_camera_frame"},
-            {"camera_info_url": LaunchConfiguration("right_camera_calibration")},
+            {"resource": "v4l2:///dev/video4"},
             *camera_parameters,
         ],
     )
+
     bottomcam = Node(
-        package="v4l2_camera",
-        executable="v4l2_camera_node",
+        package="ros_deep_learning",
+        executable="video_source",
         name="bottom",
         namespace="bottom",
         output="screen",
         parameters=[
-            {"video_device": "/dev/video2"},
-            {"camera_frame_id": "bottom_camera_frame"},
-            {"camera_info_url": LaunchConfiguration("bottom_camera_calibration")},
+            {"resource": "v4l2:///dev/video2"},
             *camera_parameters,
         ],
     )
@@ -86,10 +92,23 @@ def generate_launch_description():
         executable="lines",
         output="screen",
     )
-    gate_yolo_node = Node(
+
+    left_gate_yolo_node = Node(
         package="camera",
         executable="gate_yolo",
         output="screen",
+        parameters=[
+            {"camera": "left"},
+        ],
+    )
+
+    right_gate_yolo_node = Node(
+        package="camera",
+        executable="gate_yolo",
+        output="screen",
+        parameters=[
+            {"camera": "right"},
+        ],
     )
 
     return LaunchDescription(
@@ -102,7 +121,8 @@ def generate_launch_description():
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
             lines_node,
-            gate_yolo_node,
+            left_gate_yolo_node,
+            right_gate_yolo_node,
         ]
     )
 
