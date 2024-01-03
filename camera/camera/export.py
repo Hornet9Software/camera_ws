@@ -1,28 +1,25 @@
+import cv2
+import cv_bridge
+import numpy as np
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage, Image
-import cv2
-import numpy as np
-import cv_bridge
 
 # This node subscribes to a topic and writes it to a video file
 # Used to create dataset for training
 
+
 class VideoWriterNode(Node):
     def __init__(self):
-        super().__init__('video_writer_node')
+        super().__init__("video_writer_node")
         self.subscription = self.create_subscription(
-            Image,
-            '/video_feed',
-            self.image_callback,
-            10
+            Image, "/left/image_raw", self.image_callback, 10
         )
         self.video_writer = None
         self.bridge = cv_bridge.CvBridge()
 
     def image_callback(self, msg):
         try:
-            
             # Convert compressed image to OpenCV image
             image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
             if len(image.shape) == 2:
@@ -30,7 +27,7 @@ class VideoWriterNode(Node):
 
             # # rotate image (if needed)
             # image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
-            
+
             # # resize image (if needed)
             # image = cv2.resize(image, (640, 480))
 
@@ -38,14 +35,17 @@ class VideoWriterNode(Node):
             if self.video_writer is None:
                 width = 640
                 height = 480
-                fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-                self.video_writer = cv2.VideoWriter('output.mp4', fourcc, 30, (width, height))
+                fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+                self.video_writer = cv2.VideoWriter(
+                    "output.mp4", fourcc, 30, (width, height)
+                )
 
             # Write frame to video file
             self.video_writer.write(image)
 
         except Exception as e:
-            self.get_logger().error('Error processing image: %s' % str(e))
+            self.get_logger().error("Error processing image: %s" % str(e))
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -54,5 +54,6 @@ def main(args=None):
     node.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
