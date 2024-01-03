@@ -7,29 +7,30 @@ from sensor_msgs.msg import CompressedImage, Image
 from std_msgs.msg import Float32MultiArray
 from ultralytics import YOLO
 
-####################
-# This node is run in conjunction with the enhance node..
-# This node detects for qualification gate (orange/yellow poles) and publishes the bearing and distance to the gate.
-#####################
-
 model = YOLO("src/camera_ws/camera/camera/weights/yolov8n_271223_4.pt")
-# Transform to apply on individual frames of the video
 
 
 class GateDetectorNode(Node):
     def __init__(self):
         super().__init__("gate_detector_node")
+
+        self.declare_parameter("camera", "left")
+        camera = self.get_parameter("camera").get_parameter_value().string_value
+
         self.subscription = self.create_subscription(
             Image,
-            "/left/image_raw",
+            f"/{camera}/raw",
             # "/left/image_rect_color",
             self.image_callback,
             10,
         )
+
         self.yolo_pub = self.create_publisher(
-            CompressedImage, "/left/yolo/compressed", 10
+            CompressedImage, f"/{camera}/yolo/compressed", 10
         )
-        self.bbox_pub = self.create_publisher(Float32MultiArray, "/left/yolo/box", 10)
+        self.bbox_pub = self.create_publisher(
+            Float32MultiArray, f"/{camera}/yolo/box", 10
+        )
         self.cv_bridge = CvBridge()
 
         # For FPS
