@@ -38,6 +38,8 @@ setup(
             'gate_yolo = camera.gate_yolo:main',
 
             'flare = camera.flare:main',
+
+            'calibration = camera.calibration:main',
         ],
     },
 )
