@@ -1,7 +1,10 @@
+import cv2
+import numpy as np
 import rclpy
 import yaml
+from cv_bridge import CvBridge
 from rclpy.node import Node
-from sensor_msgs.msg import CameraInfo
+from sensor_msgs.msg import CameraInfo, Image
 
 # might need to edit the path name
 LEFT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/left.yaml"
@@ -12,6 +15,11 @@ BOTTOM_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/bott
 class CalibrationNode(Node):
     def __init__(self):
         super().__init__("calibrator_node")
+        self.bridge = CvBridge()
+        self.subscriber_left = self.create_subscription(Image, "/left/raw", lambda msg: self.image_callback(msg, LEFT_CALIBRATION_PATH), 10)
+        self.subscriber_right = self.create_subscription(Image, "/right/raw", lambda msg: self.image_callback(msg, RIGHT_CALIBRATION_PATH), 10)
+        self.subscriber_bottom = self.create_subscription(Image, "/bottom/raw", lambda msg: self.image_callback(msg, BOTTOM_CALIBRATION_PATH), 10)
+
         self.publisher_left = self.create_publisher(CameraInfo, "/left/calibration", 10)
         self.publisher_right = self.create_publisher(
             CameraInfo, "/right/calibration", 10
@@ -21,7 +29,15 @@ class CalibrationNode(Node):
         )
 
         timer_period = 0.1
-        self.timer = self.create_timer(timer_period, self.publish_calibration_data)
+        # self.timer = self.create_timer(timer_period, self.publish_calibration_data)
+    
+    def image_callback(self, msg, path):
+        data = self.read_data(path)
+        img = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+
+        calibrated_img = cv2.undistort(img, data["k"], data["d"], data["r"], data["p"])
+        calibrated_imgmsg = self.bridge.cv2_to_imgmsg(calibrated_img)
+
 
     def publish_calibration_data(self):
         left_msg = self.generate_message(self.read_data(LEFT_CALIBRATION_PATH))
@@ -51,13 +67,13 @@ class CalibrationNode(Node):
         with open(path, "r") as file:
             contents = yaml.safe_load(file)
             # data["name"] = contents["camera_name"]
-            data["height"] = int(contents["image_height"])
-            data["width"] = int(contents["image_width"])
-            data["distortion_model"] = str(contents["distortion_model"])
-            data["d"] = list(contents["distortion_coefficients"]["data"])
-            data["k"] = list(contents["camera_matrix"]["data"])
-            data["r"] = list(contents["rectification_matrix"]["data"])
-            data["p"] = list(contents["projection_matrix"]["data"])
+            data["height"] = contents["image_height"]
+            data["width"] = contents["image_width"]
+            data["distortion_model"] = contents["distortion_model"]
+            data["d"] = np.array(contents["distortion_coefficients"]["data"])
+            data["k"] = np.array(contents["camera_matrix"]["data"]).reshape((3, 3))
+            data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape((3, 3))
+            data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
         return data
 
     def generate_message(self, data):
