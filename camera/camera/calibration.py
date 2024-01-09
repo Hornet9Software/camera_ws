@@ -4,7 +4,7 @@ import rclpy
 import yaml
 from cv_bridge import CvBridge
 from rclpy.node import Node
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CompressedImage
 
 # import CameraInfo if want to publish calibration data
 
@@ -26,12 +26,12 @@ class CalibrationNode(Node):
 
         # create publishers
         # New topics
-        # /left/calibrated
-        # /right/calibrated
-        # /bottom/calibrated
-        self.publisher_left = self.create_publisher(Image, "/left/calibrated", 10)
-        self.publisher_right = self.create_publisher(Image, "/right/calibrated", 10)
-        self.publisher_btm = self.create_publisher(Image, "/bottom/calibrated", 10)
+        # /left/calibrated/compressed
+        # /right/calibrated/compressed
+        # /bottom/calibrated/compressed
+        self.publisher_left = self.create_publisher(CompressedImage, "/left/calibrated/compressed", 10)
+        self.publisher_right = self.create_publisher(CompressedImage, "/right/calibrated/compressed", 10)
+        self.publisher_btm = self.create_publisher(CompressedImage, "/bottom/calibrated/compressed", 10)
 
         # create subscribers to raw image
         self.subscriber_left = self.create_subscription(
@@ -78,10 +78,10 @@ class CalibrationNode(Node):
         )
         # rectification & projection matrix not used
         calibrated_img = cv2.undistort(cv_img, data["k"], data["d"], None, newcameramtx)
-        calibrated_msg = self.bridge.cv2_to_imgmsg(calibrated_img)
+        calibrated_msg = self.bridge.cv2_to_compressed_imgmsg(calibrated_img)
         calibrated_msg.header.stamp = self.get_clock().now().to_msg()  # check timestamp
         publisher.publish(calibrated_msg)
-        self.get_logger().info(f"published calibrated img: {calibrated_msg}")
+        # self.get_logger().info(f"published calibrated img: {calibrated_msg}")
 
     def read_data(self, path):
         data = {
