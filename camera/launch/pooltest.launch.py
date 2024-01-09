@@ -14,7 +14,7 @@ camera_parameters = [
     {"codec": "unknown"},
     {"loop": 0},
     {"latency": 2000},
-    {"framerate": 20.0},
+    {"framerate": 15.0},
 ]
 
 # For v4l2_camera package, to reduce load on driver.
@@ -86,6 +86,8 @@ def generate_launch_description():
         ],
     )
 
+    image_rect = Node(package="camera", executable="calibration", output="screen")
+
     # Launch lines.py and gate_yolo.py
     lines_node = Node(
         package="camera",
@@ -120,6 +122,7 @@ def generate_launch_description():
             TimerAction(period=camera_init_delay, actions=[leftcam]),
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
+            image_rect,
             lines_node,
             left_gate_yolo_node,
             right_gate_yolo_node,
