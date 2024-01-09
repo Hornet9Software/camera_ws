@@ -30,7 +30,7 @@ camera_parameters = [
 
 
 def generate_launch_description():
-    # Declare the paths to camera calibration files
+    # Declare the paths to camera calibration files]
     left_camera_calibration_arg = DeclareLaunchArgument(
         "left_camera_calibration",
         default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml",
@@ -86,7 +86,12 @@ def generate_launch_description():
         ],
     )
 
-    image_rect = Node(package="camera", executable="calibration", output="screen")
+    # Rectify Node
+    rectify_node = Node(
+        package="camera",
+        executable="calibration",
+        output="screen",
+    )
 
     # Launch lines.py and gate_yolo.py
     lines_node = Node(
@@ -122,7 +127,7 @@ def generate_launch_description():
             TimerAction(period=camera_init_delay, actions=[leftcam]),
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
-            image_rect,
+            rectify_node,
             lines_node,
             left_gate_yolo_node,
             right_gate_yolo_node,
