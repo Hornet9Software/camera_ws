@@ -7,7 +7,8 @@ from sensor_msgs.msg import CompressedImage, Image
 from std_msgs.msg import Float32MultiArray
 from ultralytics import YOLO
 
-model = YOLO("src/camera_ws/camera/camera/weights/yolov8n_271223_4.pt")
+weights_file = "yolov8n_160124_1.pt"
+model = YOLO(f"/home/bb/poolTest_ws/src/camera_ws/camera/camera/weights/{weights_file}")
 
 
 class GateDetectorNode(Node):
@@ -17,13 +18,21 @@ class GateDetectorNode(Node):
         self.declare_parameter("camera", "left")
         camera = self.get_parameter("camera").get_parameter_value().string_value
 
+        # Detect on raw image
         self.subscription = self.create_subscription(
             Image,
             f"/{camera}/raw",
-            # "/left/image_rect_color",
             self.image_callback,
             10,
         )
+
+        # Detect on calibrated image
+        # self.subscription = self.create_subscription(
+        #     CompressedImage,
+        #     f"/{camera}/calibrated/compressed",
+        #     self.image_callback,
+        #     10,
+        # )
 
         self.yolo_pub = self.create_publisher(
             CompressedImage, f"/{camera}/yolo/compressed", 10
@@ -38,7 +47,11 @@ class GateDetectorNode(Node):
         self.init_time = time.time()
 
     def image_callback(self, msg):
-        cv_image = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+        # Raw image
+        cv_image = self.cv_bridge.imgmsg_to_cv2(msg)
+
+        # Calibrated image
+        # cv_image = self.cv_bridge.compressed_imgmsg_to_cv2(msg)
 
         # Detection
         results = model(cv_image)

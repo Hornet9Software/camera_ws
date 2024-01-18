@@ -1,89 +1,98 @@
+import time
+
 import cv2
 import numpy as np
 import rclpy
 import yaml
 from cv_bridge import CvBridge
 from rclpy.node import Node
-from sensor_msgs.msg import Image, CompressedImage
+from sensor_msgs.msg import CompressedImage, Image
 
 # import CameraInfo if want to publish calibration data
 
 # file paths are correct tested working when publish CameraInfo
-LEFT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/left.yaml"
-RIGHT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/right.yaml"
-BOTTOM_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/bottom.yaml"
+# LEFT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/left.yaml"
+# RIGHT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/right.yaml"
+# BOTTOM_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/bottom.yaml"
 
 
 class CalibrationNode(Node):
     def __init__(self):
         super().__init__("calibrator_node")
 
-        # read the calibration data file
-        self.left_calibration_data = self.read_data(LEFT_CALIBRATION_PATH)
-        self.right_calibration_data = self.read_data(RIGHT_CALIBRATION_PATH)
-        self.btm_calibration_data = self.read_data(BOTTOM_CALIBRATION_PATH)
+        self.declare_parameter("calibration_data_path", "left")
+        self.calibration_data = self.read_data(
+            self.get_parameter("calibration_data_path")
+            .get_parameter_value()
+            .string_value
+        )
+
         self.bridge = CvBridge()
 
-        # create publishers
-        # New topics
-        # /left/calibrated/compressed
-        # /right/calibrated/compressed
-        # /bottom/calibrated/compressed
-        self.publisher_left = self.create_publisher(CompressedImage, "/left/calibrated/compressed", 10)
-        self.publisher_right = self.create_publisher(CompressedImage, "/right/calibrated/compressed", 10)
-        self.publisher_btm = self.create_publisher(CompressedImage, "/bottom/calibrated/compressed", 10)
+        # Create publishers
+        namespace = self.get_namespace()
+        self.publisher = self.create_publisher(
+            # removed the / in front of self.namspace
+            CompressedImage,
+            f"{namespace}/calibrated/compressed",
+            10,
+        )
 
-        # create subscribers to raw image
-        self.subscriber_left = self.create_subscription(
+        # Create subscribers to raw image
+        self.subscriber = self.create_subscription(
             Image,
-            "/left/raw",
-            lambda msg: self.image_callback(
-                msg, self.left_calibration_data, self.publisher_left
-            ),
+            f"{namespace}/raw",
+            lambda msg: self.image_callback(msg, self.calibration_data),
             10,
         )
-        self.subscriber_right = self.create_subscription(
-            Image,
-            "/right/raw",
-            lambda msg: self.image_callback(
-                msg, self.right_calibration_data, self.publisher_right
-            ),
-            10,
-        )
-        self.subscriber_bottom = self.create_subscription(
-            Image,
-            "/bottom/raw",
-            lambda msg: self.image_callback(
-                msg, self.btm_calibration_data, self.publisher_btm
-            ),
-            10,
+
+        # https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html
+        # https://stackoverflow.com/questions/39432322/what-does-the-getoptimalnewcameramatrix-do-in-opencv
+        # this chunk hella sus docs may be outdated
+        # roi is not used to crop like in the tut
+        image_shape = (self.calibration_data["width"], self.calibration_data["height"])
+        self.newcameramtx, roi = cv2.getOptimalNewCameraMatrix(
+            self.calibration_data["k"],
+            self.calibration_data["d"],
+            image_shape,
+            1,
+            image_shape,
         )
 
         # uncomment the following & the btm functions to publish calibration data
         # timer_period = 0.1
         # self.timer = self.create_timer(timer_period, self.publish_calibration_data)
 
+        # added to test fps
+        self.cnt = 0
+        self.init_time = time.time()
+
     # callback function to publish the calibrated image once received
     # uses the cv2.undistort & getOptimalNewCameraMatrix functions to process
-    def image_callback(self, msg, data, publisher):
+    def image_callback(self, msg, data):
         cv_img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        width_height = (data["width"], data["height"])
 
-        # https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html
-        # https://stackoverflow.com/questions/39432322/what-does-the-getoptimalnewcameramatrix-do-in-opencv
-        # this chunk hella sus docs may be outdated
-        # roi is not used to crop like in the tut
-        newcameramtx, roi = cv2.getOptimalNewCameraMatrix(
-            data["k"], data["d"], width_height, 1, width_height
-        )
         # rectification & projection matrix not used
-        calibrated_img = cv2.undistort(cv_img, data["k"], data["d"], None, newcameramtx)
+        calibrated_img = cv2.undistort(
+            cv_img, data["k"], data["d"], None, self.newcameramtx
+        )
         calibrated_msg = self.bridge.cv2_to_compressed_imgmsg(calibrated_img)
         calibrated_msg.header.stamp = self.get_clock().now().to_msg()  # check timestamp
-        publisher.publish(calibrated_msg)
+        self.publisher.publish(calibrated_msg)
         # self.get_logger().info(f"published calibrated img: {calibrated_msg}")
 
+        # added to test fps
+        self.cnt += 1
+        elapsed_time = time.time() - self.init_time
+        if elapsed_time > 0:
+            fps = self.cnt / elapsed_time
+        if elapsed_time > 10:  # Reset after 10s
+            self.init_time = time.time()
+            self.cnt = 0
+        self.get_logger().info(f"FPS: {fps}")
+
     def read_data(self, path):
+        print("path: ", path)
         data = {
             # "name": None,
             "height": None,
@@ -91,8 +100,8 @@ class CalibrationNode(Node):
             "distortion_model": None,
             "d": None,
             "k": None,
-            "r": None,
-            "p": None,
+            # "r": None,
+            # "p": None,
         }
 
         # read the yaml file & return the contents in a dict according to CameraInfo params
@@ -111,10 +120,10 @@ class CalibrationNode(Node):
             data["k"] = np.array(contents["camera_matrix"]["data"]).reshape(
                 (3, 3)
             )  # intrinsic matrix
-            data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape(
-                (3, 3)
-            )
-            data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
+            # data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape(
+            #     (3, 3)
+            # )
+            # data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
 
         return data
 
