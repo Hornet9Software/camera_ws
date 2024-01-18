@@ -1,3 +1,4 @@
+from controls_core.params import bottom_cam_dev, left_cam_dev, right_cam_dev
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, TimerAction
 from launch.substitutions import LaunchConfiguration
@@ -14,7 +15,7 @@ camera_parameters = [
     {"codec": "unknown"},
     {"loop": 0},
     {"latency": 2000},
-    {"framerate": 15.0},
+    {"framerate": 20.0},
 ]
 
 # For v4l2_camera package, to reduce load on driver.
@@ -28,27 +29,12 @@ camera_parameters = [
 #     {"time_per_frame": "[1,20]"},
 # ]
 
+calibration_data_dir = (
+    "/home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/"
+)
+
 
 def generate_launch_description():
-    # Declare the paths to camera calibration files]
-    left_camera_calibration_arg = DeclareLaunchArgument(
-        "left_camera_calibration",
-        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/left.yaml",
-        description="Path to left camera calibration YAML file",
-    )
-
-    right_camera_calibration_arg = DeclareLaunchArgument(
-        "right_camera_calibration",
-        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/right.yaml",
-        description="Path to right camera calibration YAML file",
-    )
-
-    bottom_camera_calibration_arg = DeclareLaunchArgument(
-        "bottom_camera_calibration",
-        default_value="file:///home/bb/poolTest_ws/src/camera_ws/camera/calibration/calibrationdata/bottom.yaml",
-        description="Path to bottom camera calibration YAML file",
-    )
-
     # Camera driver nodes
     leftcam = Node(
         package="ros_deep_learning",
@@ -57,7 +43,7 @@ def generate_launch_description():
         namespace="left",
         output="screen",
         parameters=[
-            {"resource": "v4l2:///dev/video0"},
+            {"resource": f"v4l2://{left_cam_dev}"},
             *camera_parameters,
         ],
     )
@@ -69,7 +55,7 @@ def generate_launch_description():
         namespace="right",
         output="screen",
         parameters=[
-            {"resource": "v4l2:///dev/video4"},
+            {"resource": f"v4l2://{right_cam_dev}"},
             *camera_parameters,
         ],
     )
@@ -81,15 +67,33 @@ def generate_launch_description():
         namespace="bottom",
         output="screen",
         parameters=[
-            {"resource": "v4l2:///dev/video2"},
+            {"resource": f"v4l2://{bottom_cam_dev}"},
             *camera_parameters,
         ],
     )
 
     # Rectify Node
-    rectify_node = Node(
+    left_rectify_node = Node(
         package="camera",
         executable="calibration",
+        namespace="left",
+        parameters=[{"calibration_data_path": f"{calibration_data_dir}left.yaml"}],
+        output="screen",
+    )
+
+    right_rectify_node = Node(
+        package="camera",
+        executable="calibration",
+        namespace="right",
+        parameters=[{"calibration_data_path": f"{calibration_data_dir}right.yaml"}],
+        output="screen",
+    )
+
+    bottom_rectify_node = Node(
+        package="camera",
+        executable="calibration",
+        namespace="bottom",
+        parameters=[{"calibration_data_path": f"{calibration_data_dir}bottom.yaml"}],
         output="screen",
     )
 
@@ -120,15 +124,14 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            left_camera_calibration_arg,
-            right_camera_calibration_arg,
-            bottom_camera_calibration_arg,
             # May not need to delay.
             TimerAction(period=camera_init_delay, actions=[leftcam]),
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
-            rectify_node,
-            lines_node,
+            left_rectify_node,
+            right_rectify_node,
+            bottom_rectify_node,
+            # lines_node,
             left_gate_yolo_node,
             right_gate_yolo_node,
         ]
