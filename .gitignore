@@ -4,3 +4,4 @@ camera/notebook/
 camera/camera/__pycache__
 camera/camera/weights/
 __pycache__
+camera/calibration/**/*.png

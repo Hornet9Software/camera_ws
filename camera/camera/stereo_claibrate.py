@@ -115,41 +115,12 @@ class CalibrationNode(Node):
             data["k"] = np.array(contents["camera_matrix"]["data"]).reshape(
                 (3, 3)
             )  # intrinsic matrix
-            # data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape(
-            #     (3, 3)
-            # )
-            # data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
+            data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape(
+                (3, 3)
+            )
+            data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
 
         return data
-
-    # NOT USED BUT WORKS TO JUST PUBLISH CameraInfo
-    # def publish_calibration_data(self):
-    #     left_msg = self.generate_message(self.read_data(LEFT_CALIBRATION_PATH))
-    #     right_msg = self.generate_message(self.read_data(RIGHT_CALIBRATION_PATH))
-    #     bottom_msg = self.generate_message(self.read_data(BOTTOM_CALIBRATION_PATH))
-
-    #     self.publisher_left.publish(left_msg)
-    #     self.publisher_right.publish(right_msg)
-    #     self.publisher_btm.publish(bottom_msg)
-
-    #     self.get_logger().info(f"left_calibration_data: {left_msg}")
-    #     self.get_logger().info(f"right_calibration_data: {right_msg}")
-    #     self.get_logger().info(f"bottom_calibration_data: {bottom_msg}")
-
-    # def generate_message(self, data):
-    #     calibration_msg = CameraInfo()
-    #     # not sure if the time is right
-    #     calibration_msg.header.stamp = self.get_clock().now().to_msg()
-    #     calibration_msg.height = data["height"]
-    #     calibration_msg.width = data["width"]
-    #     calibration_msg.distortion_model = data["distortion_model"]
-    #     calibration_msg.d = data["d"]
-    #     calibration_msg.k = data["k"]
-    #     calibration_msg.r = data["r"]
-    #     calibration_msg.p = data["p"]
-
-    #     return calibration_msg
-
 
 def main(args=None):
     rclpy.init(args=args)

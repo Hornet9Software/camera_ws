@@ -20,8 +20,8 @@ class GateDetectorNode(Node):
 
         # Detect on raw image
         self.subscription = self.create_subscription(
-            Image,
-            f"/{camera}/raw",
+            CompressedImage,
+            f"/{camera}/compressed",
             self.image_callback,
             10,
         )
@@ -47,11 +47,8 @@ class GateDetectorNode(Node):
         self.init_time = time.time()
 
     def image_callback(self, msg):
-        # Raw image
-        cv_image = self.cv_bridge.imgmsg_to_cv2(msg)
-
-        # Calibrated image
-        # cv_image = self.cv_bridge.compressed_imgmsg_to_cv2(msg)
+        # Raw/Calibrated image
+        cv_image = self.cv_bridge.compressed_imgmsg_to_cv2(msg)
 
         # Detection
         results = model(cv_image)

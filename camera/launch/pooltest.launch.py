@@ -97,6 +97,27 @@ def generate_launch_description():
         output="screen",
     )
 
+    bottom_compressed_node = Node(
+        package="camera",
+        executable="compressed",
+        namespace="bottom",
+        output="screen",
+    )
+
+    left_compressed_node = Node(
+        package="camera",
+        executable="compressed",
+        namespace="left",
+        output="screen",
+    )
+
+    right_compressed_node = Node(
+        package="camera",
+        executable="compressed",
+        namespace="right",
+        output="screen",
+    )
+
     # Launch lines.py and gate_yolo.py
     lines_node = Node(
         package="camera",
@@ -128,9 +149,12 @@ def generate_launch_description():
             TimerAction(period=camera_init_delay, actions=[leftcam]),
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
-            left_rectify_node,
-            right_rectify_node,
-            bottom_rectify_node,
+            left_compressed_node,
+            right_compressed_node,
+            bottom_compressed_node,
+            # left_rectify_node,
+            # right_rectify_node,
+            # bottom_rectify_node,
             # lines_node,
             left_gate_yolo_node,
             right_gate_yolo_node,
