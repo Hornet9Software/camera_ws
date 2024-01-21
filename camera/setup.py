@@ -36,6 +36,7 @@ setup(
             "flare = camera.flare:main",
             "calibration = camera.calibration:main",
             "compressed = camera.compressed:main",
+            "stereo_rectify = camera.stereo_rectify:main",
         ],
     },
 )

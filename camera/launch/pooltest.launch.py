@@ -72,28 +72,28 @@ def generate_launch_description():
         ],
     )
 
-    # Rectify Node
+    # Rectify Node - changed to the new rectification
     left_rectify_node = Node(
         package="camera",
-        executable="calibration",
+        executable="stereo_rectify",
         namespace="left",
-        parameters=[{"calibration_data_path": f"{calibration_data_dir}left.yaml"}],
+        # parameters=[{"calibration_data_path": f"{calibration_data_dir}left.yaml"}],
         output="screen",
     )
 
     right_rectify_node = Node(
         package="camera",
-        executable="calibration",
+        executable="stereo_rectify",
         namespace="right",
-        parameters=[{"calibration_data_path": f"{calibration_data_dir}right.yaml"}],
+        # parameters=[{"calibration_data_path": f"{calibration_data_dir}right.yaml"}],
         output="screen",
     )
 
     bottom_rectify_node = Node(
         package="camera",
-        executable="calibration",
+        executable="stereo_rectify",
         namespace="bottom",
-        parameters=[{"calibration_data_path": f"{calibration_data_dir}bottom.yaml"}],
+        # parameters=[{"calibration_data_path": f"{calibration_data_dir}bottom.yaml"}],
         output="screen",
     )
 
