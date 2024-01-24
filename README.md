@@ -39,7 +39,7 @@ Install the following packages:
     sudo apt-get install ros-humble-image-pipeline
     sudo apt-get install ros-humble-image-transport-plugins
 
-    pip3 install skimage
+    pip3 install scikit-image
 
     # To enable ML-based Object Detection
     pip install ultralytics
