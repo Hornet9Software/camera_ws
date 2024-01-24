@@ -29,6 +29,7 @@ Install the following utilities:
 
     sudo apt install libtheora-dev libogg-dev libboost-python-dev guvcview
     sudo apt-get install ros-humble-rqt ros-humble-rqt-common-plugins
+    sudo apt install ros-humble-tf-transformations
 
 Install the following packages:
 
