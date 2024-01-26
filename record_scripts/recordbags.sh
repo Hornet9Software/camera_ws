@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make bag directory if not present
+mkdir -p pooltest_bags
+
 # Define filename template
 filename_template="pooltest_bags/%d.bag"
 
