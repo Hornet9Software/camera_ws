@@ -45,6 +45,7 @@ class CompressedNode(Node):
     def image_callback(self, msg):
         cv_img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
         compressed_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
+        compressed_msg.header.stamp = msg.header.stamp
         self.publisher.publish(compressed_msg)
         # self.get_logger().info(f"published compressed msg: {compressed_msg}")
 

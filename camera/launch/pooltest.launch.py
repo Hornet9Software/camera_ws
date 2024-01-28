@@ -72,6 +72,14 @@ def generate_launch_description():
         ],
     )
 
+    left_camera_info_node = Node(
+        package="camera",
+        executable="calibration",
+        namespace="left",
+        parameters=[{"calibration_data_path": f"{calibration_data_dir}left.yaml"}],
+        output="screen",
+    )
+
     # Rectify Node - changed to the new rectification
     left_rectify_node = Node(
         package="camera",
@@ -147,17 +155,18 @@ def generate_launch_description():
         [
             # May not need to delay.
             TimerAction(period=camera_init_delay, actions=[leftcam]),
-            TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
-            TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
+            # TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
+            # TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
             left_compressed_node,
-            right_compressed_node,
-            bottom_compressed_node,
+            # right_compressed_node,
+            # bottom_compressed_node,
             # left_rectify_node,
             # right_rectify_node,
             # bottom_rectify_node,
             # lines_node,
-            left_gate_yolo_node,
-            right_gate_yolo_node,
+            # left_gate_yolo_node,
+            left_camera_info_node
+            # right_gate_yolo_node,
         ]
     )
 
