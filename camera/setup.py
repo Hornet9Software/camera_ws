@@ -35,6 +35,7 @@ setup(
             "gate_yolo = camera.gate_yolo:main",
             "flare = camera.flare:main",
             "calibration = camera.calibration:main",
+            "compressed_v2 = camera.compressed_v2:main",
             "compressed = camera.compressed:main",
             "stereo_rectify = camera.stereo_rectify:main",
         ],

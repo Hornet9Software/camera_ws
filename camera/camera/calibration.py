@@ -28,10 +28,7 @@ class CalibrationNode(Node):
         # Create publishers
         namespace = self.get_namespace()
         self.publisher = self.create_publisher(
-            # removed the / in front of self.namspace
-            # CompressedImage,
             CameraInfo,
-            # f"{namespace}/calibrated/compressed",
             f"{namespace}/camera_info",
             10,
         )
@@ -44,42 +41,14 @@ class CalibrationNode(Node):
             10,
         )
 
-        # https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html
-        # https://stackoverflow.com/questions/39432322/what-does-the-getoptimalnewcameramatrix-do-in-opencv
-        # this chunk hella sus docs may be outdated
-        # roi is not used to crop like in the tut
-        # image_shape = (self.calibration_data["width"], self.calibration_data["height"])
-        # self.newcameramtx, roi = cv2.getOptimalNewCameraMatrix(
-        #     self.calibration_data["k"],
-        #     self.calibration_data["d"],
-        #     image_shape,
-        #     1,
-        #     image_shape,
-        # )
-
-        # uncomment the following & the btm functions to publish calibration data
-        # timer_period = 0.1
-        # self.timer = self.create_timer(timer_period, self.publish_calibration_data)
-
         # added to test fps
         self.cnt = 0
         self.init_time = time.time()
 
-    # callback function to publish the calibrated image once received
-    # uses the cv2.undistort & getOptimalNewCameraMatrix functions to process
+    # callback function to publish the calibrated camera info 
     def image_callback(self, msg):
-        cv_img = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
-
-        # rectification & projection matrix not used
-        # calibrated_img = cv2.undistort(
-        #     cv_img, data["k"], data["d"], None, self.newcameramtx
-        # )
-        # calibrated_msg = self.bridge.cv2_to_compressed_imgmsg(calibrated_img)
-        # calibrated_msg.header.stamp = msg.header.stamp  # check timestamp
-        # self.publisher.publish(calibrated_msg)
-        # self.get_logger().info(f"published calibrated img: {calibrated_msg}")
-
         infoMsg = self.generate_message(self.calibration_data)
+        # use the time stamp of the orginal image
         infoMsg.header.stamp = msg.header.stamp
         self.publisher.publish(infoMsg)
 
@@ -114,18 +83,6 @@ class CalibrationNode(Node):
             data["height"] = contents["image_height"]
             data["width"] = contents["image_width"]
             data["distortion_model"] = contents["distortion_model"]
-
-            # reshaped based on the shape defined in the yaml file
-            # data["d"] = np.array(contents["distortion_coefficients"]["data"]).reshape(
-            #     (1, 5)
-            # )
-            # data["k"] = np.array(contents["camera_matrix"]["data"]).reshape(
-            #     (3, 3)
-            # )  # intrinsic matrix
-            # data["r"] = np.array(contents["rectification_matrix"]["data"]).reshape(
-            #     (3, 3)
-            # )
-            # data["p"] = np.array(contents["projection_matrix"]["data"]).reshape((3, 4))
             data["d"] = contents["distortion_coefficients"]["data"]
             data["k"] = contents["camera_matrix"]["data"]
             data["r"] = contents["rectification_matrix"]["data"]
@@ -135,19 +92,8 @@ class CalibrationNode(Node):
 
         return data
 
-    # NOT USED BUT WORKS TO JUST PUBLISH CameraInfo
-    # def publish_calibration_data(self, msg):
-    #     # bottom_msg = self.generate_message(self.read_data(BOTTOM_CALIBRATION_PATH))
-    #     msg = self.generate_message(self.calibration_data)
-    #     self.publisher.publish(msg)
-
-        # self.get_logger().info(f"left_calibration_data: {left_msg}")
-        # self.get_logger().info(f"calibration_data: {msg}")
-
     def generate_message(self, data):
         calibration_msg = CameraInfo()
-        # not sure if the time is right
-        # calibration_msg.header.stamp = self.get_clock().now().to_msg()
         calibration_msg.height = data["height"]
         calibration_msg.width = data["width"]
         calibration_msg.distortion_model = data["distortion_model"]

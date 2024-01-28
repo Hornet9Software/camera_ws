@@ -126,6 +126,14 @@ def generate_launch_description():
         output="screen",
     )
 
+    # to compress isaac ros rect
+    left_compressed_v2_node = Node(
+        package="camera",
+        executable="compressed_v2",
+        namespace="left",
+        output="screen",
+    )
+
     # Launch lines.py and gate_yolo.py
     lines_node = Node(
         package="camera",
@@ -165,7 +173,8 @@ def generate_launch_description():
             # bottom_rectify_node,
             # lines_node,
             # left_gate_yolo_node,
-            left_camera_info_node
+            left_camera_info_node,
+            left_compressed_v2_node,
             # right_gate_yolo_node,
         ]
     )
