@@ -25,12 +25,9 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "debug_detect = camera.debug_detect:main",
-            "enhance = camera.enhance:main",
             "lines = camera.lines:main",
             "stereo_vision = camera.stereo_vision:main",
             "export = camera.export:main",
-            "qualification_gate = camera.qualification_gate:main",
             "yolo = camera.yolo:main",
             "flare = camera.flare:main",
             "calibration = camera.calibration:main",
