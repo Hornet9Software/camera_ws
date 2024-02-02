@@ -13,7 +13,7 @@ class VideoWriterNode(Node):
     def __init__(self):
         super().__init__("video_writer_node")
         self.subscription = self.create_subscription(
-            Image, "/left/image_raw", self.image_callback, 10
+            CompressedImage, "/left/compressed", self.image_callback, 10
         )
         self.video_writer = None
         self.bridge = cv_bridge.CvBridge()
@@ -21,7 +21,7 @@ class VideoWriterNode(Node):
     def image_callback(self, msg):
         try:
             # Convert compressed image to OpenCV image
-            image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+            image = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
             if len(image.shape) == 2:
                 image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
 

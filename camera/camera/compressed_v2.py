@@ -8,7 +8,7 @@ from sensor_msgs.msg import CompressedImage, Image
 
 class CompressedNode(Node):
     def __init__(self):
-        super().__init__("compress_node")
+        super().__init__("compress_node_v2")
 
         self.bridge = CvBridge()
 
@@ -24,7 +24,7 @@ class CompressedNode(Node):
         # Create subscribers to raw image
         self.subscriber = self.create_subscription(
             Image,
-            f"{namespace}/rectify_color",
+            f"{namespace}/image_rect_color",
             self.image_callback,
             10,
         )
