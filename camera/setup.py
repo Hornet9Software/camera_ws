@@ -28,7 +28,6 @@ setup(
             "lines = camera.lines:main",
             "stereo_vision = camera.stereo_vision:main",
             "export = camera.export:main",
-            "yolo = camera.yolo:main",
             "flare = camera.flare:main",
             "calibration = camera.calibration:main",
             "compressed_v2 = camera.compressed_v2:main",

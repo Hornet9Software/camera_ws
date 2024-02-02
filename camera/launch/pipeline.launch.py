@@ -17,13 +17,13 @@ def evaluate_launch(context, *args, **kwargs):
     cam_node = Node(
         package="ros_deep_learning",
         executable="video_source",
-        namespace="left",
+        namespace=cam_name,
         output="screen",
         parameters=[
             {"resource": f"v4l2://{CAM_FLAGS[cam_name]['dev']}"},
             *CAM_PARAMS,
         ],
-        remappings=[("/raw", "/image")],
+        remappings=[("raw", "image")],
     )
 
     cam_info_node = Node(
@@ -55,16 +55,16 @@ def evaluate_launch(context, *args, **kwargs):
         output="screen",
     )
 
-    # # Launch lines.py and yolo.py
+    # # Launch lines.py
     # lines_node = Node(
     #     package="camera",
     #     executable="lines",
     #     output="screen",
     # )
 
-    yolo_node = Node(
+    yolov8_visualizer_node = Node(
         package="camera",
-        executable="yolo",
+        executable="isaac_ros_yolov8_visualizer",
         output="screen",
     )
 
@@ -78,7 +78,7 @@ def evaluate_launch(context, *args, **kwargs):
             launch_nodes.append(compressed_v2_node)
 
         if CAM_FLAGS[cam_name]["yolo"]:
-            launch_nodes.append(yolo_node)
+            launch_nodes.append(yolov8_visualizer_node)
 
     return launch_nodes
 

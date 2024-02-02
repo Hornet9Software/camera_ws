@@ -51,14 +51,17 @@ class Yolov8Visualizer(Node):
     def __init__(self):
         super().__init__("yolov8_visualizer")
         self._bridge = cv_bridge.CvBridge()
-        self._processed_image_pub = self.create_publisher(
-            CompressedImage, "yolov8_image", self.QUEUE_SIZE
-        )
 
-        self._detections_subscription = message_filters.Subscriber(
-            self, Detection2DArray, "detections_output"
+        namespace = self.get_namespace()
+        self._processed_image_pub = self.create_publisher(
+            CompressedImage, f"{namespace}/yolov8_image", self.QUEUE_SIZE
         )
-        self._image_subscription = message_filters.Subscriber(self, Image, "image")
+        self._detections_subscription = message_filters.Subscriber(
+            self, Detection2DArray, f"{namespace}/detections_output"
+        )
+        self._image_subscription = message_filters.Subscriber(
+            self, Image, f"{namespace}/image"
+        )
 
         self.time_synchronizer = message_filters.ApproximateTimeSynchronizer(
             [self._detections_subscription, self._image_subscription],

@@ -16,54 +16,27 @@ calibration_data_dir = (
 
 
 def generate_launch_description():
-    left_pipeline_group = GroupAction(
-        actions=[
-            PushRosNamespace("left"),
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    [FindPackageShare("camera"), "/launch/pipeline.launch.py"]
-                ),
-                launch_arguments={
-                    "cam_name": "left",
-                    "cam_init_delay": f"{cam_init_delay}",
-                }.items(),
-            ),
-        ]
-    )
+    pipeline_groups = []
 
-    right_pipeline_group = GroupAction(
-        actions=[
-            PushRosNamespace("right"),
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    [FindPackageShare("camera"), "/launch/pipeline.launch.py"]
-                ),
-                launch_arguments={
-                    "cam_name": "right",
-                    "cam_init_delay": f"{cam_init_delay * 2.0}",
-                }.items(),
-            ),
-        ]
-    )
+    for i, cam_name in enumerate(["left", "right", "bottom"]):
+        pipeline_groups.append(
+            GroupAction(
+                actions=[
+                    PushRosNamespace(cam_name),
+                    IncludeLaunchDescription(
+                        PythonLaunchDescriptionSource(
+                            [FindPackageShare("camera"), "/launch/pipeline.launch.py"]
+                        ),
+                        launch_arguments={
+                            "cam_name": cam_name,
+                            "cam_init_delay": f"{cam_init_delay * (i + 1)}",
+                        }.items(),
+                    ),
+                ]
+            )
+        )
 
-    bottom_pipeline_group = GroupAction(
-        actions=[
-            PushRosNamespace("bottom"),
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    [FindPackageShare("camera"), "/launch/pipeline.launch.py"]
-                ),
-                launch_arguments={
-                    "cam_name": "bottom",
-                    "cam_init_delay": f"{cam_init_delay * 3.0}",
-                }.items(),
-            ),
-        ]
-    )
-
-    return LaunchDescription(
-        [left_pipeline_group, right_pipeline_group, bottom_pipeline_group]
-    )
+    return LaunchDescription(pipeline_groups)
 
 
 if __name__ == "__main__":
