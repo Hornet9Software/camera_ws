@@ -7,7 +7,7 @@ from launch_ros.substitutions import FindPackageShare
 # Launch file for pool test.
 # Inits 3 camera driver nodes, 1 gate detection node, and 1 pool lines detection node.
 
-cam_init_delay = 5.0
+# cam_init_delay = 5.0
 
 
 calibration_data_dir = (
@@ -22,14 +22,14 @@ def generate_launch_description():
         pipeline_groups.append(
             GroupAction(
                 actions=[
-                    PushRosNamespace(cam_name),
+                    # PushRosNamespace(cam_name),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             [FindPackageShare("camera"), "/launch/pipeline.launch.py"]
                         ),
                         launch_arguments={
                             "cam_name": cam_name,
-                            "cam_init_delay": f"{cam_init_delay * (i + 1)}",
+                            # "cam_init_delay": f"{cam_init_delay * (i + 1)}",
                         }.items(),
                     ),
                 ]

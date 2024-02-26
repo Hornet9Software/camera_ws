@@ -34,6 +34,7 @@ setup(
             "compressed = camera.compressed:main",
             "stereo_rectify = camera.stereo_rectify:main",
             "isaac_ros_yolov8_visualizer = camera.isaac_ros_yolov8_visualizer:main",
+            "compressed_img2video = camera.compressed_img2video:main",
         ],
     },
 )
