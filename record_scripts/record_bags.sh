@@ -21,7 +21,7 @@ filename=$(printf "$filename_template" "$next_number")
 # Record the published topics
 # ros2 bag record -o "$filename" /left/image_raw /right/image_raw /bottom/image_raw /poolLines /left/yolo/box # INSERT TOPIC FOR GATE BEARING , DISTANCE, AND TILT ANGLE
 
-ros2 bag record -o "$filename" /left/compressed /right/compressed /left/yolo/compressed /right/yolo/compressed
+ros2 bag record -o "$filename" /left/compressed /left/yolo/compressed
 # ros2 bag record -o "$filename" /left/image_raw /right/image_raw # INSERT TOPIC FOR GATE BEARING , DISTANCE, AND TILT ANGLE
 # ros2 bag record -o "$filename" /bottom/image_raw /sensors/imu # INSERT TOPIC FOR GATE BEARING , DISTANCE, AND TILT ANGLE
 # ros2 bag record -o "$filename" /left/image_raw /left/image_rect_color /left/yolo/box

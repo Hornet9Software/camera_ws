@@ -31,7 +31,7 @@ class CompressedNode(Node):
         # Create subscribers to raw image
         self.subscriber = self.create_subscription(
             Image,
-            f"{namespace}/raw",
+            f"{namespace}/image",
             self.image_callback,
             10,
         )
