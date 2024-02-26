@@ -11,17 +11,28 @@ from sensor_msgs.msg import CompressedImage, Image
 
 class VideoWriterNode(Node):
     def __init__(self):
+        topic = "/left/compressed"
+
         super().__init__("video_writer_node")
+        # Image
+        # self.subscription = self.create_subscription(
+        #     Image, topic, self.image_callback, 10
+        # )
+        # Compressed Image
         self.subscription = self.create_subscription(
-            Image, "/left/image_raw", self.image_callback, 10
+            CompressedImage, topic, self.image_callback, 10
         )
+
         self.video_writer = None
         self.bridge = cv_bridge.CvBridge()
 
+        self.get_logger().info(f"Subscribed to {topic}")
+
     def image_callback(self, msg):
         try:
-            # Convert compressed image to OpenCV image
-            image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+            # Convert (compressed) image to OpenCV image
+            # image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+            image = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
             if len(image.shape) == 2:
                 image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
 
