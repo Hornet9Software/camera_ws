@@ -35,6 +35,10 @@ setup(
             "stereo_rectify = camera.stereo_rectify:main",
             "isaac_ros_yolov8_visualizer = camera.isaac_ros_yolov8_visualizer:main",
             "compressed_img2video = camera.compressed_img2video:main",
+            "live_hsv_threshold = camera.live_hsv_threshold:main",
+            "led_comms = camera.led_comms:main",
+            "white_balance = camera.white_balance:main",
+            "debug_hsv = camera.debug_hsv:main"
         ],
     },
 )

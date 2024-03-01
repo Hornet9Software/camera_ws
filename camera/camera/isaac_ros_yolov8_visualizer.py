@@ -44,7 +44,7 @@ INPUT_HEIGHT = 480
 
 
 class Yolov8Visualizer(Node):
-    QUEUE_SIZE = 10
+    QUEUE_SIZE = 1
     color = (0, 255, 0)
     bbox_thickness = 2
 
@@ -54,7 +54,7 @@ class Yolov8Visualizer(Node):
 
         namespace = self.get_namespace()
         self._processed_image_pub = self.create_publisher(
-            CompressedImage, f"{namespace}/yolov8_image", self.QUEUE_SIZE
+            CompressedImage, f"{namespace}/yolov8_image/compressed", self.QUEUE_SIZE
         )
         self._detections_subscription = message_filters.Subscriber(
             self, Detection2DArray, f"{namespace}/detections_output"
@@ -63,17 +63,16 @@ class Yolov8Visualizer(Node):
             self, Image, f"{namespace}/image"
         )
 
-        self.time_synchronizer = message_filters.ApproximateTimeSynchronizer(
+        self.time_synchronizer = message_filters.TimeSynchronizer(
             [self._detections_subscription, self._image_subscription],
-            self.QUEUE_SIZE,
-            slop=1,
+            self.QUEUE_SIZE
         )
 
         self.time_synchronizer.registerCallback(self.detections_callback)
 
     def detections_callback(self, detections_msg, img_msg: Image):
         txt_color = (255, 0, 255)
-        cv2_img = self._bridge.imgmsg_to_cv2(img_msg)
+        cv2_img = self._bridge.imgmsg_to_cv2(img_msg, desired_encoding="bgr8")
         for detection in detections_msg.detections:
             center_x = detection.bbox.center.position.x
             center_y = detection.bbox.center.position.y
