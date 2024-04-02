@@ -1,9 +1,9 @@
-import rclpy
-from rclpy.node import Node
-import numpy as np
-from sensor_msgs.msg import Image, CompressedImage
 import cv2
+import numpy as np
+import rclpy
 from cv_bridge import CvBridge
+from rclpy.node import Node
+from sensor_msgs.msg import CompressedImage, Image
 from std_msgs.msg import Int32MultiArray
 
 SETTINGS = {
@@ -15,54 +15,79 @@ SETTINGS = {
     "UPPER_VALUE": 255,
 }
 
+
 class orangeflare_detector(Node):
     def __init__(self):
         super().__init__("orangeflare_detector")
         self.declare_parameter(
-            "settings_file_path", 
-            value="/home/aa/poolTest_ws/src/camera_ws/camera/hsv_bounds/hsv_flare.txt", 
-        ) 
-        
+            "settings_file_path",
+            value="/home/aa/poolTest_ws/src/camera_ws/camera/hsv_bounds/hsv_flare.txt",
+        )
+
         # use the launch file to decalare the files & namespace
         namespace = self.get_namespace()
-        self.settings_path = self.get_parameter("settings_file_path").get_parameter_value().string_value
+        self.settings_path = (
+            self.get_parameter("settings_file_path").get_parameter_value().string_value
+        )
         self.read_settings()
 
-
         # Create publishers for debugging
-        self.bgr_pub = self.create_publisher(CompressedImage, "orange_flare/bgr/compressed", 10)
-        self.hsv_pub = self.create_publisher(CompressedImage, "orange_flare/hsv/compressed", 10)
-        self.range_pub = self.create_publisher(CompressedImage, "orange_flare/range/compressed", 10) 
-        self.mask_pub = self.create_publisher(CompressedImage, "orange_flare/mask/compressed", 10)
-        self.final_mask_pub = self.create_publisher(CompressedImage, "orange_flare/finalmask/compressed", 10)
+        self.bgr_pub = self.create_publisher(
+            CompressedImage, "orange_flare/bgr/compressed", 10
+        )
+        self.hsv_pub = self.create_publisher(
+            CompressedImage, "orange_flare/hsv/compressed", 10
+        )
+        self.range_pub = self.create_publisher(
+            CompressedImage, "orange_flare/range/compressed", 10
+        )
+        self.mask_pub = self.create_publisher(
+            CompressedImage, "orange_flare/mask/compressed", 10
+        )
+        self.final_mask_pub = self.create_publisher(
+            CompressedImage, "orange_flare/finalmask/compressed", 10
+        )
         self.bbox_pub = self.create_publisher(
-            Int32MultiArray, "/objects/orange_flare/box", 10
+            Int32MultiArray, "/object/orange_flare/box", 10
+        )
+        self.front_image_feed = self.create_subscription(
+            Image,
+            "bottom/rect/image",
+            self.image_feed_callback,
+            10,
+            # Image, "bottom/rect/image", self.image_feed_callback, 10
         )
         # self.front_image_feed = self.create_subscription(
-        #     Image,
-        #     "bottom/rect/image", # to be changed do in the launch file
+        #     CompressedImage,
+        #     "bgr/compressed",
         #     self.image_feed_callback,
         #     10)
-        self.front_image_feed = self.create_subscription(
-            CompressedImage,
-            "bgr/compressed", # to be changed do in the launch file
-            self.image_feed_callback,
-            10)
         self.bridge = CvBridge()
-
 
     def image_feed_callback(self, msg):
         # Update the HSV bounds
-        lower_bound = np.array([SETTINGS["LOWER_HUE"], SETTINGS["LOWER_SATURATION"], SETTINGS["LOWER_VALUE"]])
-        upper_bound = np.array([SETTINGS["UPPER_HUE"], SETTINGS["UPPER_SATURATION"], SETTINGS["UPPER_VALUE"]])
+        lower_bound = np.array(
+            [
+                SETTINGS["LOWER_HUE"],
+                SETTINGS["LOWER_SATURATION"],
+                SETTINGS["LOWER_VALUE"],
+            ]
+        )
+        upper_bound = np.array(
+            [
+                SETTINGS["UPPER_HUE"],
+                SETTINGS["UPPER_SATURATION"],
+                SETTINGS["UPPER_VALUE"],
+            ]
+        )
 
         # bridge is from cv_bridge (for converting ROS image/CompressedImage to opencv images)
-        cv_img = self.bridge.compressed_imgmsg_to_cv2(msg)
-        # cv_img = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        cv_img = self.bridge.imgmsg_to_cv2(msg)
+        cv_img = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         bgr_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
         self.bgr_pub.publish(bgr_msg)
-        # blur the image to remove noise using a 9x9 kernel 
-        cv_img = cv2.GaussianBlur(cv_img, (3, 3), 0)       
+        # blur the image to remove noise using a 9x9 kernel
+        cv_img = cv2.GaussianBlur(cv_img, (3, 3), 0)
 
         # Convert to HSV
         hsv_img = cv2.cvtColor(cv_img, cv2.COLOR_RGB2HSV)
@@ -92,21 +117,22 @@ class orangeflare_detector(Node):
         final_mask_msg = self.bridge.cv2_to_compressed_imgmsg(cv_img)
         self.final_mask_pub.publish(final_mask_msg)
 
-
     def draw_contour(self, gray_img, cv_img):
         # find and draw contour
-        contours, hierarchy = cv2.findContours(gray_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, hierarchy = cv2.findContours(
+            gray_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+        )
 
         # Draw contours with green
-        cv2.drawContours(cv_img, contours, -1, (0,255,0), 2)
+        cv2.drawContours(cv_img, contours, -1, (0, 255, 0), 2)
 
         # draw bounding box
         for c in contours:
-            x,y,w,h = cv2.boundingRect(c)
+            x, y, w, h = cv2.boundingRect(c)
             # draw bounding box only if area is above area threshold
             if cv2.contourArea(c) > 100:
                 # draw bounding box
-                cv2.rectangle(cv_img, (x,y), (x+w,y+h), (0,0,128), 3)
+                cv2.rectangle(cv_img, (x, y), (x + w, y + h), (0, 0, 128), 3)
 
                 # get midpoint of contour
                 M = cv2.moments(c)
@@ -119,19 +145,26 @@ class orangeflare_detector(Node):
 
                 # draw centroid
                 cv2.circle(cv_img, (cX, cY), 5, (0, 0, 255), -1)
-                cv2.putText(cv_img, "orange_flare", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (112, 232, 100), 2)
+                cv2.putText(
+                    cv_img,
+                    "orange_flare",
+                    (cX - 25, cY - 25),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5,
+                    (112, 232, 100),
+                    2,
+                )
 
                 msg = Int32MultiArray()
                 msg.data = [cX, cY, w, h]
                 self.bbox_pub.publish(msg)
-    
-    
+
     def read_settings(self):
         keys = SETTINGS.keys()
         try:
             with open(self.settings_path, "r") as f:
                 for key in keys:
-                    val = f.readline() 
+                    val = f.readline()
                     SETTINGS[key] = int(val)
         except FileNotFoundError:
             raise FileNotFoundError
@@ -144,5 +177,6 @@ def main(args=None):
     orange_flare_detector.destroy_node()
     rclpy.shutdown()
 
-if __name__=='__main__':
+
+if __name__ == "__main__":
     main()
