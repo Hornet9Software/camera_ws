@@ -47,7 +47,7 @@ ORDER_MAPPINGS = {
 }
 
 
-class comms_detector(Node):
+class CommsDetector(Node):
     def __init__(self):
         super().__init__("comms_detector")
         self.declare_parameter(
@@ -130,10 +130,10 @@ class comms_detector(Node):
         # self.inrange_pub = self.create_publisher(CompressedImage, "led/inrange/compressed", 10)
         # self.mask_pub = self.create_publisher(CompressedImage, "led/mask/compressed", 10)
         self.final_mask_pub = self.create_publisher(
-            CompressedImage, "led/finalmask/compressed", 10
+            CompressedImage, "/led/finalmask/compressed", 10
         )  # to visualise the bounding box
 
-        self.comms_color_pub = self.create_publisher(String, "led/detected_color", 10)
+        self.comms_color_pub = self.create_publisher(String, "/led/order", 10)
 
         self.front_image_feed = self.create_subscription(
             Image,
@@ -176,13 +176,17 @@ class comms_detector(Node):
         # color_amber = ""
         # color_green = ""
         order_msg = ""
+
         if color_amber == "amber":
             order_msg = order_msg + "R"
+
         if color_green == "green":
             order_msg = order_msg + "G"
+
         if color_blue == "blue":
             order_msg = order_msg + "B"
-        else:
+
+        if order_msg == "":
             order_msg = "-"
             # print(color_amber + ' ' + color_blue + ' ' + color_green)
 
@@ -343,7 +347,7 @@ class comms_detector(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    comms_detection = comms_detector()
+    comms_detection = CommsDetector()
     rclpy.spin(comms_detection)
     comms_detection.destroy_node()
     rclpy.shutdown()
