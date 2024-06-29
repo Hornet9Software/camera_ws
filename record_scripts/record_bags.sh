@@ -23,7 +23,7 @@ filename=$(printf "$filename_template" "$next_number")
 
 # ros2 bag record -o "$filename" /debug/bgr/compressed
 # ros2 bag record -o "$filename" /bottom/image_raw
-ros2 bag record -o "$filename" /bottom/rect/image
+ros2 bag record -o "$filename" /camera/color/image
 # `ros2 bag record -o "$filename" /bottom/rect/image orange_flare/bgr/compressed
 # ros2 bag record -o "$filename" /bottom/rect/detections_output /sensors/imu/corrected /sensors/depth
 # ros2 bag record -o "$filename" /bgr/compressed

@@ -30,13 +30,17 @@ from sensor_msgs.msg import CompressedImage, Image
 from vision_msgs.msg import Detection2DArray
 
 names = {
-    0: "gate",
-    1: "orange-flare",
-    2: "blue-flare",
-    3: "red-flare",
-    4: "yellow-flare",
-    5: "blue-drum",
-    6: "red-drum",
+    0: "blue-base",
+    1: "blue-hero",
+    2: "blue-sentry",
+    3: "blue-standard-3",
+    4: "blue-standard-4",
+    5: "red-base",
+    6: "red-hero" ,
+    7: "red-sentry",
+    8: "red-standard-3",
+    9: "red-standard-4",
+    10: "purple-base"
 }
 
 INPUT_WIDTH = 640
@@ -66,7 +70,7 @@ class Yolov8Visualizer(Node):
         self.time_synchronizer = message_filters.TimeSynchronizer(
             [self._detections_subscription, self._image_subscription],
             self.QUEUE_SIZE,
-            slop=1,
+            # slop=1,
         )
 
         self.time_synchronizer.registerCallback(self.detections_callback)
